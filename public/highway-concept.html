@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Highway Background Concepts</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+  body { background: #06080C; color: #E8EBF0; }
+
+  h1 { text-align: center; padding: 32px 0 8px; font-size: 18px; color: rgba(232,235,240,0.5); letter-spacing: 0.1em; text-transform: uppercase; font-size: 12px; }
+  h2 { text-align: center; padding: 8px 0 4px; font-size: 20px; font-weight: 700; }
+  .subtitle { text-align: center; font-size: 13px; color: rgba(232,235,240,0.4); padding-bottom: 40px; }
+
+  /* ─── SHARED HERO SHELL ─── */
+  .demo {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    background: #06080C;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* centre content column */
+  .hero-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    gap: 18px;
+  }
+  .badge { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 99px; padding: 6px 16px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(232,235,240,0.6); }
+  .hero-title { font-size: 52px; font-weight: 800; line-height: 1.1; text-align: center; letter-spacing: -1px; }
+  .hero-title span { color: #3B82F6; }
+  .hero-sub { font-size: 15px; color: rgba(232,235,240,0.5); text-align: center; max-width: 420px; line-height: 1.6; }
+  .hero-btns { display: flex; gap: 12px; }
+  .btn-blue { background: linear-gradient(135deg,#2563EB,#1D4ED8); color: white; border: none; padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; }
+  .btn-ghost { background: transparent; color: rgba(232,235,240,0.7); border: 1px solid rgba(255,255,255,0.15); padding: 13px 28px; border-radius: 12px; font-size: 15px; cursor: pointer; }
+
+  /* concept label */
+  .concept-label {
+    position: absolute;
+    top: 16px; left: 50%; transform: translateX(-50%);
+    background: rgba(37,99,235,0.15); border: 1px solid rgba(37,99,235,0.3);
+    color: #60A5FA; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 99px; z-index: 20; white-space: nowrap;
+  }
+
+  /* ═══════════════════════════════════════════
+     CONCEPT A — Animated Dashed Road Lanes
+  ═══════════════════════════════════════════ */
+  .demo-a .road-side {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 340px;
+    overflow: hidden;
+  }
+  .demo-a .road-side.left  { left: 0; }
+  .demo-a .road-side.right { right: 0; transform: scaleX(-1); }
+
+  /* road surface */
+  .demo-a .road-side::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, #0a0d12 0%, #0e1219 60%, transparent 100%);
+  }
+
+  /* animated dashes */
+  .demo-a .dashes {
+    position: absolute;
+    top: 0; bottom: 0;
+    display: flex; flex-direction: column; gap: 0;
+    animation: road-scroll 1.6s linear infinite;
+  }
+  .demo-a .road-side.left  .dashes { left: 80px; }
+  .demo-a .road-side.left  .dashes2 { left: 160px; opacity: 0.4; }
+  .demo-a .road-side.left  .dashes3 { left: 220px; opacity: 0.2; }
+
+  .demo-a .dash {
+    width: 2px;
+    height: 48px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 2px;
+    margin-bottom: 32px;
+    flex-shrink: 0;
+  }
+
+  @keyframes road-scroll {
+    from { transform: translateY(-80px); }
+    to   { transform: translateY(0px); }
+  }
+
+  /* edge fade */
+  .demo-a .road-side::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, transparent 30%, #06080C 100%);
+  }
+
+  /* ═══════════════════════════════════════════
+     CONCEPT B — Long-Exposure Light Streaks
+  ═══════════════════════════════════════════ */
+  .demo-b .streak-field {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 380px;
+    overflow: hidden;
+  }
+  .demo-b .streak-field.left  { left: 0; }
+  .demo-b .streak-field.right { right: 0; transform: scaleX(-1); }
+
+  .demo-b .streak-field::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, transparent 20%, #06080C 100%);
+    z-index: 2;
+  }
+
+  .streak {
+    position: absolute;
+    width: 1.5px;
+    border-radius: 1px;
+    animation: streak-fall linear infinite;
+    opacity: 0;
+  }
+
+  @keyframes streak-fall {
+    0%   { transform: translateY(-100%); opacity: 0; }
+    10%  { opacity: 1; }
+    85%  { opacity: 1; }
+    100% { transform: translateY(520px); opacity: 0; }
+  }
+
+  /* ═══════════════════════════════════════════
+     CONCEPT C — Perspective Road Horizon
+  ═══════════════════════════════════════════ */
+  .demo-c .persp-side {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 360px;
+    overflow: hidden;
+  }
+  .demo-c .persp-side.left  { left: 0; }
+  .demo-c .persp-side.right { right: 0; transform: scaleX(-1); }
+
+  .demo-c .persp-side::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, transparent 20%, #06080C 100%);
+    z-index: 2;
+  }
+
+  /* perspective road grid */
+  .road-canvas {
+    position: absolute; inset: 0;
+    opacity: 0.55;
+  }
+
+  /* section dividers */
+  .section-divider {
+    text-align: center;
+    padding: 48px 24px 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .section-divider h3 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+  .section-divider p { font-size: 13px; color: rgba(232,235,240,0.4); max-width: 500px; margin: 0 auto; }
+</style>
+</head>
+<body>
+
+<div style="padding: 48px 0 0;">
+  <p style="text-align:center;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(232,235,240,0.3);margin-bottom:8px">RoadRight — Highway Background Concepts</p>
+  <p style="text-align:center;font-size:28px;font-weight:800;margin-bottom:4px">3 Visual Concepts</p>
+  <p style="text-align:center;font-size:14px;color:rgba(232,235,240,0.4);margin-bottom:48px">Pick the vibe you want — or mix elements</p>
+</div>
+
+<!-- ─── CONCEPT A ─── -->
+<div class="section-divider">
+  <h3>Concept A — Animated Lane Markings</h3>
+  <p>Road lane dashes scroll downward on both sides. Feels like you're driving. Clean and subtle.</p>
+</div>
+<div class="demo demo-a" style="margin-top:24px">
+  <div class="concept-label">A — Moving Lane Markings</div>
+
+  <div class="road-side left">
+    <div class="dashes" id="dashes-l1"></div>
+    <div class="dashes dashes2" id="dashes-l2" style="animation-delay:-0.4s"></div>
+    <div class="dashes dashes3" id="dashes-l3" style="animation-delay:-0.8s"></div>
+  </div>
+  <div class="road-side right">
+    <div class="dashes" id="dashes-r1"></div>
+    <div class="dashes dashes2" id="dashes-r2" style="animation-delay:-0.4s"></div>
+    <div class="dashes dashes3" id="dashes-r3" style="animation-delay:-0.8s"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="badge">Now available in Ontario</div>
+    <div class="hero-title">Pulled over?<br/><span>Don't say a word.</span></div>
+    <div class="hero-sub">Press one button. A licensed Ontario lawyer joins your video call in seconds.</div>
+    <div class="hero-btns">
+      <button class="btn-blue">Get Protected — Free Trial</button>
+      <button class="btn-ghost">See how it works</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── CONCEPT B ─── -->
+<div class="section-divider" style="margin-top:48px">
+  <h3>Concept B — Headlight Streaks</h3>
+  <p>Long-exposure light streaks shoot past on the sides. Like cars rushing by at night. More cinematic.</p>
+</div>
+<div class="demo demo-b" style="margin-top:24px">
+  <div class="concept-label">B — Headlight Streaks</div>
+
+  <div class="streak-field left" id="sf-left"></div>
+  <div class="streak-field right" id="sf-right"></div>
+
+  <div class="hero-content">
+    <div class="badge">Now available in Ontario</div>
+    <div class="hero-title">Pulled over?<br/><span>Don't say a word.</span></div>
+    <div class="hero-sub">Press one button. A licensed Ontario lawyer joins your video call in seconds.</div>
+    <div class="hero-btns">
+      <button class="btn-blue">Get Protected — Free Trial</button>
+      <button class="btn-ghost">See how it works</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── CONCEPT C ─── -->
+<div class="section-divider" style="margin-top:48px">
+  <h3>Concept C — Perspective Road</h3>
+  <p>A vanishing-point highway perspective drawn on the sides. Still, architectural, like the logo itself.</p>
+</div>
+<div class="demo demo-c" style="margin-top:24px; margin-bottom: 80px">
+  <div class="concept-label">C — Perspective Road (Logo Style)</div>
+
+  <div class="persp-side left">
+    <canvas class="road-canvas" id="canvas-left"></canvas>
+  </div>
+  <div class="persp-side right">
+    <canvas class="road-canvas" id="canvas-right"></canvas>
+  </div>
+
+  <div class="hero-content">
+    <div class="badge">Now available in Ontario</div>
+    <div class="hero-title">Pulled over?<br/><span>Don't say a word.</span></div>
+    <div class="hero-sub">Press one button. A licensed Ontario lawyer joins your video call in seconds.</div>
+    <div class="hero-btns">
+      <button class="btn-blue">Get Protected — Free Trial</button>
+      <button class="btn-ghost">See how it works</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Concept A: fill dashes ──
+['dashes-l1','dashes-l2','dashes-l3','dashes-r1','dashes-r2','dashes-r3'].forEach(id => {
+  const el = document.getElementById(id)
+  if (!el) return
+  for (let i = 0; i < 14; i++) {
+    const d = document.createElement('div')
+    d.className = 'dash'
+    el.appendChild(d)
+  }
+})
+
+// ── Concept B: generate streaks ──
+function makeStreaks(containerId, count) {
+  const container = document.getElementById(containerId)
+  if (!container) return
+  const colors = [
+    'rgba(255,255,255,0.7)',
+    'rgba(255,255,220,0.6)',
+    'rgba(200,220,255,0.5)',
+    'rgba(255,200,100,0.45)',
+  ]
+  for (let i = 0; i < count; i++) {
+    const s = document.createElement('div')
+    s.className = 'streak'
+    const x = Math.random() * 340
+    const h = 40 + Math.random() * 120
+    const dur = 0.8 + Math.random() * 1.4
+    const delay = -Math.random() * dur * 2
+    const color = colors[Math.floor(Math.random() * colors.length)]
+    s.style.cssText = `
+      left:${x}px; height:${h}px;
+      background: linear-gradient(to bottom, transparent, ${color}, transparent);
+      animation-duration:${dur}s;
+      animation-delay:${delay}s;
+    `
+    container.appendChild(s)
+  }
+}
+makeStreaks('sf-left', 18)
+makeStreaks('sf-right', 18)
+
+// ── Concept C: perspective road canvas ──
+function drawRoad(canvasId, mirrored) {
+  const canvas = document.getElementById(canvasId)
+  if (!canvas) return
+  const w = canvas.parentElement.offsetWidth
+  const h = canvas.parentElement.offsetHeight
+  canvas.width = w
+  canvas.height = h
+  const ctx = canvas.getContext('2d')
+
+  // vanishing point: top-right corner (edge toward center)
+  const vx = mirrored ? w : 0
+  const vy = h * 0.38
+
+  // road edges from bottom corners toward vp
+  const edgePoints = mirrored
+    ? [ [0, h], [w * 0.45, h] ]
+    : [ [w, h], [w * 0.55, h] ]
+
+  function drawLine(bx, by, opacity, width) {
+    ctx.beginPath()
+    ctx.moveTo(bx, by)
+    ctx.lineTo(vx, vy)
+    const grad = ctx.createLinearGradient(bx, by, vx, vy)
+    grad.addColorStop(0, `rgba(255,255,255,${opacity})`)
+    grad.addColorStop(0.6, `rgba(255,255,255,${opacity * 0.3})`)
+    grad.addColorStop(1, 'rgba(255,255,255,0)')
+    ctx.strokeStyle = grad
+    ctx.lineWidth = width
+    ctx.stroke()
+  }
+
+  // road edges
+  drawLine(edgePoints[0][0], edgePoints[0][1], 0.13, 1.5)
+  drawLine(edgePoints[1][0], edgePoints[1][1], 0.08, 1)
+
+  // center dashes — evenly spaced along left edge line
+  const steps = 8
+  for (let i = 0; i < steps; i++) {
+    const t0 = i / steps
+    const t1 = (i + 0.5) / steps
+    const x0 = edgePoints[0][0] + (vx - edgePoints[0][0]) * t0
+    const y0 = edgePoints[0][1] + (vy - edgePoints[0][1]) * t0
+    const x1 = edgePoints[0][0] + (vx - edgePoints[0][0]) * t1
+    const y1 = edgePoints[0][1] + (vy - edgePoints[0][1]) * t1
+    // mid-road offset
+    const midX = (x0 + (edgePoints[1][0] + (vx - edgePoints[1][0]) * t0)) / 2
+    const midY = (y0 + (edgePoints[1][1] + (vy - edgePoints[1][1]) * t0)) / 2
+    const midX1 = (x1 + (edgePoints[1][0] + (vx - edgePoints[1][0]) * t1)) / 2
+    const midY1 = (y1 + (edgePoints[1][1] + (vy - edgePoints[1][1]) * t1)) / 2
+    const alpha = 0.1 * (1 - t0)
+    ctx.beginPath()
+    ctx.moveTo(midX, midY)
+    ctx.lineTo(midX1, midY1)
+    ctx.strokeStyle = `rgba(255,255,255,${alpha})`
+    ctx.lineWidth = 1.5 * (1 - t0 * 0.8)
+    ctx.stroke()
+  }
+
+  // road surface glow
+  const grd = ctx.createRadialGradient(vx, vy, 0, vx, vy, w * 0.9)
+  grd.addColorStop(0, 'rgba(37,99,235,0.04)')
+  grd.addColorStop(1, 'rgba(0,0,0,0)')
+  ctx.fillStyle = grd
+  ctx.fillRect(0, 0, w, h)
+}
+
+drawRoad('canvas-left', false)
+drawRoad('canvas-right', true)
+</script>
+</body>
+</html>

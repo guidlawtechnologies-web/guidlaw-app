@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #06080C; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; gap: 32px; font-family: Arial, sans-serif; }
+  h2 { color: rgba(255,255,255,0.5); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .sizes { display: flex; align-items: flex-end; gap: 24px; }
+  .size-label { color: rgba(255,255,255,0.25); font-size: 11px; text-align: center; margin-top: 8px; }
+  .btn {
+    background: #2563EB;
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: -0.2px;
+  }
+  .btn:hover { background: #1D4ED8; }
+  .btn-row { display: flex; gap: 12px; }
+  .btn-ghost {
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+</style>
+</head>
+<body>
+
+<h2>RoadRight Logo</h2>
+
+<!-- Preview at multiple sizes -->
+<div class="sizes">
+  <div style="text-align:center">
+    <svg id="logo512" width="200" height="200" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+      <rect width="512" height="512" rx="112" fill="#0A0E17"/>
+      <!-- Road surface -->
+      <path d="M48 460 L196 188 L316 188 L464 460 Z" fill="#141c2e"/>
+      <!-- Road edges (bright white lines) -->
+      <path d="M48 460 L196 188" stroke="white" stroke-width="18" stroke-linecap="round"/>
+      <path d="M464 460 L316 188" stroke="white" stroke-width="18" stroke-linecap="round"/>
+      <!-- Center dashes -->
+      <line x1="256" y1="224" x2="256" y2="272" stroke="white" stroke-width="14" stroke-linecap="round" opacity="0.7"/>
+      <line x1="256" y1="296" x2="256" y2="352" stroke="white" stroke-width="14" stroke-linecap="round" opacity="0.5"/>
+      <line x1="256" y1="374" x2="256" y2="436" stroke="white" stroke-width="14" stroke-linecap="round" opacity="0.35"/>
+      <!-- Siren dome -->
+      <rect x="192" y="120" width="128" height="60" rx="30" fill="#2563EB"/>
+      <!-- Siren top knob -->
+      <rect x="236" y="106" width="40" height="18" rx="9" fill="#1D4ED8"/>
+      <!-- Light beams -->
+      <!-- Center beam -->
+      <line x1="256" y1="62" x2="256" y2="104" stroke="#60A5FA" stroke-width="12" stroke-linecap="round" opacity="0.85"/>
+      <!-- Left beams -->
+      <line x1="152" y1="82" x2="178" y2="118" stroke="#2563EB" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+      <line x1="108" y1="108" x2="146" y2="132" stroke="#2563EB" stroke-width="8" stroke-linecap="round" opacity="0.4"/>
+      <!-- Right beams -->
+      <line x1="360" y1="82" x2="334" y2="118" stroke="#2563EB" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+      <line x1="404" y1="108" x2="366" y2="132" stroke="#2563EB" stroke-width="8" stroke-linecap="round" opacity="0.4"/>
+    </svg>
+    <div class="size-label">Preview</div>
+  </div>
+
+  <div style="text-align:center">
+    <svg width="96" height="96" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+      <rect width="512" height="512" rx="112" fill="#0A0E17"/>
+      <path d="M48 460 L196 188 L316 188 L464 460 Z" fill="#141c2e"/>
+      <path d="M48 460 L196 188" stroke="white" stroke-width="18" stroke-linecap="round"/>
+      <path d="M464 460 L316 188" stroke="white" stroke-width="18" stroke-linecap="round"/>
+      <line x1="256" y1="296" x2="256" y2="352" stroke="white" stroke-width="14" stroke-linecap="round" opacity="0.5"/>
+      <line x1="256" y1="374" x2="256" y2="436" stroke="white" stroke-width="14" stroke-linecap="round" opacity="0.35"/>
+      <rect x="192" y="120" width="128" height="60" rx="30" fill="#2563EB"/>
+      <rect x="236" y="106" width="40" height="18" rx="9" fill="#1D4ED8"/>
+      <line x1="256" y1="62" x2="256" y2="104" stroke="#60A5FA" stroke-width="12" stroke-linecap="round" opacity="0.85"/>
+      <line x1="152" y1="82" x2="178" y2="118" stroke="#2563EB" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+      <line x1="360" y1="82" x2="334" y2="118" stroke="#2563EB" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+    </svg>
+    <div class="size-label">App icon size</div>
+  </div>
+
+  <div style="text-align:center">
+    <svg width="48" height="48" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+      <rect width="512" height="512" rx="112" fill="#0A0E17"/>
+      <path d="M48 460 L196 188 L316 188 L464 460 Z" fill="#141c2e"/>
+      <path d="M48 460 L196 188" stroke="white" stroke-width="18" stroke-linecap="round"/>
+      <path d="M464 460 L316 188" stroke="white" stroke-width="18" stroke-linecap="round"/>
+      <rect x="192" y="120" width="128" height="60" rx="30" fill="#2563EB"/>
+      <line x1="256" y1="62" x2="256" y2="104" stroke="#60A5FA" stroke-width="12" stroke-linecap="round" opacity="0.85"/>
+      <line x1="152" y1="82" x2="178" y2="118" stroke="#2563EB" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+      <line x1="360" y1="82" x2="334" y2="118" stroke="#2563EB" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+    </svg>
+    <div class="size-label">Favicon size</div>
+  </div>
+</div>
+
+<!-- Download buttons -->
+<div class="btn-row">
+  <button class="btn" onclick="downloadSVG()">⬇ Download SVG (512×512)</button>
+  <button class="btn-ghost" onclick="downloadPNG()">⬇ Download PNG</button>
+</div>
+
+<p style="color:rgba(255,255,255,0.2); font-size:11px; text-align:center; max-width:320px; line-height:1.6;">
+  SVG works everywhere and scales perfectly.<br>PNG is better for some platforms.
+</p>
+
+<script>
+const svgSource = `<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="112" fill="#0A0E17"/>
+  <path d="M48 460 L196 188 L316 188 L464 460 Z" fill="#141c2e"/>
+  <path d="M48 460 L196 188" stroke="white" stroke-width="18" stroke-linecap="round"/>
+  <path d="M464 460 L316 188" stroke="white" stroke-width="18" stroke-linecap="round"/>
+  <line x1="256" y1="224" x2="256" y2="272" stroke="white" stroke-width="14" stroke-linecap="round" opacity="0.7"/>
+  <line x1="256" y1="296" x2="256" y2="352" stroke="white" stroke-width="14" stroke-linecap="round" opacity="0.5"/>
+  <line x1="256" y1="374" x2="256" y2="436" stroke="white" stroke-width="14" stroke-linecap="round" opacity="0.35"/>
+  <rect x="192" y="120" width="128" height="60" rx="30" fill="#2563EB"/>
+  <rect x="236" y="106" width="40" height="18" rx="9" fill="#1D4ED8"/>
+  <line x1="256" y1="62" x2="256" y2="104" stroke="#60A5FA" stroke-width="12" stroke-linecap="round" opacity="0.85"/>
+  <line x1="152" y1="82" x2="178" y2="118" stroke="#2563EB" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+  <line x1="108" y1="108" x2="146" y2="132" stroke="#2563EB" stroke-width="8" stroke-linecap="round" opacity="0.4"/>
+  <line x1="360" y1="82" x2="334" y2="118" stroke="#2563EB" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+  <line x1="404" y1="108" x2="366" y2="132" stroke="#2563EB" stroke-width="8" stroke-linecap="round" opacity="0.4"/>
+</svg>`
+
+function downloadSVG() {
+  const blob = new Blob([svgSource], { type: 'image/svg+xml' })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = 'roadright-logo.svg'
+  a.click()
+  URL.revokeObjectURL(url)
+}
+
+function downloadPNG() {
+  const canvas = document.createElement('canvas')
+  canvas.width = 512
+  canvas.height = 512
+  const ctx = canvas.getContext('2d')
+  const img = new Image()
+  const svgBlob = new Blob([svgSource], { type: 'image/svg+xml;charset=utf-8' })
+  const url = URL.createObjectURL(svgBlob)
+  img.onload = function() {
+    ctx.drawImage(img, 0, 0)
+    URL.revokeObjectURL(url)
+    const a = document.createElement('a')
+    a.download = 'roadright-logo.png'
+    a.href = canvas.toDataURL('image/png')
+    a.click()
+  }
+  img.src = url
+}
+</script>
+
+</body>
+</html>

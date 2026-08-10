@@ -1,0 +1,772 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+
+// ── Paralegal sample data (will come from Supabase later) ──────────────────
+const PARALEGALS = [
+  {
+    id: "1",
+    name: "Sarah Mitchell",
+    firm: "Mitchell Paralegal Services",
+    location: "Toronto, ON",
+    specialties: ["Speeding", "Red Light", "Careless Driving"],
+    successRate: 94,
+    casesWon: 312,
+    rating: 4.9,
+    reviews: 87,
+    price: 299,
+    responseTime: "< 2 hours",
+    badge: "Top Rated",
+  },
+  {
+    id: "2",
+    name: "James Okafor",
+    firm: "Okafor Legal",
+    location: "Mississauga, ON",
+    specialties: ["Stunt Driving", "Speeding", "HTA Violations"],
+    successRate: 91,
+    casesWon: 198,
+    rating: 4.8,
+    reviews: 54,
+    price: 249,
+    responseTime: "< 4 hours",
+    badge: "Fast Responder",
+  },
+  {
+    id: "3",
+    name: "Priya Sharma",
+    firm: "Sharma Law Office",
+    location: "Brampton, ON",
+    specialties: ["Distracted Driving", "Failure to Stop", "Speeding"],
+    successRate: 89,
+    casesWon: 143,
+    rating: 4.7,
+    reviews: 41,
+    price: 199,
+    responseTime: "< 6 hours",
+    badge: null,
+  },
+  {
+    id: "4",
+    name: "David Chen",
+    firm: "Chen Paralegal Group",
+    location: "Scarborough, ON",
+    specialties: ["All HTA Violations", "Commercial Vehicles", "Speeding"],
+    successRate: 96,
+    casesWon: 489,
+    rating: 5.0,
+    reviews: 112,
+    price: 349,
+    responseTime: "< 1 hour",
+    badge: "Elite",
+  },
+  {
+    id: "5",
+    name: "Aisha Browne",
+    firm: "Browne Legal Services",
+    location: "North York, ON",
+    specialties: ["Speeding", "Fail to Yield", "Stop Sign"],
+    successRate: 88,
+    casesWon: 97,
+    rating: 4.6,
+    reviews: 29,
+    price: 179,
+    responseTime: "< 8 hours",
+    badge: null,
+  },
+  {
+    id: "6",
+    name: "Michael Torres",
+    firm: "Torres & Associates",
+    location: "Etobicoke, ON",
+    specialties: ["Stunt Driving", "Racing", "Speeding 50+"],
+    successRate: 93,
+    casesWon: 261,
+    rating: 4.9,
+    reviews: 73,
+    price: 399,
+    responseTime: "< 2 hours",
+    badge: "Specialist",
+  },
+];
+
+const VIOLATION_TYPES = [
+  "Speeding",
+  "Red Light",
+  "Stop Sign",
+  "Stunt Driving",
+  "Distracted Driving",
+  "Careless Driving",
+  "Fail to Yield",
+  "Other",
+];
+
+const TESTIMONIALS = [
+  {
+    name: "Marcus J.",
+    city: "Toronto",
+    text: "Got a $500 speeding ticket on the 401. GuidLaw matched me with Sarah in under an hour. She got it completely dismissed — zero demerit points. Worth every penny.",
+    violation: "Speeding 30km/h over",
+    outcome: "Dismissed",
+  },
+  {
+    name: "Tanya R.",
+    city: "Mississauga",
+    text: "I was terrified about my stunt driving charge — 6 demerit points and a $2,000 fine. James got it reduced to a minor speeding ticket. I can't believe how easy the process was.",
+    violation: "Stunt Driving",
+    outcome: "Reduced to minor offence",
+  },
+  {
+    name: "Kevin P.",
+    city: "Brampton",
+    text: "Submitted my ticket on a Sunday night. Priya responded within 3 hours. She handled everything — I didn't have to take a single day off work. Case won.",
+    violation: "Red Light Camera",
+    outcome: "Dismissed",
+  },
+];
+
+// ── Star rating component ──────────────────────────────────────────────────
+function Stars({ rating }: { rating: number }) {
+  return (
+    <span style={{ color: "#F59E0B", fontSize: 14 }}>
+      {"★".repeat(Math.floor(rating))}
+      {rating % 1 >= 0.5 ? "½" : ""}
+      <span style={{ color: "#D1D5DB" }}>
+        {"★".repeat(5 - Math.ceil(rating))}
+      </span>
+    </span>
+  );
+}
+
+// ── Paralegal card ────────────────────────────────────────────────────────
+function ParalegalCard({ p }: { p: (typeof PARALEGALS)[0] }) {
+  return (
+    <div
+      className="card"
+      style={{
+        padding: 24,
+        display: "flex",
+        flexDirection: "column",
+        gap: 16,
+        transition: "all 0.2s",
+        cursor: "pointer",
+        position: "relative",
+      }}
+    >
+      {/* Badge */}
+      {p.badge && (
+        <span
+          className="pill pill-blue"
+          style={{ position: "absolute", top: 16, right: 16, fontSize: 11 }}
+        >
+          {p.badge}
+        </span>
+      )}
+
+      {/* Header */}
+      <div style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
+        {/* Avatar */}
+        <div
+          style={{
+            width: 52,
+            height: 52,
+            borderRadius: "50%",
+            background: "linear-gradient(135deg, #1B4FD8, #6366F1)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "white",
+            fontWeight: 700,
+            fontSize: 18,
+            flexShrink: 0,
+          }}
+        >
+          {p.name.split(" ").map((n) => n[0]).join("")}
+        </div>
+
+        <div>
+          <div style={{ fontWeight: 700, fontSize: 16, color: "var(--text)" }}>
+            {p.name}
+          </div>
+          <div style={{ fontSize: 13, color: "var(--text-dim)", marginTop: 1 }}>
+            {p.firm}
+          </div>
+          <div
+            style={{
+              fontSize: 12,
+              color: "var(--text-muted)",
+              marginTop: 2,
+              display: "flex",
+              alignItems: "center",
+              gap: 4,
+            }}
+          >
+            <span>📍</span> {p.location}
+          </div>
+        </div>
+      </div>
+
+      {/* Rating */}
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <Stars rating={p.rating} />
+        <span style={{ fontSize: 12, color: "var(--text-dim)", marginLeft: 6 }}>
+          {p.rating} ({p.reviews} reviews)
+        </span>
+      </div>
+
+      {/* Stats row */}
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+        <div
+          style={{
+            background: "#F0FDF4",
+            border: "1px solid #BBF7D0",
+            borderRadius: 8,
+            padding: "10px 12px",
+          }}
+        >
+          <div style={{ fontSize: 20, fontWeight: 800, color: "#065F46" }}>
+            {p.successRate}%
+          </div>
+          <div style={{ fontSize: 11, color: "#047857" }}>Success Rate</div>
+        </div>
+        <div
+          style={{
+            background: "#EFF6FF",
+            border: "1px solid #BFDBFE",
+            borderRadius: 8,
+            padding: "10px 12px",
+          }}
+        >
+          <div style={{ fontSize: 20, fontWeight: 800, color: "#1E40AF" }}>
+            {p.casesWon}
+          </div>
+          <div style={{ fontSize: 11, color: "#1D4ED8" }}>Cases Won</div>
+        </div>
+      </div>
+
+      {/* Specialties */}
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+        {p.specialties.map((s) => (
+          <span key={s} className="pill pill-gray">
+            {s}
+          </span>
+        ))}
+      </div>
+
+      {/* Footer */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          borderTop: "1px solid var(--border)",
+          paddingTop: 14,
+          marginTop: 4,
+        }}
+      >
+        <div>
+          <div style={{ fontSize: 20, fontWeight: 800, color: "var(--text)" }}>
+            From ${p.price}
+          </div>
+          <div style={{ fontSize: 11, color: "var(--text-dim)" }}>
+            ⚡ Responds {p.responseTime}
+          </div>
+        </div>
+        <Link
+          href={`/paralegals/${p.id}`}
+          className="btn-primary"
+          style={{ padding: "10px 20px", fontSize: 14 }}
+        >
+          View Profile
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+// ── Main homepage ──────────────────────────────────────────────────────────
+export default function Home() {
+  const [violation, setViolation] = useState("");
+
+  return (
+    <div style={{ minHeight: "100vh", background: "white" }}>
+      {/* ── NAV ──────────────────────────────────────────────────────── */}
+      <nav
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 100,
+          background: "rgba(255,255,255,0.95)",
+          backdropFilter: "blur(10px)",
+          borderBottom: "1px solid var(--border)",
+          padding: "0 24px",
+        }}
+      >
+        <div
+          className="container"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            height: 64,
+          }}
+        >
+          <Link
+            href="/"
+            style={{
+              fontWeight: 800,
+              fontSize: 22,
+              color: "var(--accent)",
+              textDecoration: "none",
+              letterSpacing: "-0.5px",
+            }}
+          >
+            Guid<span style={{ color: "var(--text)" }}>Law</span>
+          </Link>
+
+          <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
+            <Link href="/paralegals" style={{ color: "var(--text-dim)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
+              Browse Paralegals
+            </Link>
+            <Link href="/how-it-works" style={{ color: "var(--text-dim)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
+              How It Works
+            </Link>
+            <Link href="/paralegals/join" style={{ color: "var(--text-dim)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
+              For Paralegals
+            </Link>
+          </div>
+
+          <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+            <Link href="/login" style={{ color: "var(--text-dim)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
+              Sign In
+            </Link>
+            <Link href="/submit" className="btn-primary" style={{ padding: "9px 20px", fontSize: 14 }}>
+              Fight My Ticket
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      {/* ── HERO ─────────────────────────────────────────────────────── */}
+      <section
+        style={{
+          background: "linear-gradient(160deg, #EEF2FF 0%, #FFFFFF 50%)",
+          padding: "80px 24px 60px",
+          textAlign: "center",
+        }}
+      >
+        <div className="container">
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: 24 }}>
+            <span className="pill pill-blue" style={{ fontSize: 13, padding: "6px 16px" }}>
+              🇨🇦 Ontario&apos;s #1 Ticket Fighting Platform · 94% Success Rate
+            </span>
+          </div>
+
+          <h1
+            style={{
+              fontSize: "clamp(36px, 6vw, 64px)",
+              fontWeight: 800,
+              color: "var(--text)",
+              lineHeight: 1.1,
+              letterSpacing: "-1.5px",
+              maxWidth: 800,
+              margin: "0 auto 20px",
+            }}
+          >
+            Fight your ticket.
+            <br />
+            <span style={{ color: "var(--accent)" }}>Hire a paralegal.</span>
+          </h1>
+
+          <p
+            style={{
+              fontSize: "clamp(16px, 2vw, 20px)",
+              color: "var(--text-dim)",
+              maxWidth: 560,
+              margin: "0 auto 40px",
+              lineHeight: 1.6,
+            }}
+          >
+            Browse licensed Ontario paralegals, submit your ticket, and let an expert handle the tribunal. No court dates. No stress.
+          </p>
+
+          {/* Search bar */}
+          <div
+            style={{
+              maxWidth: 620,
+              margin: "0 auto 40px",
+              background: "white",
+              border: "2px solid var(--border)",
+              borderRadius: 14,
+              padding: "8px 8px 8px 20px",
+              display: "flex",
+              gap: 8,
+              alignItems: "center",
+              boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
+            }}
+          >
+            <span style={{ fontSize: 20 }}>🔍</span>
+            <select
+              value={violation}
+              onChange={(e) => setViolation(e.target.value)}
+              style={{
+                flex: 1,
+                border: "none",
+                outline: "none",
+                fontSize: 16,
+                color: violation ? "var(--text)" : "var(--text-muted)",
+                background: "transparent",
+                cursor: "pointer",
+              }}
+            >
+              <option value="" disabled>
+                What&apos;s your violation type?
+              </option>
+              {VIOLATION_TYPES.map((v) => (
+                <option key={v} value={v}>{v}</option>
+              ))}
+            </select>
+            <Link
+              href={violation ? `/paralegals?violation=${encodeURIComponent(violation)}` : "/paralegals"}
+              className="btn-primary"
+              style={{ whiteSpace: "nowrap", borderRadius: 10, padding: "12px 24px" }}
+            >
+              Find a Paralegal
+            </Link>
+          </div>
+
+          <div style={{ display: "flex", justifyContent: "center", gap: 32, flexWrap: "wrap" }}>
+            {[
+              { icon: "✓", text: "No upfront fees" },
+              { icon: "⚡", text: "Match in under 2 hours" },
+              { icon: "🔒", text: "Secure Ontario platform" },
+            ].map((item) => (
+              <div key={item.text} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 14, color: "var(--text-dim)" }}>
+                <span style={{ color: "#059669", fontWeight: 700 }}>{item.icon}</span>
+                {item.text}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── STATS BAR ────────────────────────────────────────────────── */}
+      <section style={{ background: "var(--navy)", padding: "28px 24px" }}>
+        <div className="container">
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+              gap: 32,
+              textAlign: "center",
+            }}
+          >
+            {[
+              { num: "2,400+", label: "Tickets Fought" },
+              { num: "94%", label: "Success Rate" },
+              { num: "47", label: "Paralegals" },
+              { num: "$0", label: "Upfront Cost" },
+            ].map((s) => (
+              <div key={s.label}>
+                <div style={{ fontSize: 28, fontWeight: 800, color: "white", letterSpacing: "-0.5px" }}>
+                  {s.num}
+                </div>
+                <div style={{ fontSize: 13, color: "#94A3B8", marginTop: 2 }}>{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FEATURED PARALEGALS ─────────────────────────────────────── */}
+      <section className="section">
+        <div className="container">
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+              marginBottom: 32,
+              flexWrap: "wrap",
+              gap: 16,
+            }}
+          >
+            <div>
+              <div style={{ fontSize: 12, fontWeight: 600, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 6 }}>
+                Top Rated in Ontario
+              </div>
+              <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 800, color: "var(--text)", letterSpacing: "-0.5px" }}>
+                Browse Paralegals
+              </h2>
+              <p style={{ color: "var(--text-dim)", marginTop: 6, fontSize: 16 }}>
+                All licensed with the Law Society of Ontario
+              </p>
+            </div>
+            <Link href="/paralegals" className="btn-secondary">View All →</Link>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+              gap: 20,
+            }}
+          >
+            {PARALEGALS.map((p) => (
+              <ParalegalCard key={p.id} p={p} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── HOW IT WORKS ─────────────────────────────────────────────── */}
+      <section className="section-gray">
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: 56 }}>
+            <div style={{ fontSize: 12, fontWeight: 600, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 10 }}>
+              Simple. Fast. Effective.
+            </div>
+            <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 800, color: "var(--text)", letterSpacing: "-0.5px" }}>
+              How GuidLaw Works
+            </h2>
+            <p style={{ color: "var(--text-dim)", marginTop: 10, fontSize: 16, maxWidth: 480, margin: "10px auto 0" }}>
+              From ticket to tribunal — we handle everything. You just show up to pay less.
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 24 }}>
+            {[
+              { step: "01", icon: "📋", title: "Submit Your Ticket", desc: "Enter your violation details — type of offence, date, fine amount. Takes 2 minutes." },
+              { step: "02", icon: "🔎", title: "Browse & Hire", desc: "Compare licensed paralegals by success rate, price, and speciality. Pick the best fit and hire directly." },
+              { step: "03", icon: "⚖️", title: "They Fight It", desc: "Your paralegal represents you at the tribunal. You don't have to take a day off or step into a courtroom." },
+              { step: "04", icon: "🎉", title: "Case Closed", desc: "Most tickets are dismissed or significantly reduced. You pay only through GuidLaw — secure and protected." },
+            ].map((item) => (
+              <div
+                key={item.step}
+                style={{
+                  background: "white",
+                  border: "1.5px solid var(--border)",
+                  borderRadius: 14,
+                  padding: "28px 24px",
+                  position: "relative",
+                  overflow: "hidden",
+                }}
+              >
+                <div style={{ position: "absolute", top: 16, right: 20, fontSize: 40, fontWeight: 900, color: "#F3F4F6", lineHeight: 1 }}>
+                  {item.step}
+                </div>
+                <div style={{ fontSize: 32, marginBottom: 14 }}>{item.icon}</div>
+                <h3 style={{ fontWeight: 700, fontSize: 17, marginBottom: 8, color: "var(--text)" }}>{item.title}</h3>
+                <p style={{ fontSize: 14, color: "var(--text-dim)", lineHeight: 1.6 }}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ textAlign: "center", marginTop: 40 }}>
+            <Link href="/submit" className="btn-primary" style={{ padding: "16px 40px", fontSize: 16 }}>
+              Submit My Ticket — It&apos;s Free to Browse
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── COMPARISON TABLE ──────────────────────────────────────────── */}
+      <section className="section">
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 800, color: "var(--text)", letterSpacing: "-0.5px" }}>
+              Why GuidLaw vs. Going It Alone
+            </h2>
+            <p style={{ color: "var(--text-dim)", marginTop: 10, fontSize: 16 }}>
+              The average Canadian who contests their ticket without help loses 70% of the time.
+            </p>
+          </div>
+
+          <div style={{ overflowX: "auto" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 15 }}>
+              <thead>
+                <tr>
+                  <th style={{ padding: "14px 20px", textAlign: "left", background: "#F8F9FB", border: "1.5px solid var(--border)", fontWeight: 600, color: "var(--text-dim)" }}>
+                    &nbsp;
+                  </th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", background: "#F8F9FB", border: "1.5px solid var(--border)", fontWeight: 600, color: "var(--text-dim)" }}>
+                    Going Alone
+                  </th>
+                  <th style={{ padding: "14px 24px", textAlign: "center", background: "var(--accent)", border: "1.5px solid var(--accent)", fontWeight: 700, color: "white" }}>
+                    ✦ With GuidLaw
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { label: "Success rate", alone: "~30%", guidlaw: "94% average", highlight: true },
+                  { label: "Time to find help", alone: "Days of research", guidlaw: "Under 2 hours", highlight: false },
+                  { label: "Day off work needed?", alone: "Yes — mandatory", guidlaw: "No — we go for you", highlight: true },
+                  { label: "Demerit point risk", alone: "High", guidlaw: "Minimized", highlight: false },
+                  { label: "Insurance impact", alone: "Full impact if guilty", guidlaw: "Often fully avoided", highlight: true },
+                  { label: "Cost", alone: "Fine + lost wages", guidlaw: "From $179 flat rate", highlight: false },
+                  { label: "Payment protection", alone: "None", guidlaw: "Secure escrow via Stripe", highlight: true },
+                ].map((row) => (
+                  <tr key={row.label}>
+                    <td style={{ padding: "14px 20px", background: row.highlight ? "#F8F9FB" : "white", border: "1.5px solid var(--border)", fontWeight: 600, color: "var(--text)" }}>
+                      {row.label}
+                    </td>
+                    <td style={{ padding: "14px 20px", textAlign: "center", background: row.highlight ? "#F8F9FB" : "white", border: "1.5px solid var(--border)", color: "#DC2626" }}>
+                      {row.alone}
+                    </td>
+                    <td style={{ padding: "14px 24px", textAlign: "center", background: row.highlight ? "#EEF2FF" : "#F8FBFF", border: "1.5px solid #C7D7FD", color: "#1D4ED8", fontWeight: 600 }}>
+                      ✓ {row.guidlaw}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* ── TESTIMONIALS ──────────────────────────────────────────────── */}
+      <section className="section-gray">
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <div style={{ fontSize: 12, fontWeight: 600, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 10 }}>
+              Real Results
+            </div>
+            <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 800, color: "var(--text)", letterSpacing: "-0.5px" }}>
+              Drivers Love GuidLaw
+            </h2>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
+            {TESTIMONIALS.map((t) => (
+              <div
+                key={t.name}
+                style={{ background: "white", border: "1.5px solid var(--border)", borderRadius: 14, padding: 28, display: "flex", flexDirection: "column", gap: 16 }}
+              >
+                <div style={{ fontSize: 24, color: "#F59E0B" }}>★★★★★</div>
+                <p style={{ fontSize: 15, color: "var(--text)", lineHeight: 1.7, flex: 1 }}>
+                  &ldquo;{t.text}&rdquo;
+                </p>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", borderTop: "1px solid var(--border)", paddingTop: 14 }}>
+                  <div>
+                    <div style={{ fontWeight: 700, fontSize: 14, color: "var(--text)" }}>{t.name}</div>
+                    <div style={{ fontSize: 12, color: "var(--text-dim)" }}>{t.city}, ON</div>
+                  </div>
+                  <span className="pill pill-green" style={{ fontSize: 11 }}>
+                    ✓ {t.outcome}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FOR PARALEGALS CTA ────────────────────────────────────────── */}
+      <section style={{ padding: "64px 24px", background: "white" }}>
+        <div className="container">
+          <div
+            style={{
+              background: "var(--navy)",
+              borderRadius: 20,
+              padding: "56px 48px",
+              display: "grid",
+              gridTemplateColumns: "1fr auto",
+              gap: 32,
+              alignItems: "center",
+            }}
+          >
+            <div>
+              <div style={{ fontSize: 12, fontWeight: 600, color: "#93C5FD", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 10 }}>
+                Grow Your Practice
+              </div>
+              <h2 style={{ fontSize: "clamp(22px, 3.5vw, 32px)", fontWeight: 800, color: "white", letterSpacing: "-0.5px", marginBottom: 12 }}>
+                Are you a licensed paralegal?
+              </h2>
+              <p style={{ color: "#94A3B8", fontSize: 16, lineHeight: 1.6, maxWidth: 500 }}>
+                Join Ontario&apos;s fastest-growing legal marketplace. Get warm leads delivered to you — no cold outreach, no overhead. Clients come to you ready to hire.
+              </p>
+              <div style={{ display: "flex", gap: 24, marginTop: 20, flexWrap: "wrap" }}>
+                {["No cold outreach needed", "Paid securely through platform", "Build your reputation with reviews"].map((item) => (
+                  <div key={item} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, color: "#CBD5E1" }}>
+                    <span style={{ color: "#34D399" }}>✓</span> {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <Link
+              href="/paralegals/join"
+              style={{
+                background: "white",
+                color: "var(--accent)",
+                border: "none",
+                padding: "16px 32px",
+                borderRadius: 10,
+                fontSize: 15,
+                fontWeight: 700,
+                cursor: "pointer",
+                textDecoration: "none",
+                whiteSpace: "nowrap",
+                display: "inline-block",
+              }}
+            >
+              Apply to Join →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FOOTER ────────────────────────────────────────────────────── */}
+      <footer style={{ background: "#F8F9FB", borderTop: "1px solid var(--border)", padding: "48px 24px 32px" }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 40, marginBottom: 40 }}>
+            <div>
+              <div style={{ fontWeight: 800, fontSize: 20, color: "var(--accent)", marginBottom: 10 }}>
+                Guid<span style={{ color: "var(--text)" }}>Law</span>
+              </div>
+              <p style={{ fontSize: 13, color: "var(--text-dim)", lineHeight: 1.6 }}>
+                Ontario&apos;s paralegal marketplace for traffic ticket defence. Licensed. Trusted. Fast.
+              </p>
+            </div>
+            {[
+              { title: "For Drivers", links: ["Submit a Ticket", "Browse Paralegals", "How It Works", "Pricing"] },
+              { title: "For Paralegals", links: ["Apply to Join", "How It Works", "Pricing", "Support"] },
+              { title: "Company", links: ["About Us", "Blog", "Privacy Policy", "Terms of Service"] },
+            ].map((col) => (
+              <div key={col.title}>
+                <div style={{ fontWeight: 600, fontSize: 13, color: "var(--text)", marginBottom: 14 }}>{col.title}</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                  {col.links.map((l) => (
+                    <Link key={l} href="#" style={{ fontSize: 13, color: "var(--text-dim)", textDecoration: "none" }}>{l}</Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ borderTop: "1px solid var(--border)", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+            <p style={{ fontSize: 12, color: "var(--text-muted)" }}>
+              © 2026 GuidLaw Technologies Inc. (1001699754 Ontario Inc.) · Mississauga, ON ·{" "}
+              <Link href="mailto:guidlawtechnologies@gmail.com" style={{ color: "var(--text-muted)" }}>
+                guidlawtechnologies@gmail.com
+              </Link>
+            </p>
+            <p style={{ fontSize: 12, color: "var(--text-muted)" }}>
+              GuidLaw is a technology platform, not a law firm. Paralegals are licensed with the Law Society of Ontario.
+            </p>
+          </div>
+        </div>
+      </footer>
+
+      <style>{`
+        @media (max-width: 768px) {
+          nav > div > div:nth-child(2) { display: none; }
+        }
+        @media (max-width: 640px) {
+          footer div[style*="1fr auto"] { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+    </div>
+  );
+}

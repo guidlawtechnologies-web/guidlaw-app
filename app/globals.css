@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+:root {
+  --bg-base:      #FFFFFF;
+  --bg-surface:   #F8F9FB;
+  --bg-elevated:  #F1F3F7;
+  --bg-card:      #FFFFFF;
+  --border:       #E5E7EB;
+  --border-hover: #D1D5DB;
+  --accent:       #1B4FD8;
+  --accent-light: #EEF2FF;
+  --accent-hover: #1640C0;
+  --safe:         #059669;
+  --danger:       #DC2626;
+  --text:         #111827;
+  --text-dim:     #6B7280;
+  --text-muted:   #9CA3AF;
+  --navy:         #0F172A;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+
+html, body {
+  background: var(--bg-base);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.btn-secondary {
+  background: white;
+  color: var(--text);
+  border: 1.5px solid var(--border);
+  padding: 13px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.btn-secondary:hover { border-color: var(--border-hover); background: var(--bg-surface); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-dim);
+  border: 1.5px solid var(--border);
+  padding: 13px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-ghost:hover { border-color: var(--border-hover); color: var(--text); }
+
+.btn-danger {
+  background: #FEF2F2;
+  color: #DC2626;
+  border: 1.5px solid #FECACA;
+  padding: 13px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+.btn-danger:hover { background: #FEE2E2; }
+
+/* ── Form inputs ── */
+.input {
+  width: 100%;
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(27,79,216,0.08); }
+.input::placeholder { color: var(--text-muted); }
+
+/* ── Card ── */
+.card {
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+}
+.card:hover { border-color: var(--border-hover); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+
+/* ── Label ── */
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-dim);
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* ── Pills ── */
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 12px; border-radius: 100px;
+  font-size: 12px; font-weight: 500;
+}
+.pill-blue  { background: #EEF2FF; color: #3730A3; }
+.pill-green { background: #ECFDF5; color: #065F46; }
+.pill-red   { background: #FEF2F2; color: #991B1B; }
+.pill-amber { background: #FFFBEB; color: #92400E; }
+.pill-gray  { background: #F3F4F6; color: #374151; }
+
+/* ── Spinner ── */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner {
+  width: 20px; height: 20px;
+  border: 2px solid rgba(0,0,0,0.1); border-top-color: var(--accent);
+  border-radius: 50%; animation: spin 0.7s linear infinite; display: inline-block;
+}
+
+/* ── Section containers ── */
+.section { padding: 80px 24px; }
+.section-gray { background: var(--bg-surface); padding: 80px 24px; }
+.container { max-width: 1200px; margin: 0 auto; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .section, .section-gray { padding: 48px 20px; }
+  input, select, textarea { font-size: 16px !important; }
+}

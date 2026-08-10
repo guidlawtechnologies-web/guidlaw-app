@@ -1,0 +1,53 @@
+{
+  "name": "RoadRight",
+  "short_name": "RoadRight",
+  "description": "Canada's on-demand legal platform for drivers. Get help from a licensed paralegal the moment you need it.",
+  "start_url": "/driver",
+  "id": "/driver",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "background_color": "#06080C",
+  "theme_color": "#06080C",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "en-CA",
+  "dir": "ltr",
+  "categories": ["legal", "utilities", "lifestyle"],
+  "screenshots": [],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Submit a Ticket",
+      "short_name": "Submit Ticket",
+      "description": "Upload and submit a traffic ticket",
+      "url": "/driver",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}

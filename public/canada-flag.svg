@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150">
+  <rect width="300" height="150" fill="white"/>
+  <rect width="75" height="150" fill="#D80621"/>
+  <rect x="225" width="75" height="150" fill="#D80621"/>
+  <path fill="#D80621" d="
+    M150,10
+    L153,34  L173,24
+    L161,45  L193,40
+    L176,64  L220,71
+    L194,86  L210,103
+    L172,98  L177,126
+    L160,126 L160,140
+    L140,140 L140,126
+    L123,126 L128,98
+    L90,103  L106,86
+    L80,71   L124,64
+    L107,40  L139,45
+    L127,24  L147,34
+    Z
+  "/>
+</svg>

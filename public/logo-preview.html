@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #06080C; display: flex; flex-direction: column; align-items: center; padding: 60px 24px; gap: 64px; font-family: 'Outfit', sans-serif; }
+  .section { display: flex; flex-direction: column; align-items: center; gap: 32px; width: 100%; }
+  h2 { color: rgba(255,255,255,0.25); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .concept { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .name { color: white; font-size: 13px; font-weight: 600; }
+  .desc { color: rgba(255,255,255,0.35); font-size: 11px; letter-spacing: 0.05em; text-align: center; max-width: 180px; line-height: 1.6; }
+  .sizes { display: flex; align-items: center; gap: 20px; }
+  .row { display: flex; gap: 48px; flex-wrap: wrap; justify-content: center; }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h2>RoadRight — Road + Siren Concepts</h2>
+
+<div class="row">
+
+  <!-- CONCEPT 1: Road stretching forward, siren light beams above -->
+  <div class="concept">
+    <div class="sizes">
+      <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <rect width="120" height="120" rx="26" fill="#0A0E17"/>
+        <!-- Road surface -->
+        <path d="M14 104 L46 44 L74 44 L106 104 Z" fill="#1a2236"/>
+        <!-- Road edges -->
+        <path d="M14 104 L46 44" stroke="white" stroke-width="4" stroke-linecap="round"/>
+        <path d="M106 104 L74 44" stroke="white" stroke-width="4" stroke-linecap="round"/>
+        <!-- Center dashes -->
+        <line x1="60" y1="54" x2="60" y2="64" stroke="white" stroke-width="3.5" stroke-linecap="round" opacity="0.7"/>
+        <line x1="60" y1="70" x2="60" y2="82" stroke="white" stroke-width="3.5" stroke-linecap="round" opacity="0.55"/>
+        <line x1="60" y1="88" x2="60" y2="102" stroke="white" stroke-width="3.5" stroke-linecap="round" opacity="0.4"/>
+        <!-- Siren dome on top -->
+        <rect x="46" y="30" width="28" height="14" rx="7" fill="#2563EB"/>
+        <!-- Siren light beams -->
+        <line x1="36" y1="20" x2="42" y2="30" stroke="#2563EB" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+        <line x1="26" y1="26" x2="36" y2="32" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" opacity="0.4"/>
+        <line x1="84" y1="20" x2="78" y2="30" stroke="#2563EB" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+        <line x1="94" y1="26" x2="84" y2="32" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" opacity="0.4"/>
+        <line x1="60" y1="16" x2="60" y2="28" stroke="#2563EB" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+      </svg>
+      <svg width="60" height="60" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <rect width="120" height="120" rx="26" fill="#0A0E17"/>
+        <path d="M14 104 L46 44 L74 44 L106 104 Z" fill="#1a2236"/>
+        <path d="M14 104 L46 44" stroke="white" stroke-width="4" stroke-linecap="round"/>
+        <path d="M106 104 L74 44" stroke="white" stroke-width="4" stroke-linecap="round"/>
+        <line x1="60" y1="70" x2="60" y2="82" stroke="white" stroke-width="3.5" stroke-linecap="round" opacity="0.55"/>
+        <line x1="60" y1="88" x2="60" y2="102" stroke="white" stroke-width="3.5" stroke-linecap="round" opacity="0.4"/>
+        <rect x="46" y="30" width="28" height="14" rx="7" fill="#2563EB"/>
+        <line x1="60" y1="16" x2="60" y2="28" stroke="#2563EB" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+        <line x1="36" y1="20" x2="42" y2="30" stroke="#2563EB" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+        <line x1="84" y1="20" x2="78" y2="30" stroke="#2563EB" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+      </svg>
+      <svg width="32" height="32" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <rect width="120" height="120" rx="26" fill="#0A0E17"/>
+        <path d="M14 104 L46 44 L74 44 L106 104 Z" fill="#1a2236"/>
+        <path d="M14 104 L46 44" stroke="white" stroke-width="4" stroke-linecap="round"/>
+        <path d="M106 104 L74 44" stroke="white" stroke-width="4" stroke-linecap="round"/>
+        <rect x="46" y="30" width="28" height="14" rx="7" fill="#2563EB"/>
+      </svg>
+    </div>
+    <div class="name">Concept 1 — Road + Siren Above</div>
+    <div class="desc">Road stretches forward. Siren sits at the vanishing point — the moment it all happens.</div>
+  </div>
+
+  <!-- CONCEPT 2: Siren dome with road lines coming out of it -->
+  <div class="concept">
+    <div class="sizes">
+      <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <rect width="120" height="120" rx="26" fill="#0A0E17"/>
+        <!-- Siren dome, bold, centered -->
+        <rect x="34" y="42" width="52" height="26" rx="13" fill="#2563EB"/>
+        <!-- Light pulse rings -->
+        <circle cx="60" cy="55" r="36" fill="none" stroke="#2563EB" stroke-width="2" opacity="0.2"/>
+        <circle cx="60" cy="55" r="28" fill="none" stroke="#2563EB" stroke-width="2" opacity="0.3"/>
+        <!-- Road lines coming down from siren -->
+        <path d="M48 68 L28 100" stroke="white" stroke-width="5" stroke-linecap="round"/>
+        <path d="M72 68 L92 100" stroke="white" stroke-width="5" stroke-linecap="round"/>
+        <!-- Center line -->
+        <line x1="60" y1="68" x2="60" y2="76" stroke="white" stroke-width="3.5" stroke-linecap="round" opacity="0.6"/>
+        <line x1="60" y1="82" x2="60" y2="92" stroke="white" stroke-width="3.5" stroke-linecap="round" opacity="0.4"/>
+        <!-- Light beams up -->
+        <line x1="60" y1="20" x2="60" y2="40" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+        <line x1="40" y1="24" x2="46" y2="38" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" opacity="0.35"/>
+        <line x1="80" y1="24" x2="74" y2="38" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" opacity="0.35"/>
+      </svg>
+      <svg width="60" height="60" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <rect width="120" height="120" rx="26" fill="#0A0E17"/>
+        <rect x="34" y="42" width="52" height="26" rx="13" fill="#2563EB"/>
+        <path d="M48 68 L28 100" stroke="white" stroke-width="5" stroke-linecap="round"/>
+        <path d="M72 68 L92 100" stroke="white" stroke-width="5" stroke-linecap="round"/>
+        <line x1="60" y1="68" x2="60" y2="76" stroke="white" stroke-width="3.5" stroke-linecap="round" opacity="0.6"/>
+        <line x1="60" y1="82" x2="60" y2="92" stroke="white" stroke-width="3.5" stroke-linecap="round" opacity="0.4"/>
+        <line x1="60" y1="20" x2="60" y2="40" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+      </svg>
+      <svg width="32" height="32" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <rect width="120" height="120" rx="26" fill="#0A0E17"/>
+        <rect x="34" y="42" width="52" height="26" rx="13" fill="#2563EB"/>
+        <path d="M48 68 L28 100" stroke="white" stroke-width="5" stroke-linecap="round"/>
+        <path d="M72 68 L92 100" stroke="white" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="name">Concept 2 — Siren IS the Road</div>
+    <div class="desc">The siren sits at the top. The road lines extend below it — siren and road as one symbol.</div>
+  </div>
+
+  <!-- CONCEPT 3: Side view — car pulled over, siren light beam cutting across road -->
+  <div class="concept">
+    <div class="sizes">
+      <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <rect width="120" height="120" rx="26" fill="#0A0E17"/>
+        <!-- Road line horizontal -->
+        <rect x="10" y="72" width="100" height="5" rx="2.5" fill="white" opacity="0.9"/>
+        <!-- Dashes below road line -->
+        <rect x="10" y="82" width="22" height="4" rx="2" fill="white" opacity="0.3"/>
+        <rect x="38" y="82" width="22" height="4" rx="2" fill="white" opacity="0.3"/>
+        <rect x="66" y="82" width="22" height="4" rx="2" fill="white" opacity="0.3"/>
+        <!-- Siren beam — diagonal cutting across from top right -->
+        <path d="M80 20 L100 72 L60 72 Z" fill="#2563EB" opacity="0.25"/>
+        <path d="M80 20 L110 72" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+        <path d="M80 20 L60 72" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+        <!-- Siren dome -->
+        <rect x="66" y="14" width="28" height="12" rx="6" fill="#2563EB"/>
+        <circle cx="76" cy="20" r="4" fill="#60A5FA" opacity="0.9"/>
+        <circle cx="88" cy="20" r="4" fill="white" opacity="0.7"/>
+      </svg>
+      <svg width="60" height="60" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <rect width="120" height="120" rx="26" fill="#0A0E17"/>
+        <rect x="10" y="72" width="100" height="5" rx="2.5" fill="white" opacity="0.9"/>
+        <rect x="10" y="82" width="22" height="4" rx="2" fill="white" opacity="0.3"/>
+        <rect x="38" y="82" width="22" height="4" rx="2" fill="white" opacity="0.3"/>
+        <rect x="66" y="82" width="22" height="4" rx="2" fill="white" opacity="0.3"/>
+        <path d="M80 20 L100 72 L60 72 Z" fill="#2563EB" opacity="0.25"/>
+        <rect x="66" y="14" width="28" height="12" rx="6" fill="#2563EB"/>
+      </svg>
+      <svg width="32" height="32" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <rect width="120" height="120" rx="26" fill="#0A0E17"/>
+        <rect x="10" y="72" width="100" height="5" rx="2.5" fill="white" opacity="0.9"/>
+        <path d="M80 20 L100 72 L60 72 Z" fill="#2563EB" opacity="0.3"/>
+        <rect x="66" y="14" width="28" height="12" rx="6" fill="#2563EB"/>
+      </svg>
+    </div>
+    <div class="name">Concept 3 — Pulled Over Moment</div>
+    <div class="desc">The exact scene — siren light beam hitting the road. The moment RoadRight exists for.</div>
+  </div>
+
+  <!-- CONCEPT 4: Bold siren dome with R integrated -->
+  <div class="concept">
+    <div class="sizes">
+      <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <rect width="120" height="120" rx="26" fill="#0A0E17"/>
+        <!-- Road at bottom -->
+        <path d="M10 100 L50 60 L70 60 L110 100 Z" fill="#1a2236"/>
+        <path d="M10 100 L50 60" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M110 100 L70 60" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
+        <line x1="60" y1="72" x2="60" y2="82" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+        <line x1="60" y1="88" x2="60" y2="98" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.35"/>
+        <!-- Siren at vanishing point with R inside -->
+        <rect x="38" y="34" width="44" height="26" rx="13" fill="#2563EB"/>
+        <!-- R cut into siren -->
+        <text x="60" y="53" font-family="'Outfit',Arial,sans-serif" font-size="20" font-weight="800" fill="white" text-anchor="middle">R</text>
+        <!-- Glow lines up -->
+        <line x1="60" y1="18" x2="60" y2="32" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+        <line x1="44" y1="22" x2="48" y2="32" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <line x1="76" y1="22" x2="72" y2="32" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+      </svg>
+      <svg width="60" height="60" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <rect width="120" height="120" rx="26" fill="#0A0E17"/>
+        <path d="M10 100 L50 60 L70 60 L110 100 Z" fill="#1a2236"/>
+        <path d="M10 100 L50 60" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M110 100 L70 60" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
+        <rect x="38" y="34" width="44" height="26" rx="13" fill="#2563EB"/>
+        <text x="60" y="53" font-family="'Outfit',Arial,sans-serif" font-size="20" font-weight="800" fill="white" text-anchor="middle">R</text>
+        <line x1="60" y1="18" x2="60" y2="32" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+      </svg>
+      <svg width="32" height="32" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <rect width="120" height="120" rx="26" fill="#0A0E17"/>
+        <path d="M10 100 L50 60 L70 60 L110 100 Z" fill="#1a2236"/>
+        <path d="M10 100 L50 60" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M110 100 L70 60" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
+        <rect x="38" y="34" width="44" height="26" rx="13" fill="#2563EB"/>
+      </svg>
+    </div>
+    <div class="name">Concept 4 — Road Leads to Siren·R</div>
+    <div class="desc">Road converges to the siren — RoadRight is what happens at that moment. R inside the siren.</div>
+  </div>
+
+</div>
+
+</body>
+</html>
