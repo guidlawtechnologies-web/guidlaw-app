@@ -1,8 +1,8 @@
-[{
+﻿[{
       "relation": ["delegate_permission/common.handle_all_urls"],
       "target": {
         "namespace": "android_app",
-        "package_name": "ca.roadright.twa",
+        "package_name": "ca.guidlaw.twa",
         "sha256_cert_fingerprints": ["8B:2D:12:07:37:A7:F0:F7:0E:B4:3F:7B:DB:6F:1E:B1:3E:D1:0F:E6:DF:FB:8F:BC:31:70:11:B4:AF:F3:D2:C9"]
       }
     }]

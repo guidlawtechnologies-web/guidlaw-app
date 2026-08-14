@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'
+﻿import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 
 const supabase = createClient(
@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
         'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'RoadRight <notifications@roadright.ca>',
+        from: 'GuidLaw <notifications@guidlaw.ca>',
         to: paralegal.email,
         subject: `New Ticket Assigned — ${ticket.offence_type}`,
         html: `
@@ -44,10 +44,10 @@ export async function POST(req: NextRequest) {
           ${ticket.photo_url ? `<p><strong>Ticket Photo:</strong> <a href="${ticket.photo_url}">View</a></p>` : ''}
           ${ticket.ticket_number ? `<p><strong>Ticket #:</strong> ${ticket.ticket_number}</p>` : ''}
           <br/>
-          <p>Please review the ticket and submit your quote directly in the RoadRight app.</p>
-          <p><a href="https://roadright.ca/lawyer" style="background:#2563EB;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;display:inline-block;margin-top:8px;font-weight:600;">Open App & Submit Quote →</a></p>
+          <p>Please review the ticket and submit your quote directly in the GuidLaw app.</p>
+          <p><a href="https://guidlaw.ca/lawyer" style="background:#2563EB;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;display:inline-block;margin-top:8px;font-weight:600;">Open App & Submit Quote →</a></p>
           <br/>
-          <p>— RoadRight Team</p>
+          <p>— GuidLaw Team</p>
         `,
       }),
     }).catch(() => {})

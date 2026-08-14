@@ -103,7 +103,7 @@ export default function CoveragePage() {
               ← Back to Dashboard
             </Link>
             <h1 style={{ fontSize: '24px', fontWeight: '700', margin: 0 }}>Coverage Dashboard</h1>
-            <p style={{ fontSize: '13px', color: 'rgba(232,235,240,0.45)', marginTop: '4px' }}>When lawyers are online — and who is showing up</p>
+            <p style={{ fontSize: '13px', color: 'rgba(232,235,240,0.45)', marginTop: '4px' }}>When paralegals are online — and who is showing up</p>
           </div>
           <div style={{ display: 'flex', gap: '8px' }}>
             {[1, 7, 14].map(d => (
@@ -117,7 +117,7 @@ export default function CoveragePage() {
         {/* Stat cards */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginBottom: '28px' }}>
           {[
-            { label: 'Coverage Rate', value: loading ? '—' : `${coveragePct}%`, color: coveragePct >= 70 ? '#34D399' : coveragePct >= 40 ? '#FCD34D' : '#F87171', sub: 'of hours had a lawyer online' },
+            { label: 'Coverage Rate', value: loading ? '—' : `${coveragePct}%`, color: coveragePct >= 70 ? '#34D399' : coveragePct >= 40 ? '#FCD34D' : '#F87171', sub: 'of hours had a paralegal online' },
             { label: 'Hours Covered', value: loading ? '—' : `${totalOnlineHours}h`, color: '#60A5FA', sub: `out of ${hourBlocks.length} total hours` },
             { label: 'Coverage Gaps', value: loading ? '—' : `${gapCount}h`, color: gapCount === 0 ? '#34D399' : '#F87171', sub: 'hours with no lawyer online' },
           ].map(stat => (
@@ -131,7 +131,7 @@ export default function CoveragePage() {
 
         {/* Tabs */}
         <div style={{ display: 'flex', gap: '4px', background: 'rgba(255,255,255,0.04)', borderRadius: '10px', padding: '4px', marginBottom: '24px', width: 'fit-content' }}>
-          {([['coverage', 'Coverage Heatmap'], ['lawyers', 'Lawyer Activity']] as const).map(([key, label]) => (
+          {([['coverage', 'Coverage Heatmap'], ['lawyers', 'Paralegal Activity']] as const).map(([key, label]) => (
             <button key={key} onClick={() => setTab(key)} style={{ padding: '7px 18px', borderRadius: '7px', fontSize: '13px', fontWeight: '600', cursor: 'pointer', border: 'none', background: tab === key ? '#1e293b' : 'transparent', color: tab === key ? 'white' : 'rgba(232,235,240,0.45)', transition: 'all 0.2s' }}>
               {label}
             </button>
@@ -202,7 +202,7 @@ export default function CoveragePage() {
               <>
                 {/* Table header */}
                 <div style={{ display: 'grid', gridTemplateColumns: '2fr 2fr 1fr 2fr', gap: '16px', padding: '14px 20px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                  {['Name', 'Email', 'Times Online', 'Last Seen'].map(h => (
+                  {['Paralegal', 'Email', 'Times Online', 'Last Seen'].map(h => (
                     <span key={h} style={{ fontSize: '11px', fontWeight: '600', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(232,235,240,0.3)' }}>{h}</span>
                   ))}
                 </div>

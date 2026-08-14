@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useEffect, useState, useRef } from 'react'
 import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
@@ -244,7 +244,7 @@ export default function LawyerPage() {
         {/* Quote submitted toast */}
         {submittedQuotes.length > 0 && (
           <div style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.25)', borderRadius: '12px', padding: '14px 16px', fontSize: '13px', color: '#34D399', textAlign: 'center' as const }}>
-            ✅ Quote submitted — RoadRight will notify the driver.
+            ✅ Quote submitted — GuidLaw will notify the driver.
           </div>
         )}
 

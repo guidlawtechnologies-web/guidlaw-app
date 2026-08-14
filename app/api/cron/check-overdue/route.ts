@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'
+﻿import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 import { elapsedBusinessHours } from '@/lib/businessHours'
 
@@ -45,8 +45,8 @@ export async function GET(req: NextRequest) {
           'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
         },
         body: JSON.stringify({
-          from: 'RoadRight <notifications@roadright.ca>',
-          to: 'info@roadright.ca',
+          from: 'GuidLaw <notifications@guidlaw.ca>',
+          to: 'info@guidlaw.ca',
           subject: `⚠️ Overdue Ticket — ${ticket.offence_type} (${Math.floor(hours)}h elapsed)`,
           html: `
             <h2>⚠️ A ticket has not been quoted within 5 business hours</h2>
@@ -57,12 +57,12 @@ export async function GET(req: NextRequest) {
             <br/>
             <p>Please reassign this ticket to another paralegal.</p>
             <p>
-              <a href="https://roadright.ca/admin/tickets" style="background:#DC2626;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;display:inline-block;margin-top:8px;font-weight:600;">
+              <a href="https://guidlaw.ca/admin/tickets" style="background:#DC2626;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;display:inline-block;margin-top:8px;font-weight:600;">
                 Reassign Now →
               </a>
             </p>
             <br/>
-            <p>— RoadRight System</p>
+            <p>— GuidLaw System</p>
           `,
         }),
       }).catch(() => {})

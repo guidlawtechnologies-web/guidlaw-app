@@ -1,18 +1,18 @@
 {
-  "name": "RoadRight",
-  "short_name": "RoadRight",
-  "description": "Canada's on-demand legal platform for drivers. Get help from a licensed paralegal the moment you need it.",
-  "start_url": "/driver",
-  "id": "/driver",
+  "name": "GuidLaw",
+  "short_name": "GuidLaw",
+  "description": "Canada's paralegal marketplace for traffic tickets. Submit your ticket and hire a licensed Ontario paralegal.",
+  "start_url": "/",
+  "id": "/",
   "display": "standalone",
   "display_override": ["window-controls-overlay", "standalone"],
-  "background_color": "#06080C",
-  "theme_color": "#06080C",
+  "background_color": "#FFFFFF",
+  "theme_color": "#1B4FD8",
   "orientation": "portrait",
   "scope": "/",
   "lang": "en-CA",
   "dir": "ltr",
-  "categories": ["legal", "utilities", "lifestyle"],
+  "categories": ["legal", "utilities"],
   "screenshots": [],
   "icons": [
     {
@@ -45,7 +45,7 @@
       "name": "Submit a Ticket",
       "short_name": "Submit Ticket",
       "description": "Upload and submit a traffic ticket",
-      "url": "/driver",
+      "url": "/submit-ticket",
       "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     }
   ],

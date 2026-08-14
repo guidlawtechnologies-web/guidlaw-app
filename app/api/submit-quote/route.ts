@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'
+﻿import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 
 const supabase = createClient(
@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
 
     if (error) return NextResponse.json({ error: 'Failed to submit quote' }, { status: 500 })
 
-    // Email RoadRight so they can review and forward to driver
+    // Email GuidLaw so they can review and forward to driver
     await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -38,8 +38,8 @@ export async function POST(req: NextRequest) {
         'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'RoadRight <notifications@roadright.ca>',
-        to: 'info@roadright.ca',
+        from: 'GuidLaw <notifications@guidlaw.ca>',
+        to: 'info@guidlaw.ca',
         subject: `Quote Received — ${ticket.offence_type}`,
         html: `
           <h2>A paralegal has submitted a quote</h2>
@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
           ${quoteNote ? `<p><strong>Note:</strong> ${quoteNote}</p>` : ''}
           <br/>
           <p>The driver has been notified in-app. You may follow up if needed.</p>
-          <p>— RoadRight System</p>
+          <p>— GuidLaw System</p>
         `,
       }),
     }).catch(() => {})

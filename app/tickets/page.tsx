@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 
 export default function TicketsPage() {
   return (
@@ -162,7 +162,7 @@ export default function TicketsPage() {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '12px' }}>
             {[
-              { num: '01', title: 'Create your account', desc: 'Sign up at roadright.ca and submit your ticket directly through your account. No emailing required — everything is handled in one place.' },
+              { num: '01', title: 'Create your account', desc: 'Sign up at guidlaw.ca and submit your ticket directly through your account. No emailing required — everything is handled in one place.' },
               { num: '02', title: 'Review your case', desc: 'Your paralegal reviews the charge, the circumstances, and your options. No obligation — you\'ll know what to expect before committing.' },
               { num: '03', title: 'We appear for you', desc: 'Your paralegal appears in court on your behalf. In most cases, you don\'t have to attend at all.' },
               { num: '04', title: 'Outcome', desc: 'Charges are frequently reduced to a lesser offence, withdrawn, or eliminated. Your paralegal keeps you informed at every step.' },
@@ -198,12 +198,12 @@ export default function TicketsPage() {
         <div style={{ marginBottom: '16px' }}>
           <Link href="/" style={{ fontSize: '14px', color: 'rgba(232,235,240,0.4)', textDecoration: 'none', marginRight: '24px' }}>Home</Link>
           <Link href="#how-it-works" style={{ fontSize: '14px', color: 'rgba(232,235,240,0.4)', textDecoration: 'none', marginRight: '24px' }}>How it works</Link>
-          <a href="mailto:info@roadright.ca" style={{ fontSize: '14px', color: 'rgba(232,235,240,0.4)', textDecoration: 'none' }}>Contact</a>
+          <a href="mailto:info@guidlaw.ca" style={{ fontSize: '14px', color: 'rgba(232,235,240,0.4)', textDecoration: 'none' }}>Contact</a>
         </div>
         <p style={{ fontSize: '11px', color: 'rgba(232,235,240,0.2)', lineHeight: '1.7', maxWidth: '700px', margin: '0 auto 12px' }}>
-          <strong style={{ color: 'rgba(232,235,240,0.3)' }}>Legal Disclaimer:</strong> RoadRight is a technology platform that connects users with independently licensed paralegals and lawyers regulated by the Law Society of Ontario. RoadRight is not a law firm. Ticket defence services are provided by independent LSO-licensed paralegals (P1). Outcomes cannot be guaranteed. Results depend on the specific circumstances of each case. For serious criminal matters, retain independent legal counsel.
+          <strong style={{ color: 'rgba(232,235,240,0.3)' }}>Legal Disclaimer:</strong> GuidLaw is a technology platform that connects users with independently licensed paralegals and lawyers regulated by the Law Society of Ontario. GuidLaw is not a law firm. Ticket defence services are provided by independent LSO-licensed paralegals (P1). Outcomes cannot be guaranteed. Results depend on the specific circumstances of each case. For serious criminal matters, retain independent legal counsel.
         </p>
-        <p style={{ fontSize: '12px', color: 'rgba(232,235,240,0.2)' }}>© 2026 RoadRight · Ontario, Canada · All rights reserved.</p>
+        <p style={{ fontSize: '12px', color: 'rgba(232,235,240,0.2)' }}>© 2026 GuidLaw · Ontario, Canada · All rights reserved.</p>
       </footer>
 
     </div>

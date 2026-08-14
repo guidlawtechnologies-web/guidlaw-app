@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'
+﻿import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(req: NextRequest) {
   try {
@@ -11,8 +11,8 @@ export async function POST(req: NextRequest) {
         'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'RoadRight <notifications@roadright.ca>',
-        to: 'info@roadright.ca',
+        from: 'GuidLaw <notifications@guidlaw.ca>',
+        to: 'info@guidlaw.ca',
         subject: `❓ Driver Question — ${offenceType}`,
         html: `
           <h2>A driver has a question about their quote</h2>
@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
           </blockquote>
           <br/>
           <p>Reply to this email or follow up with the driver directly.</p>
-          <p><a href="https://roadright.ca/admin/tickets">View in dashboard →</a></p>
+          <p><a href="https://guidlaw.ca/admin/tickets">View in dashboard →</a></p>
         `,
       }),
     })

@@ -1,4 +1,4 @@
-export default function DeleteAccountPage() {
+﻿export default function DeleteAccountPage() {
   return (
     <main style={{
       maxWidth: '680px',
@@ -12,13 +12,13 @@ export default function DeleteAccountPage() {
         Request Account Deletion
       </h1>
       <p style={{ color: '#64748b', marginBottom: '40px', fontSize: '14px' }}>
-        Roadright Technologies Ltd. · roadright.ca
+        GuidLaw Technologies Inc. · guidlaw.ca
       </p>
 
       <p>
-        You may request the deletion of your RoadRight account and associated personal data at any time.
+        You may request the deletion of your GuidLaw account and associated personal data at any time.
         To submit a deletion request, send an email to{' '}
-        <a href="mailto:info@roadright.ca" style={{ color: '#3b82f6' }}>info@roadright.ca</a>{' '}
+        <a href="mailto:info@guidlaw.ca" style={{ color: '#3b82f6' }}>info@guidlaw.ca</a>{' '}
         with the subject line <strong style={{ color: '#ffffff' }}>Account Deletion Request</strong> and
         include the email address associated with your account.
       </p>
@@ -68,7 +68,7 @@ export default function DeleteAccountPage() {
         color: '#94a3b8',
       }}>
         For questions about your data or this process, contact our Privacy Officer at{' '}
-        <a href="mailto:info@roadright.ca" style={{ color: '#3b82f6' }}>info@roadright.ca</a>.
+        <a href="mailto:info@guidlaw.ca" style={{ color: '#3b82f6' }}>info@guidlaw.ca</a>.
         For more information on how we handle your data, see our{' '}
         <a href="/privacy" style={{ color: '#3b82f6' }}>Privacy Policy</a>.
       </div>

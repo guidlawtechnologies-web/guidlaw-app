@@ -140,7 +140,7 @@ export default function AdminPage() {
         {/* Header */}
         <div style={{ marginBottom: '28px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: '12px' }}>
           <div>
-            <p style={{ fontSize: '11px', fontWeight: '600', letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: 'rgba(232,235,240,0.35)', marginBottom: '4px' }}>RoadRight</p>
+            <p style={{ fontSize: '11px', fontWeight: '600', letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: 'rgba(232,235,240,0.35)', marginBottom: '4px' }}>GuidLaw</p>
             <h1 style={{ fontSize: '26px', fontWeight: '800', letterSpacing: '-0.3px' }}>Admin Dashboard</h1>
           </div>
           <p style={{ fontSize: '12px', color: 'rgba(232,235,240,0.3)' }}>

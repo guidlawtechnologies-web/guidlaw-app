@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'
+﻿import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 
 const supabase = createClient(
@@ -94,7 +94,7 @@ export async function POST(req: NextRequest) {
             'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
           },
           body: JSON.stringify({
-            from: 'RoadRight <notifications@roadright.ca>',
+            from: 'GuidLaw <notifications@guidlaw.ca>',
             to: paralegal.email,
             subject: `Ticket Auto-Assigned to You — ${offenceType}`,
             html: `
@@ -106,9 +106,9 @@ export async function POST(req: NextRequest) {
               ${photoUrl ? `<p><strong>Ticket Photo:</strong> <a href="${photoUrl}">View</a></p>` : ''}
               ${ticketNumber ? `<p><strong>Ticket #:</strong> ${ticketNumber}</p>` : ''}
               <br/>
-              <p><a href="https://roadright.ca/lawyer" style="background:#2563EB;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;display:inline-block;font-weight:600;">Review &amp; Submit Quote →</a></p>
+              <p><a href="https://guidlaw.ca/lawyer" style="background:#2563EB;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;display:inline-block;font-weight:600;">Review &amp; Submit Quote →</a></p>
               <br/>
-              <p>— RoadRight Team</p>
+              <p>— GuidLaw Team</p>
             `,
           }),
         }).catch(() => {})
@@ -116,7 +116,7 @@ export async function POST(req: NextRequest) {
     }
     // ────────────────────────────────────────────────────────────────────────
 
-    // Email notification to RoadRight admin
+    // Email notification to GuidLaw admin
     await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -124,8 +124,8 @@ export async function POST(req: NextRequest) {
         'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'RoadRight <notifications@roadright.ca>',
-        to: 'info@roadright.ca',
+        from: 'GuidLaw <notifications@guidlaw.ca>',
+        to: 'info@guidlaw.ca',
         subject: `New Ticket Submitted — ${offenceType}${autoAssignedParalegal ? ' (Auto-Assigned)' : ''}`,
         html: `
           <h2>New Ticket Submission</h2>
@@ -139,7 +139,7 @@ export async function POST(req: NextRequest) {
           <p><strong>Photo:</strong> ${photoUrl ? `<a href="${photoUrl}">View photo</a>` : 'None'}</p>
           <p><strong>Ticket ID:</strong> ${ticket.id}</p>
           <br/>
-          <p><a href="https://roadright.ca/admin/tickets">Review in dashboard →</a></p>
+          <p><a href="https://guidlaw.ca/admin/tickets">Review in dashboard →</a></p>
         `,
       }),
     }).catch(() => {}) // Don't block if email fails

@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'
+﻿import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 
 const supabase = createClient(
@@ -45,8 +45,8 @@ export async function POST(req: NextRequest) {
         'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'RoadRight <notifications@roadright.ca>',
-        to: 'info@roadright.ca',
+        from: 'GuidLaw <notifications@guidlaw.ca>',
+        to: 'info@guidlaw.ca',
         subject: `Quote ${response === 'accepted' ? '✅ Accepted' : '❌ Declined'} — ${ticket.offence_type}`,
         html: `
           <h2>Quote ${response === 'accepted' ? 'Accepted' : 'Declined'}</h2>
@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
           <p><strong>Quote Amount:</strong> $${ticket.quote_amount} CAD</p>
           ${ticket.quote_note ? `<p><strong>Quote Note:</strong> ${ticket.quote_note}</p>` : ''}
           <br/>
-          <p><a href="https://roadright.ca/admin/tickets">View in dashboard →</a></p>
+          <p><a href="https://guidlaw.ca/admin/tickets">View in dashboard →</a></p>
         `,
       }),
     }).catch(() => {})

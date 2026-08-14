@@ -1,4 +1,4 @@
-export default function PrivacyPolicy() {
+﻿export default function PrivacyPolicy() {
   const h2 = {
     fontSize: '22px',
     fontWeight: 600,
@@ -60,10 +60,10 @@ export default function PrivacyPolicy() {
 
       {/* Intro */}
       <p>
-        Roadright Technologies Ltd. ("<strong style={strong}>RoadRight</strong>", "we", "us", or "our") is a Canadian
+        GuidLaw Technologies Inc. ("<strong style={strong}>GuidLaw</strong>", "we", "us", or "our") is a Canadian
         corporation incorporated under the laws of Ontario. We operate a platform that connects drivers with
         licensed paralegals and lawyers regulated by the Law Society of Ontario (LSO) via our website at{' '}
-        <a href="https://roadright.ca" style={link}>roadright.ca</a> and our mobile application
+        <a href="https://guidlaw.ca" style={link}>guidlaw.ca</a> and our mobile application
         (collectively, the "<strong style={strong}>Service</strong>").
       </p>
       <p style={{ marginTop: '16px' }}>
@@ -83,11 +83,11 @@ export default function PrivacyPolicy() {
       {/* Important Notice */}
       <div style={warn}>
         <strong style={{ color: '#fbbf24' }}>Important — Legal Privilege Notice:</strong> Communications
-        facilitated through RoadRight between you and a participating paralegal or lawyer are intended to
+        facilitated through GuidLaw between you and a participating paralegal or lawyer are intended to
         provide immediate legal guidance. However, depending on the circumstances, the short-form nature of
         a traffic stop consultation may limit the scope of solicitor-client or paralegal-client privilege
-        that would otherwise apply. RoadRight is a technology platform, not a law firm. The privilege, if
-        any, belongs to you and your legal professional — not to RoadRight. You should treat communications
+        that would otherwise apply. GuidLaw is a technology platform, not a law firm. The privilege, if
+        any, belongs to you and your legal professional — not to GuidLaw. You should treat communications
         through the Service as potentially discoverable (meaning it could be obtained by opposing parties
         in legal proceedings) and consult independent legal counsel for matters requiring full privilege
         protection.
@@ -96,10 +96,10 @@ export default function PrivacyPolicy() {
       {/* 1 */}
       <h2 style={h2}>1. Accountability</h2>
       <p>
-        Roadright Technologies Ltd. is accountable for all personal information under its control, including
+        GuidLaw Technologies Inc. is accountable for all personal information under its control, including
         information transferred to third-party service providers for processing. Our privacy officer is
         responsible for our compliance with this policy and PIPEDA. To reach our privacy officer, contact{' '}
-        <a href="mailto:info@roadright.ca" style={link}>info@roadright.ca</a>.
+        <a href="mailto:info@guidlaw.ca" style={link}>info@guidlaw.ca</a>.
       </p>
 
       {/* 2 */}
@@ -114,7 +114,7 @@ export default function PrivacyPolicy() {
         <li><strong style={strong}>Account information:</strong> Full name and email address, required to create and manage your account.</li>
         <li><strong style={strong}>Phone number:</strong> Optional, used for account verification and case notifications.</li>
         <li><strong style={strong}>Traffic ticket information:</strong> Ticket photos, offence details, court dates, and related documentation you submit when requesting paralegal services. Ticket photos typically contain sensitive government identifiers including your <strong style={strong}>driver's licence number, home address, date of birth, and vehicle plate number</strong>. This information is treated with heightened care, shared only with the paralegal or lawyer handling your matter, and is never used for any purpose other than your legal representation.</li>
-        <li><strong style={strong}>Payment information:</strong> Processed exclusively by Stripe, Inc. (a PCI-DSS Level 1 certified processor). RoadRight never receives, stores, or has access to your full card number, CVV, or banking credentials.</li>
+        <li><strong style={strong}>Payment information:</strong> Processed exclusively by Stripe, Inc. (a PCI-DSS Level 1 certified processor). GuidLaw never receives, stores, or has access to your full card number, CVV, or banking credentials.</li>
         <li><strong style={strong}>Communications:</strong> Messages, support requests, and correspondence you send us through the Service or by email.</li>
       </ul>
 
@@ -126,7 +126,7 @@ export default function PrivacyPolicy() {
       </div>
       <ul style={ul}>
         <li><strong style={strong}>Ownership:</strong> All video and audio recordings of your consultations belong solely to you.</li>
-        <li><strong style={strong}>Access:</strong> RoadRight does not access, view, listen to, review, download, or retrieve your recordings for any purpose — including analytics, product improvement, advertising, or AI training. Recordings are accessible only through your account.</li>
+        <li><strong style={strong}>Access:</strong> GuidLaw does not access, view, listen to, review, download, or retrieve your recordings for any purpose — including analytics, product improvement, advertising, or AI training. Recordings are accessible only through your account.</li>
         <li><strong style={strong}>Paralegal access:</strong> The paralegal or lawyer connected to your session cannot access recordings after the session ends unless you independently share them.</li>
         <li><strong style={strong}>Retention:</strong> Recordings are stored in encrypted cloud storage for up to 90 days from the date of the session, after which they are automatically and permanently deleted. You are strongly encouraged to download recordings to your own device immediately after a session.</li>
         <li><strong style={strong}>Consent:</strong> By initiating a video consultation through the Service, you consent to the recording of that session and acknowledge that all parties to the call have been informed of, and have consented to, the recording.</li>
@@ -195,7 +195,7 @@ export default function PrivacyPolicy() {
           and appear in proceedings on your behalf. This necessarily involves disclosing your name, ticket
           details, and relevant case information to those bodies as a normal and expected part of the legal
           process. These disclosures are made at your direction and for your benefit. Court filings become
-          part of the public record of those proceedings, which is outside RoadRight's control.
+          part of the public record of those proceedings, which is outside GuidLaw's control.
         </li>
         <li>
           <strong style={strong}>Legal obligations:</strong> We may disclose information if required by a
@@ -207,7 +207,7 @@ export default function PrivacyPolicy() {
           grounds to believe disclosure is necessary to prevent imminent harm to you or another person.
         </li>
         <li>
-          <strong style={strong}>Business transfer:</strong> If RoadRight is acquired, merged, or undergoes
+          <strong style={strong}>Business transfer:</strong> If GuidLaw is acquired, merged, or undergoes
           a restructuring, your information may be transferred to the successor entity. You will be notified
           of any such change and given the opportunity to delete your account before the transfer.
         </li>
@@ -298,7 +298,7 @@ export default function PrivacyPolicy() {
       </p>
       <p style={{ marginTop: '12px' }}>
         To exercise any of the above rights, submit a written request to{' '}
-        <a href="mailto:info@roadright.ca" style={link}>info@roadright.ca</a>. We will respond within{' '}
+        <a href="mailto:info@guidlaw.ca" style={link}>info@guidlaw.ca</a>. We will respond within{' '}
         <strong style={strong}>30 days</strong> of receiving your request. We may require identity
         verification before processing your request.
       </p>
@@ -309,17 +309,17 @@ export default function PrivacyPolicy() {
         The Service is intended for individuals 18 years of age and older. We do not knowingly collect
         personal information from anyone under the age of 18. If you believe a minor has provided us with
         personal information, contact us at{' '}
-        <a href="mailto:info@roadright.ca" style={link}>info@roadright.ca</a> and we will delete it
+        <a href="mailto:info@guidlaw.ca" style={link}>info@guidlaw.ca</a> and we will delete it
         promptly.
       </p>
 
       {/* 11 */}
       <h2 style={h2}>11. Paralegal and Lawyer Confidentiality</h2>
       <p>
-        Paralegals and lawyers who use the RoadRight platform to provide services to drivers are
+        Paralegals and lawyers who use the GuidLaw platform to provide services to drivers are
         independently regulated by the Law Society of Ontario and are bound by the LSO's Paralegal Rules
         of Conduct and Rules of Professional Conduct, respectively. These rules impose strict duties of
-        confidentiality that exist independently of this Privacy Policy. RoadRight requires all
+        confidentiality that exist independently of this Privacy Policy. GuidLaw requires all
         participating legal professionals to enter into agreements that reinforce these obligations in the
         context of our platform.
       </p>
@@ -348,9 +348,9 @@ export default function PrivacyPolicy() {
       </p>
       <p style={{ marginTop: '16px', lineHeight: '2' }}>
         <strong style={strong}>Privacy Officer</strong><br />
-        Roadright Technologies Ltd.<br />
-        Email: <a href="mailto:info@roadright.ca" style={link}>info@roadright.ca</a><br />
-        Website: <a href="https://roadright.ca" style={link}>roadright.ca</a><br />
+        GuidLaw Technologies Inc.<br />
+        Email: <a href="mailto:info@guidlaw.ca" style={link}>info@guidlaw.ca</a><br />
+        Website: <a href="https://guidlaw.ca" style={link}>guidlaw.ca</a><br />
         Ontario, Canada
       </p>
       <p style={{ marginTop: '16px' }}>

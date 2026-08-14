@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
@@ -102,7 +102,7 @@ export default function SubmitTicketPage() {
           </svg>
         </Link>
         <div>
-          <p className="label" style={{ marginBottom: '1px' }}>RoadRight</p>
+          <p className="label" style={{ marginBottom: '1px' }}>GuidLaw</p>
           <p style={{ fontSize: '16px', fontWeight: '600' }}>Fight a Ticket</p>
         </div>
       </div>

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState } from 'react'
 import { supabase } from '@/lib/supabase'
 import Link from 'next/link'
@@ -50,7 +50,7 @@ export default function SignupPage() {
         password,
         options: {
           data: { full_name: fullName, role },
-          emailRedirectTo: 'https://roadright.ca/auth/callback',
+          emailRedirectTo: 'https://guidlaw.ca/auth/callback',
         }
       })
 
@@ -74,7 +74,7 @@ export default function SignupPage() {
         await supabase.auth.resend({
           type: 'signup',
           email,
-          options: { emailRedirectTo: 'https://roadright.ca/auth/callback' }
+          options: { emailRedirectTo: 'https://guidlaw.ca/auth/callback' }
         })
         setEmailSent(true)
         setLoading(false)
