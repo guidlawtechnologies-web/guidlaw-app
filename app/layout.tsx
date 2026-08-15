@@ -5,7 +5,11 @@ export const metadata: Metadata = {
   title: "GuidLaw — Fight Your Ticket. Hire a Paralegal.",
   description: "Canada's #1 platform to fight traffic tickets. Browse licensed Ontario paralegals, submit your ticket, and let an expert handle the rest.",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
 };
 
