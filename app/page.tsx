@@ -362,7 +362,7 @@ export default function Home() {
           >
             Got a ticket?
             <br />
-            <span style={{ color: "var(--accent)" }}>We&apos;ll fight it for you.</span>
+            <span style={{ color: "#0d9488" }}>We&apos;ll fight it for you.</span>
           </h1>
 
           <p
