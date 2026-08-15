@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { GuidLawLogo } from "@/components/GuidLawLogo";
 import { IconBadge } from "@/components/Icon";
+import { FAQS, faqJsonLd } from "@/content/faqs";
+import { POSTS } from "@/content/posts";
 
 // ── Paralegal sample data (will come from Supabase later) ──────────────────
 const PARALEGALS = [
@@ -293,6 +295,9 @@ export default function Home() {
 
   return (
     <div style={{ minHeight: "100vh", background: "white" }}>
+      {/* FAQPage schema — lets Google surface these answers directly in search */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+
       {/* ── NAV ──────────────────────────────────────────────────────── */}
       <nav
         style={{
@@ -315,20 +320,26 @@ export default function Home() {
         >
           <GuidLawLogo size={38} variant="dark" />
 
-          <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
-            <Link href="/how-it-works" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
+          <div className="nav-links" style={{ display: "flex", gap: 28, alignItems: "center" }}>
+            <a href="#how-it-works" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
               How It Works
+            </a>
+            <a href="#about" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
+              About
+            </a>
+            <Link href="/blog" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
+              Blog
             </Link>
-            <Link href="/paralegals/join" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
-              For Paralegals
-            </Link>
+            <a href="#faq" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
+              FAQ
+            </a>
           </div>
 
-          <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-            <Link href="/login" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
-              Sign In
-            </Link>
-            <Link href="/submit" className="btn-primary" style={{ padding: "9px 20px", fontSize: 14 }}>
+          <div style={{ display: "flex", gap: 14, alignItems: "center" }}>
+            <a href="tel:+14379827146" className="nav-phone" style={{ color: "rgba(255,255,255,0.85)", textDecoration: "none", fontSize: 14, fontWeight: 600 }}>
+              +1 437 982 7146
+            </a>
+            <Link href="/submit-ticket" className="btn-primary" style={{ padding: "9px 20px", fontSize: 14 }}>
               Fight My Ticket
             </Link>
           </div>
@@ -579,7 +590,7 @@ export default function Home() {
 
 
       {/* ── PRACTICE AREAS ──────────────────────────────────────────── */}
-      <section className="section">
+      <section id="practice-areas" className="section">
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <div style={{ fontSize: 12, fontWeight: 600, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 10 }}>
@@ -687,7 +698,7 @@ export default function Home() {
       </section>
 
       {/* ── HOW IT WORKS ─────────────────────────────────────────────── */}
-      <section className="section-gray">
+      <section id="how-it-works" className="section-gray">
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: 56 }}>
             <div style={{ fontSize: 12, fontWeight: 600, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 10 }}>
@@ -735,6 +746,96 @@ export default function Home() {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* ── ABOUT ─────────────────────────────────────────────────────── */}
+      <section id="about" style={{ background: "#faf8f2", borderTop: "1px solid #eae7dd", borderBottom: "1px solid #eae7dd", padding: "80px 24px" }}>
+        <div className="container">
+          <div className="about-grid" style={{ display: "grid", gridTemplateColumns: "1.35fr 1fr", gap: 56, alignItems: "center" }}>
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 26, fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", fontWeight: 500 }}>
+                <span style={{ width: 36, height: 1, background: "#0d9488", display: "inline-block" }} />
+                <span style={{ color: "#0d9488" }}>Who we are</span>
+              </div>
+
+              <h2 className="gl-serif" style={{ fontSize: "clamp(30px, 4.4vw, 44px)", fontWeight: 500, color: "#0F172A", letterSpacing: "-1.2px", lineHeight: 1.05, marginBottom: 22 }}>
+                Built because the system<br />counts on you giving up.
+              </h2>
+
+              <p style={{ fontSize: 16.5, color: "#4a4a44", lineHeight: 1.75, marginBottom: 16, maxWidth: 520 }}>
+                Most people pay their ticket. Not because they&apos;re guilty — because fighting it
+                means a day off work, a courthouse you&apos;ve never been to, and rules nobody
+                explained. The system runs on the assumption you won&apos;t bother.
+              </p>
+              <p style={{ fontSize: 16.5, color: "#4a4a44", lineHeight: 1.75, marginBottom: 30, maxWidth: 520 }}>
+                GuidLaw removes every one of those excuses. Send a photo of your ticket. We assign an
+                LSO-licensed paralegal, they handle the filings and the negotiation, and they appear
+                in court so you don&apos;t have to.
+              </p>
+
+              <div style={{ display: "flex", alignItems: "center", gap: 14, paddingTop: 26, borderTop: "1px solid #e5e1d5" }}>
+                <div style={{ width: 48, height: 48, borderRadius: "50%", background: "#0d9488", color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 600, fontSize: 15, flexShrink: 0 }}>
+                  HS
+                </div>
+                <div>
+                  <div style={{ fontWeight: 700, color: "#0F172A", fontSize: 15 }}>Hassan Shah</div>
+                  <div style={{ fontSize: 13.5, color: "#86867c" }}>Founder · GuidLaw Technologies Inc.</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact card */}
+            <div style={{ background: "white", border: "1px solid #eae7dd", borderRadius: 16, padding: "32px 28px" }}>
+              <div style={{ fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "#86867c", fontWeight: 600, marginBottom: 18 }}>
+                Talk to a person
+              </div>
+
+              <a href="tel:+14379827146" style={{ textDecoration: "none", display: "block", marginBottom: 6 }}>
+                <div className="gl-serif" style={{ fontSize: "clamp(26px, 3vw, 32px)", color: "#0F172A", letterSpacing: "-0.5px", lineHeight: 1.15 }}>
+                  +1 437 982 7146
+                </div>
+              </a>
+              <p style={{ fontSize: 14, color: "#86867c", lineHeight: 1.6, marginBottom: 22 }}>
+                Call or text. If you&apos;re holding a ticket and don&apos;t know what it means, this
+                is the fastest way to find out.
+              </p>
+
+              <a
+                href="mailto:info@guidlaw.ca"
+                style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14.5, color: "#0F172A", textDecoration: "none", paddingBottom: 18, marginBottom: 18, borderBottom: "1px solid #f0ece0", fontWeight: 500 }}
+              >
+                info@guidlaw.ca
+              </a>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: 11 }}>
+                {[
+                  "LSO-licensed paralegals",
+                  "All Ontario courts",
+                  "Flat fee, quoted upfront",
+                  "You never attend court",
+                ].map((item) => (
+                  <div key={item} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, color: "#4a4a44" }}>
+                    <span style={{ color: "#0d9488", fontWeight: 700, flexShrink: 0 }}>✓</span>
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              <Link
+                href="/submit-ticket"
+                style={{ display: "block", textAlign: "center", background: "#0F172A", color: "white", fontSize: 14.5, fontWeight: 600, padding: "14px", borderRadius: 8, textDecoration: "none", marginTop: 24 }}
+              >
+                Get a free review
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <style>{`
+          @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+          }
+        `}</style>
       </section>
 
       {/* ── COMPARISON TABLE ──────────────────────────────────────────── */}
@@ -869,6 +970,118 @@ export default function Home() {
                   </span>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ───────────────────────────────────────────────────────── */}
+      <section id="faq" className="section" style={{ background: "white" }}>
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: 44 }}>
+            <div style={{ fontSize: 12, fontWeight: 600, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 10 }}>
+              Questions
+            </div>
+            <h2 className="gl-serif" style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 500, color: "#0F172A", letterSpacing: "-1px" }}>
+              Straight answers
+            </h2>
+          </div>
+
+          <div style={{ maxWidth: 720, margin: "0 auto" }}>
+            {FAQS.map((f, i) => (
+              <details
+                key={f.q}
+                className="faq-item"
+                style={{ borderBottom: "1px solid var(--border)", paddingBottom: 2 }}
+                open={i === 0}
+              >
+                <summary
+                  style={{
+                    cursor: "pointer",
+                    listStyle: "none",
+                    padding: "20px 0",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    gap: 20,
+                    fontSize: 16.5,
+                    fontWeight: 600,
+                    color: "#0F172A",
+                  }}
+                >
+                  <span>{f.q}</span>
+                  <span className="faq-mark" style={{ color: "#0d9488", fontSize: 22, flexShrink: 0, lineHeight: 1, fontWeight: 400 }}>
+                    +
+                  </span>
+                </summary>
+                <p style={{ fontSize: 15.5, color: "var(--text-dim)", lineHeight: 1.8, padding: "0 0 22px", margin: 0, maxWidth: 640 }}>
+                  {f.a}
+                </p>
+              </details>
+            ))}
+          </div>
+
+          <div style={{ textAlign: "center", marginTop: 40 }}>
+            <p style={{ fontSize: 15, color: "var(--text-dim)", marginBottom: 18 }}>
+              Still not sure where you stand?
+            </p>
+            <a
+              href="tel:+14379827146"
+              className="btn-primary"
+              style={{ padding: "14px 32px", fontSize: 15 }}
+            >
+              Call +1 437 982 7146
+            </a>
+          </div>
+        </div>
+
+        <style>{`
+          .faq-item summary::-webkit-details-marker { display: none; }
+          .faq-item[open] .faq-mark { transform: rotate(45deg); }
+          .faq-item .faq-mark { transition: transform 0.18s ease; display: inline-block; }
+          .faq-item summary:hover { color: #0d9488; }
+        `}</style>
+      </section>
+
+      {/* ── BLOG ──────────────────────────────────────────────────────── */}
+      <section className="section-gray">
+        <div className="container">
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 24, marginBottom: 36, flexWrap: "wrap" }}>
+            <div>
+              <div style={{ fontSize: 12, fontWeight: 600, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 10 }}>
+                Guides
+              </div>
+              <h2 className="gl-serif" style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 500, color: "#0F172A", letterSpacing: "-1px", marginBottom: 8 }}>
+                Know what you&apos;re charged with
+              </h2>
+              <p style={{ fontSize: 15.5, color: "var(--text-dim)", maxWidth: 470, lineHeight: 1.65 }}>
+                Plain explanations of the Highway Traffic Act charges Ontario drivers actually get.
+              </p>
+            </div>
+            <Link href="/blog" style={{ fontSize: 14.5, fontWeight: 600, color: "#0d9488", textDecoration: "none", whiteSpace: "nowrap" }}>
+              All guides →
+            </Link>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(270px, 1fr))", gap: 18 }}>
+            {POSTS.slice(0, 3).map((p) => (
+              <Link key={p.slug} href={`/blog/${p.slug}`} style={{ textDecoration: "none" }}>
+                <article className="card" style={{ padding: "24px 22px", height: "100%", display: "flex", flexDirection: "column", background: "white" }}>
+                  <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 14 }}>
+                    <span className="pill pill-blue" style={{ fontSize: 11 }}>{p.category}</span>
+                  </div>
+                  <h3 className="gl-serif" style={{ fontSize: 20, fontWeight: 500, color: "#0F172A", lineHeight: 1.22, letterSpacing: "-0.4px", marginBottom: 10 }}>
+                    {p.title}
+                  </h3>
+                  <p style={{ fontSize: 14, color: "var(--text-dim)", lineHeight: 1.65, marginBottom: 18, flex: 1 }}>
+                    {p.excerpt}
+                  </p>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 14, borderTop: "1px solid var(--border)" }}>
+                    <span style={{ fontSize: 12.5, color: "var(--text-muted)" }}>{p.section}</span>
+                    <span style={{ fontSize: 12.5, fontWeight: 600, color: "#0d9488" }}>{p.readTime}</span>
+                  </div>
+                </article>
+              </Link>
             ))}
           </div>
         </div>
