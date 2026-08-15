@@ -776,12 +776,12 @@ export default function Home() {
       </section>
 
       {/* ── FOOTER ────────────────────────────────────────────────────── */}
-      <footer style={{ background: "#F8F9FB", borderTop: "1px solid var(--border)", padding: "48px 24px 32px" }}>
+      <footer style={{ background: "var(--navy)", padding: "48px 24px 32px" }}>
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 40, marginBottom: 40 }}>
             <div>
-              <GuidLawLogo size={32} variant="light" href="/" />
-              <p style={{ fontSize: 13, color: "var(--text-dim)", lineHeight: 1.6, marginTop: 12 }}>
+              <GuidLawLogo size={32} variant="dark" href="/" />
+              <p style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", lineHeight: 1.6, marginTop: 12 }}>
                 Ontario&apos;s traffic ticket defence team. Licensed. Trusted.
               </p>
             </div>
@@ -791,24 +791,24 @@ export default function Home() {
               { title: "Company", links: ["About Us", "Blog", "Privacy Policy", "Terms of Service"] },
             ].map((col) => (
               <div key={col.title}>
-                <div style={{ fontWeight: 600, fontSize: 13, color: "var(--text)", marginBottom: 14 }}>{col.title}</div>
+                <div style={{ fontWeight: 600, fontSize: 13, color: "rgba(255,255,255,0.9)", marginBottom: 14 }}>{col.title}</div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                   {col.links.map((l) => (
-                    <Link key={l} href="#" style={{ fontSize: 13, color: "var(--text-dim)", textDecoration: "none" }}>{l}</Link>
+                    <Link key={l} href="#" style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>{l}</Link>
                   ))}
                 </div>
               </div>
             ))}
           </div>
 
-          <div style={{ borderTop: "1px solid var(--border)", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-            <p style={{ fontSize: 12, color: "var(--text-muted)" }}>
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+            <p style={{ fontSize: 12, color: "rgba(255,255,255,0.3)" }}>
               © 2026 GuidLaw Technologies Inc. (1001699754 Ontario Inc.) · Mississauga, ON ·{" "}
-              <Link href="mailto:guidlawtechnologies@gmail.com" style={{ color: "var(--text-muted)" }}>
+              <Link href="mailto:guidlawtechnologies@gmail.com" style={{ color: "rgba(255,255,255,0.3)" }}>
                 guidlawtechnologies@gmail.com
               </Link>
             </p>
-            <p style={{ fontSize: 12, color: "var(--text-muted)" }}>
+            <p style={{ fontSize: 12, color: "rgba(255,255,255,0.3)" }}>
               GuidLaw is a technology platform, not a law firm. Paralegals are licensed with the Law Society of Ontario.
             </p>
           </div>
