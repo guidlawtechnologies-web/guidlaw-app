@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { GuidLawLogo } from "@/components/GuidLawLogo";
+import { IconBadge } from "@/components/Icon";
 
 // ── Paralegal sample data (will come from Supabase later) ──────────────────
 const PARALEGALS = [
@@ -593,16 +594,16 @@ export default function Home() {
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 16 }}>
-            {[
-              { icon: "⚡", title: "Speeding", desc: "Minor to major speeding charges on any Ontario road." },
-              { icon: "🚨", title: "Stunt Driving", desc: "50+ km/h over the limit. Immediate impoundment. We've beaten it." },
-              { icon: "🔴", title: "Careless Driving", desc: "6 demerit points and major insurance impact. Fight it seriously." },
-              { icon: "🚦", title: "Red Light & Stop Sign", desc: "Camera-issued or officer-issued. Both are contestable." },
-              { icon: "📱", title: "Distracted Driving", desc: "Cellphone charges — 3 demerit points and steep fines." },
-              { icon: "🛡️", title: "No Insurance", desc: "Minimum $5,000 fine. One of the most costly HTA violations." },
-              { icon: "🪪", title: "Suspended Licence", desc: "Serious penalties. Proper legal defence matters here." },
-              { icon: "🔀", title: "All HTA Violations", desc: "Lane changes, following too close, failing to yield, and more." },
-            ].map((t) => (
+            {([
+              { icon: "speeding", title: "Speeding", desc: "Minor to major speeding charges on any Ontario road." },
+              { icon: "stunt", title: "Stunt Driving", desc: "50+ km/h over the limit. Immediate impoundment. We've beaten it." },
+              { icon: "careless", title: "Careless Driving", desc: "6 demerit points and major insurance impact. Fight it seriously." },
+              { icon: "signal", title: "Red Light & Stop Sign", desc: "Camera-issued or officer-issued. Both are contestable." },
+              { icon: "phone", title: "Distracted Driving", desc: "Cellphone charges — 3 demerit points and steep fines." },
+              { icon: "shield", title: "No Insurance", desc: "Minimum $5,000 fine. One of the most costly HTA violations." },
+              { icon: "id-card", title: "Suspended Licence", desc: "Serious penalties. Proper legal defence matters here." },
+              { icon: "shuffle", title: "All HTA Violations", desc: "Lane changes, following too close, failing to yield, and more." },
+            ] as const).map((t) => (
               <div
                 key={t.title}
                 style={{
@@ -613,7 +614,7 @@ export default function Home() {
                   transition: "border-color 0.2s",
                 }}
               >
-                <div style={{ fontSize: 28, marginBottom: 10 }}>{t.icon}</div>
+                <div style={{ marginBottom: 14 }}><IconBadge name={t.icon} size={40} iconSize={20} /></div>
                 <div style={{ fontWeight: 700, fontSize: 15, color: "var(--text)", marginBottom: 6 }}>{t.title}</div>
                 <div style={{ fontSize: 13, color: "var(--text-dim)", lineHeight: 1.6 }}>{t.desc}</div>
               </div>
@@ -641,14 +642,14 @@ export default function Home() {
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
-            {[
-              { icon: "🆓", title: "Free Case Review", desc: "Submit your ticket and we'll review it at no charge. Know your options before you commit." },
-              { icon: "🏛️", title: "We Go to Court for You", desc: "Our paralegals make all court appearances on your behalf. You never have to take a day off." },
-              { icon: "🇨🇦", title: "Ontario-Wide Coverage", desc: "We handle tickets from Windsor to Ottawa and everywhere in between." },
-              { icon: "📜", title: "LSO-Licensed Professionals", desc: "Every case is handled by a paralegal licensed with the Law Society of Ontario." },
-              { icon: "💰", title: "Flat-Rate Pricing", desc: "Know exactly what you'll pay upfront. No surprises. No hourly billing." },
-              { icon: "🏆", title: "Proven Results", desc: "Most of our cases result in a withdrawal, reduction, or dismissal." },
-            ].map((b) => (
+            {([
+              { icon: "spark", title: "Free Case Review", desc: "Submit your ticket and we'll review it at no charge. Know your options before you commit." },
+              { icon: "gavel", title: "We Go to Court for You", desc: "Our paralegals make all court appearances on your behalf. You never have to take a day off." },
+              { icon: "map-pin", title: "Ontario-Wide Coverage", desc: "We handle tickets from Windsor to Ottawa and everywhere in between." },
+              { icon: "certificate", title: "LSO-Licensed Professionals", desc: "Every case is handled by a paralegal licensed with the Law Society of Ontario." },
+              { icon: "tag", title: "Flat-Rate Pricing", desc: "Know exactly what you'll pay upfront. No surprises. No hourly billing." },
+              { icon: "trophy", title: "Proven Results", desc: "Most of our cases result in a withdrawal, reduction, or dismissal." },
+            ] as const).map((b) => (
               <div
                 key={b.title}
                 style={{
@@ -661,7 +662,7 @@ export default function Home() {
                   alignItems: "flex-start",
                 }}
               >
-                <div style={{ fontSize: 32, flexShrink: 0 }}>{b.icon}</div>
+                <IconBadge name={b.icon} size={46} iconSize={24} />
                 <div>
                   <div style={{ fontWeight: 700, fontSize: 16, color: "var(--text)", marginBottom: 6 }}>{b.title}</div>
                   <div style={{ fontSize: 14, color: "var(--text-dim)", lineHeight: 1.6 }}>{b.desc}</div>
