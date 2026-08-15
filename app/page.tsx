@@ -591,18 +591,30 @@ export default function Home() {
             <p style={{ color: "var(--text-dim)", marginTop: 10, fontSize: 16, maxWidth: 520, margin: "10px auto 0" }}>
               From minor speeding to stunt driving — our team has seen it all and knows how to beat it.
             </p>
+            <div style={{ display: "flex", justifyContent: "center", gap: 20, marginTop: 20, flexWrap: "wrap" }}>
+              {[
+                { tone: "#0d9488", label: "Standard" },
+                { tone: "#92400E", label: "Serious" },
+                { tone: "#991B1B", label: "Most severe" },
+              ].map((l) => (
+                <div key={l.label} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "var(--text-dim)" }}>
+                  <span style={{ width: 8, height: 8, borderRadius: "50%", background: l.tone, display: "inline-block" }} />
+                  {l.label}
+                </div>
+              ))}
+            </div>
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 16 }}>
             {([
-              { icon: "speeding", title: "Speeding", desc: "Minor to major speeding charges on any Ontario road." },
-              { icon: "stunt", title: "Stunt Driving", desc: "50+ km/h over the limit. Immediate impoundment. We've beaten it." },
-              { icon: "careless", title: "Careless Driving", desc: "6 demerit points and major insurance impact. Fight it seriously." },
-              { icon: "signal", title: "Red Light & Stop Sign", desc: "Camera-issued or officer-issued. Both are contestable." },
-              { icon: "phone", title: "Distracted Driving", desc: "Cellphone charges — 3 demerit points and steep fines." },
-              { icon: "shield", title: "No Insurance", desc: "Minimum $5,000 fine. One of the most costly HTA violations." },
-              { icon: "id-card", title: "Suspended Licence", desc: "Serious penalties. Proper legal defence matters here." },
-              { icon: "shuffle", title: "All HTA Violations", desc: "Lane changes, following too close, failing to yield, and more." },
+              { icon: "speeding", tone: "teal", title: "Speeding", desc: "Minor to major speeding charges on any Ontario road." },
+              { icon: "stunt", tone: "red", title: "Stunt Driving", desc: "50+ km/h over the limit. Immediate impoundment. We've beaten it." },
+              { icon: "careless", tone: "amber", title: "Careless Driving", desc: "6 demerit points and major insurance impact. Fight it seriously." },
+              { icon: "signal", tone: "teal", title: "Red Light & Stop Sign", desc: "Camera-issued or officer-issued. Both are contestable." },
+              { icon: "phone", tone: "teal", title: "Distracted Driving", desc: "Cellphone charges — 3 demerit points and steep fines." },
+              { icon: "shield", tone: "red", title: "No Insurance", desc: "Minimum $5,000 fine. One of the most costly HTA violations." },
+              { icon: "id-card", tone: "amber", title: "Suspended Licence", desc: "Serious penalties. Proper legal defence matters here." },
+              { icon: "shuffle", tone: "teal", title: "All HTA Violations", desc: "Lane changes, following too close, failing to yield, and more." },
             ] as const).map((t) => (
               <div
                 key={t.title}
@@ -614,7 +626,7 @@ export default function Home() {
                   transition: "border-color 0.2s",
                 }}
               >
-                <div style={{ marginBottom: 14 }}><IconBadge name={t.icon} size={40} iconSize={20} /></div>
+                <div style={{ marginBottom: 14 }}><IconBadge name={t.icon} tone={t.tone} size={40} iconSize={20} /></div>
                 <div style={{ fontWeight: 700, fontSize: 15, color: "var(--text)", marginBottom: 6 }}>{t.title}</div>
                 <div style={{ fontSize: 13, color: "var(--text-dim)", lineHeight: 1.6 }}>{t.desc}</div>
               </div>
