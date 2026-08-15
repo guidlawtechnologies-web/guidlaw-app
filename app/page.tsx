@@ -345,7 +345,7 @@ export default function Home() {
         <div className="container">
           <div style={{ display: "flex", justifyContent: "center", marginBottom: 24 }}>
             <span className="pill pill-blue" style={{ fontSize: 13, padding: "6px 16px" }}>
-              🇨🇦 Ontario&apos;s #1 Ticket Fighting Platform · 94% Success Rate
+              🇨🇦 Ontario&apos;s Traffic Ticket Experts · 94% Success Rate
             </span>
           </div>
 
@@ -360,21 +360,21 @@ export default function Home() {
               margin: "0 auto 20px",
             }}
           >
-            Fight your ticket.
+            Got a ticket?
             <br />
-            <span style={{ color: "var(--accent)" }}>We&apos;ll handle the rest.</span>
+            <span style={{ color: "var(--accent)" }}>We&apos;ll fight it for you.</span>
           </h1>
 
           <p
             style={{
               fontSize: "clamp(16px, 2vw, 20px)",
               color: "var(--text-dim)",
-              maxWidth: 560,
+              maxWidth: 580,
               margin: "0 auto 40px",
               lineHeight: 1.6,
             }}
           >
-            Submit your ticket, get matched with a licensed Ontario paralegal, and let an expert handle the tribunal. No court dates. No stress.
+            GuidLaw&apos;s team of LSO-licensed paralegals handles your case from start to finish — court appearances included. You don&apos;t lift a finger.
           </p>
 
           {/* Search bar */}
@@ -418,15 +418,15 @@ export default function Home() {
               className="btn-primary"
               style={{ whiteSpace: "nowrap", borderRadius: 10, padding: "12px 24px" }}
             >
-              Get Matched
+              Get a Free Review
             </Link>
           </div>
 
           <div style={{ display: "flex", justifyContent: "center", gap: 32, flexWrap: "wrap" }}>
             {[
-              { icon: "✓", text: "No upfront fees" },
-              { icon: "⚡", text: "Match in under 2 hours" },
-              { icon: "🔒", text: "Secure Ontario platform" },
+              { icon: "✓", text: "Free case review" },
+              { icon: "⚖️", text: "We appear in court for you" },
+              { icon: "🔒", text: "No win? Explore options free" },
             ].map((item) => (
               <div key={item.text} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 14, color: "var(--text-dim)" }}>
                 <span style={{ color: "#059669", fontWeight: 700 }}>{item.icon}</span>
@@ -465,41 +465,96 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FEATURED PARALEGALS ─────────────────────────────────────── */}
+      {/* ── PRACTICE AREAS ──────────────────────────────────────────── */}
       <section className="section">
         <div className="container">
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-end",
-              marginBottom: 32,
-              flexWrap: "wrap",
-              gap: 16,
-            }}
-          >
-            <div>
-              <div style={{ fontSize: 12, fontWeight: 600, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 6 }}>
-                Our Network
-              </div>
-              <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 800, color: "var(--text)", letterSpacing: "-0.5px" }}>
-                Who We Match You With
-              </h2>
-              <p style={{ color: "var(--text-dim)", marginTop: 6, fontSize: 16 }}>
-                All licensed with the Law Society of Ontario
-              </p>
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <div style={{ fontSize: 12, fontWeight: 600, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 10 }}>
+              What We Handle
             </div>
+            <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 800, color: "var(--text)", letterSpacing: "-0.5px" }}>
+              We Fight All Ontario Traffic Tickets
+            </h2>
+            <p style={{ color: "var(--text-dim)", marginTop: 10, fontSize: 16, maxWidth: 520, margin: "10px auto 0" }}>
+              From minor speeding to stunt driving — our team has seen it all and knows how to beat it.
+            </p>
           </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
-              gap: 20,
-            }}
-          >
-            {PARALEGALS.map((p) => (
-              <ParalegalCard key={p.id} p={p} />
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 16 }}>
+            {[
+              { icon: "⚡", title: "Speeding", desc: "Minor to major speeding charges on any Ontario road." },
+              { icon: "🚨", title: "Stunt Driving", desc: "50+ km/h over the limit. Immediate impoundment. We've beaten it." },
+              { icon: "🔴", title: "Careless Driving", desc: "6 demerit points and major insurance impact. Fight it seriously." },
+              { icon: "🚦", title: "Red Light & Stop Sign", desc: "Camera-issued or officer-issued. Both are contestable." },
+              { icon: "📱", title: "Distracted Driving", desc: "Cellphone charges — 3 demerit points and steep fines." },
+              { icon: "🛡️", title: "No Insurance", desc: "Minimum $5,000 fine. One of the most costly HTA violations." },
+              { icon: "🪪", title: "Suspended Licence", desc: "Serious penalties. Proper legal defence matters here." },
+              { icon: "🔀", title: "All HTA Violations", desc: "Lane changes, following too close, failing to yield, and more." },
+            ].map((t) => (
+              <div
+                key={t.title}
+                style={{
+                  background: "white",
+                  border: "1.5px solid var(--border)",
+                  borderRadius: 12,
+                  padding: "22px 20px",
+                  transition: "border-color 0.2s",
+                }}
+              >
+                <div style={{ fontSize: 28, marginBottom: 10 }}>{t.icon}</div>
+                <div style={{ fontWeight: 700, fontSize: 15, color: "var(--text)", marginBottom: 6 }}>{t.title}</div>
+                <div style={{ fontSize: 13, color: "var(--text-dim)", lineHeight: 1.6 }}>{t.desc}</div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ textAlign: "center", marginTop: 40 }}>
+            <Link href="/submit-ticket" className="btn-primary" style={{ padding: "14px 36px", fontSize: 15 }}>
+              Get a Free Case Review
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHY GUIDLAW ─────────────────────────────────────────────── */}
+      <section className="section-gray">
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <div style={{ fontSize: 12, fontWeight: 600, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 10 }}>
+              Why Us
+            </div>
+            <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 800, color: "var(--text)", letterSpacing: "-0.5px" }}>
+              Why GuidLaw?
+            </h2>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
+            {[
+              { icon: "🆓", title: "Free Case Review", desc: "Submit your ticket and we'll review it at no charge. Know your options before you commit." },
+              { icon: "🏛️", title: "We Go to Court for You", desc: "Our paralegals make all court appearances on your behalf. You never have to take a day off." },
+              { icon: "🇨🇦", title: "Ontario-Wide Coverage", desc: "We handle tickets from Windsor to Ottawa and everywhere in between." },
+              { icon: "📜", title: "LSO-Licensed Professionals", desc: "Every case is handled by a paralegal licensed with the Law Society of Ontario." },
+              { icon: "💰", title: "Flat-Rate Pricing", desc: "Know exactly what you'll pay upfront. No surprises. No hourly billing." },
+              { icon: "🏆", title: "94% Success Rate", desc: "Most of our cases result in a withdrawal, reduction, or dismissal." },
+            ].map((b) => (
+              <div
+                key={b.title}
+                style={{
+                  background: "white",
+                  border: "1.5px solid var(--border)",
+                  borderRadius: 14,
+                  padding: "28px 24px",
+                  display: "flex",
+                  gap: 18,
+                  alignItems: "flex-start",
+                }}
+              >
+                <div style={{ fontSize: 32, flexShrink: 0 }}>{b.icon}</div>
+                <div>
+                  <div style={{ fontWeight: 700, fontSize: 16, color: "var(--text)", marginBottom: 6 }}>{b.title}</div>
+                  <div style={{ fontSize: 14, color: "var(--text-dim)", lineHeight: 1.6 }}>{b.desc}</div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -611,6 +666,51 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── GOT A TICKET CTA ────────────────────────────────────────── */}
+      <section style={{ background: "#0d9488", padding: "72px 24px", textAlign: "center" }}>
+        <div className="container">
+          <h2 style={{ fontSize: "clamp(28px, 5vw, 48px)", fontWeight: 800, color: "white", letterSpacing: "-1px", marginBottom: 16 }}>
+            Got a ticket? Don&apos;t want to go to court?
+          </h2>
+          <p style={{ fontSize: 18, color: "rgba(255,255,255,0.85)", marginBottom: 36, maxWidth: 520, margin: "0 auto 36px" }}>
+            Submit your ticket online in 2 minutes. Our team takes it from there.
+          </p>
+          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+            <Link
+              href="/submit-ticket"
+              style={{
+                background: "white",
+                color: "#0d9488",
+                padding: "16px 40px",
+                borderRadius: 10,
+                fontSize: 16,
+                fontWeight: 800,
+                textDecoration: "none",
+                display: "inline-block",
+              }}
+            >
+              Get a Free Case Review
+            </Link>
+            <Link
+              href="tel:+16474177287"
+              style={{
+                background: "transparent",
+                color: "white",
+                border: "2px solid rgba(255,255,255,0.6)",
+                padding: "16px 40px",
+                borderRadius: 10,
+                fontSize: 16,
+                fontWeight: 700,
+                textDecoration: "none",
+                display: "inline-block",
+              }}
+            >
+              📞 Call Us Now
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── TESTIMONIALS ──────────────────────────────────────────────── */}
       <section className="section-gray">
         <div className="container">
@@ -670,7 +770,7 @@ export default function Home() {
                 Are you a licensed paralegal?
               </h2>
               <p style={{ color: "#94A3B8", fontSize: 16, lineHeight: 1.6, maxWidth: 500 }}>
-                Join Ontario&apos;s fastest-growing legal marketplace. Get warm leads delivered to you — no cold outreach, no overhead. Clients come to you ready to hire.
+                Join GuidLaw&apos;s network of LSO-licensed paralegals. We send you cases — no cold outreach, no marketing overhead. Focus on the work, we handle the rest.
               </p>
               <div style={{ display: "flex", gap: 24, marginTop: 20, flexWrap: "wrap" }}>
                 {["No cold outreach needed", "Paid securely through platform", "Build your reputation with reviews"].map((item) => (
@@ -711,11 +811,11 @@ export default function Home() {
                 Guid<span style={{ color: "var(--text)" }}>Law</span>
               </div>
               <p style={{ fontSize: 13, color: "var(--text-dim)", lineHeight: 1.6 }}>
-                Ontario&apos;s paralegal marketplace for traffic ticket defence. Licensed. Trusted. Fast.
+                Ontario&apos;s traffic ticket defence team. Licensed. Trusted. 94% success rate.
               </p>
             </div>
             {[
-              { title: "For Drivers", links: ["Submit a Ticket", "Browse Paralegals", "How It Works", "Pricing"] },
+              { title: "For Drivers", links: ["Submit a Ticket", "How It Works", "Practice Areas", "Pricing"] },
               { title: "For Paralegals", links: ["Apply to Join", "How It Works", "Pricing", "Support"] },
               { title: "Company", links: ["About Us", "Blog", "Privacy Policy", "Terms of Service"] },
             ].map((col) => (
