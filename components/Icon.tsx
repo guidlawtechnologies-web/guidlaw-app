@@ -58,11 +58,13 @@ const ICONS: Record<IconName, LucideIcon> = {
   trophy: Trophy,
 };
 
+// Severity tones are spaced far apart in both hue and background tint so
+// the three tiers stay distinguishable at icon size and at a glance.
 const TONES: Record<IconTone, { bg: string; border: string; fg: string }> = {
   teal: { bg: "#f0fdfa", border: "rgba(13,148,136,0.15)", fg: "#0d9488" },
-  yellow: { bg: "#FEFCE8", border: "rgba(161,98,7,0.2)", fg: "#A16207" },
-  orange: { bg: "#FFF7ED", border: "rgba(194,65,12,0.2)", fg: "#C2410C" },
-  red: { bg: "#FEF2F2", border: "rgba(153,27,27,0.15)", fg: "#991B1B" },
+  yellow: { bg: "#FEF9C3", border: "rgba(202,138,4,0.3)", fg: "#CA8A04" },
+  orange: { bg: "#FFEDD5", border: "rgba(234,88,12,0.3)", fg: "#EA580C" },
+  red: { bg: "#FEE2E2", border: "rgba(220,38,38,0.3)", fg: "#DC2626" },
 };
 
 export function Icon({

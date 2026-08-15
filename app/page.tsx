@@ -593,9 +593,9 @@ export default function Home() {
             </p>
             <div style={{ display: "flex", justifyContent: "center", gap: 20, marginTop: 20, flexWrap: "wrap" }}>
               {[
-                { tone: "#A16207", label: "Standard" },
-                { tone: "#C2410C", label: "Serious" },
-                { tone: "#991B1B", label: "Most severe" },
+                { tone: "#CA8A04", label: "Standard" },
+                { tone: "#EA580C", label: "Serious" },
+                { tone: "#DC2626", label: "Most severe" },
               ].map((l) => (
                 <div key={l.label} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "var(--text-dim)" }}>
                   <span style={{ width: 8, height: 8, borderRadius: "50%", background: l.tone, display: "inline-block" }} />
