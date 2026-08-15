@@ -7,9 +7,9 @@
   --bg-card:      #FFFFFF;
   --border:       #E5E7EB;
   --border-hover: #D1D5DB;
-  --accent:       #1B4FD8;
-  --accent-light: #EEF2FF;
-  --accent-hover: #1640C0;
+  --accent:       #0d9488;
+  --accent-light: #f0fdfa;
+  --accent-hover: #0f766e;
   --safe:         #059669;
   --danger:       #DC2626;
   --text:         #111827;
@@ -108,7 +108,7 @@ html, body {
   outline: none;
   transition: border-color 0.2s;
 }
-.input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(27,79,216,0.08); }
+.input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(13,148,136,0.12); }
 .input::placeholder { color: var(--text-muted); }
 
 /* ── Card ── */
@@ -134,7 +134,7 @@ html, body {
   padding: 4px 12px; border-radius: 100px;
   font-size: 12px; font-weight: 500;
 }
-.pill-blue  { background: #EEF2FF; color: #3730A3; }
+.pill-blue  { background: #f0fdfa; color: #0f766e; }
 .pill-green { background: #ECFDF5; color: #065F46; }
 .pill-red   { background: #FEF2F2; color: #991B1B; }
 .pill-amber { background: #FFFBEB; color: #92400E; }
