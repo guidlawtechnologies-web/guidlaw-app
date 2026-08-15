@@ -1,6 +1,6 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
 
-const CACHE = 'roadright-v1';
+const CACHE = 'guidlaw-v1';
 const OFFLINE_PAGE = '/offline.html';
 
 self.addEventListener('install', (event) => {
@@ -29,7 +29,7 @@ self.addEventListener('fetch', (event) => {
 
 self.addEventListener('push', function(event) {
   const data = event.data ? event.data.json() : {}
-  const title = data.title || 'RoadRight'
+  const title = data.title || 'GuidLaw'
   const options = {
     body: data.body || 'A driver needs your help.',
     icon: '/icon-192.png',

@@ -63,8 +63,8 @@
         GuidLaw Technologies Inc. ("<strong style={strong}>GuidLaw</strong>", "we", "us", or "our") is a Canadian
         corporation incorporated under the laws of Ontario. We operate a platform that connects drivers with
         licensed paralegals and lawyers regulated by the Law Society of Ontario (LSO) via our website at{' '}
-        <a href="https://guidlaw.ca" style={link}>guidlaw.ca</a> and our mobile application
-        (collectively, the "<strong style={strong}>Service</strong>").
+        <a href="https://guidlaw.ca" style={link}>guidlaw.ca</a>
+        (the "<strong style={strong}>Service</strong>").
       </p>
       <p style={{ marginTop: '16px' }}>
         Because our Service involves sensitive legal interactions — including live video consultations during

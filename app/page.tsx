@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { GuidLawLogo } from "@/components/GuidLawLogo";
 
 // ── Paralegal sample data (will come from Supabase later) ──────────────────
 const PARALEGALS = [
@@ -312,18 +313,7 @@ export default function Home() {
             height: 64,
           }}
         >
-          <Link
-            href="/"
-            style={{
-              fontWeight: 800,
-              fontSize: 22,
-              color: "var(--accent)",
-              textDecoration: "none",
-              letterSpacing: "-0.5px",
-            }}
-          >
-            Guid<span style={{ color: "var(--text)" }}>Law</span>
-          </Link>
+          <GuidLawLogo size={38} variant="light" />
 
           <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
             <Link href="/paralegals" style={{ color: "var(--text-dim)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
