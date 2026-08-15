@@ -315,9 +315,6 @@ export default function Home() {
           <GuidLawLogo size={38} variant="dark" />
 
           <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
-            <Link href="/paralegals" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
-              Browse Paralegals
-            </Link>
             <Link href="/how-it-works" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
               How It Works
             </Link>
