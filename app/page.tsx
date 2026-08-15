@@ -337,104 +337,243 @@ export default function Home() {
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section
         style={{
-          background: "linear-gradient(160deg, #EEF2FF 0%, #FFFFFF 50%)",
-          padding: "80px 24px 60px",
-          textAlign: "center",
+          background: "#faf8f2",
+          borderBottom: "1px solid #eae7dd",
+          padding: "0 24px",
         }}
       >
-        <div className="container">
-          <div style={{ display: "flex", justifyContent: "center", marginBottom: 24 }}>
-            <span className="pill pill-blue" style={{ fontSize: 13, padding: "6px 16px" }}>
-              🇨🇦 Ontario&apos;s Traffic Ticket Experts
-            </span>
-          </div>
-
-          <h1
-            style={{
-              fontSize: "clamp(36px, 6vw, 64px)",
-              fontWeight: 800,
-              color: "var(--text)",
-              lineHeight: 1.1,
-              letterSpacing: "-1.5px",
-              maxWidth: 800,
-              margin: "0 auto 20px",
-            }}
-          >
-            Got a ticket?
-            <br />
-            <span style={{ color: "#0d9488" }}>We&apos;ll fight it for you.</span>
-          </h1>
-
-          <p
-            style={{
-              fontSize: "clamp(16px, 2vw, 20px)",
-              color: "var(--text-dim)",
-              maxWidth: 580,
-              margin: "0 auto 40px",
-              lineHeight: 1.6,
-            }}
-          >
-            GuidLaw&apos;s team of LSO-licensed paralegals handles your case from start to finish — court appearances included. You don&apos;t lift a finger.
-          </p>
-
-          {/* Search bar */}
-          <div
-            style={{
-              maxWidth: 620,
-              margin: "0 auto 40px",
-              background: "white",
-              border: "2px solid var(--border)",
-              borderRadius: 14,
-              padding: "8px 8px 8px 20px",
-              display: "flex",
-              gap: 8,
-              alignItems: "center",
-              boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
-            }}
-          >
-            <span style={{ fontSize: 20 }}>🔍</span>
-            <select
-              value={violation}
-              onChange={(e) => setViolation(e.target.value)}
+        <div
+          className="container hero-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1.25fr 1fr",
+            gap: 40,
+            alignItems: "center",
+            minHeight: 620,
+            padding: "72px 0",
+          }}
+        >
+          {/* LEFT — editorial type */}
+          <div>
+            {/* Eyebrow */}
+            <div
               style={{
-                flex: 1,
-                border: "none",
-                outline: "none",
-                fontSize: 16,
-                color: violation ? "var(--text)" : "var(--text-muted)",
-                background: "transparent",
-                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                gap: 12,
+                marginBottom: 32,
+                fontSize: 12,
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+                fontWeight: 500,
               }}
             >
-              <option value="" disabled>
-                What&apos;s your violation type?
-              </option>
-              {VIOLATION_TYPES.map((v) => (
-                <option key={v} value={v}>{v}</option>
-              ))}
-            </select>
-            <Link
-              href={violation ? `/submit-ticket?violation=${encodeURIComponent(violation)}` : "/submit-ticket"}
-              className="btn-primary"
-              style={{ whiteSpace: "nowrap", borderRadius: 10, padding: "12px 24px" }}
+              <span style={{ width: 36, height: 1, background: "#0d9488", display: "inline-block" }} />
+              <span style={{ color: "#0d9488" }}>Ontario · Est. 2026</span>
+            </div>
+
+            {/* Big serif headline */}
+            <h1
+              style={{
+                fontFamily: "'Playfair Display', Georgia, serif",
+                fontWeight: 500,
+                lineHeight: 0.98,
+                letterSpacing: "-2px",
+                color: "#0F172A",
+                fontSize: "clamp(56px, 8.5vw, 96px)",
+                margin: "0 0 32px",
+              }}
             >
-              Get a Free Review
-            </Link>
+              <span style={{ display: "block" }}>Don&apos;t pay</span>
+              <span style={{ display: "block" }}>the ticket.</span>
+              <em style={{ display: "block", color: "#0d9488", fontStyle: "italic", fontWeight: 400 }}>
+                Fight&nbsp;it.
+              </em>
+            </h1>
+
+            {/* Subhead */}
+            <p
+              style={{
+                fontSize: "clamp(15px, 1.4vw, 17px)",
+                color: "#4a4a44",
+                lineHeight: 1.65,
+                marginBottom: 28,
+                maxWidth: 420,
+              }}
+            >
+              Submit your ticket in two minutes. An LSO-licensed paralegal takes it from there — court appearance included.
+            </p>
+
+            {/* CTAs */}
+            <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
+              <Link
+                href="/submit-ticket"
+                style={{
+                  background: "#0F172A",
+                  color: "white",
+                  fontSize: 14,
+                  fontWeight: 500,
+                  padding: "14px 26px",
+                  borderRadius: 8,
+                  textDecoration: "none",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                }}
+              >
+                Get a free review <span aria-hidden="true">→</span>
+              </Link>
+              <Link
+                href="/how-it-works"
+                style={{
+                  color: "#0F172A",
+                  fontSize: 14,
+                  fontWeight: 500,
+                  padding: "14px 4px",
+                  borderBottom: "1.5px solid #0F172A",
+                  textDecoration: "none",
+                }}
+              >
+                See how it works
+              </Link>
+            </div>
+
+            {/* Hidden violation select — keep for form flow, invisible on desktop */}
+            <div style={{ display: "none" }}>
+              <select value={violation} onChange={(e) => setViolation(e.target.value)}>
+                <option value="">All</option>
+                {VIOLATION_TYPES.map((v) => (
+                  <option key={v} value={v}>{v}</option>
+                ))}
+              </select>
+            </div>
           </div>
 
-          <div style={{ display: "flex", justifyContent: "center", gap: 32, flexWrap: "wrap" }}>
-            {[
-              { icon: "✓", text: "Free case review" },
-              { icon: "⚖️", text: "We appear in court for you" },
-              { icon: "🔒", text: "No win? Explore options free" },
-            ].map((item) => (
-              <div key={item.text} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 14, color: "var(--text-dim)" }}>
-                <span style={{ color: "#059669", fontWeight: 700 }}>{item.icon}</span>
-                {item.text}
+          {/* RIGHT — dismissed ticket graphic */}
+          <div
+            className="hero-graphic"
+            style={{
+              position: "relative",
+              minHeight: 460,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {/* Ticket 1 — behind, faded */}
+            <div
+              style={{
+                position: "absolute",
+                top: "12%",
+                left: "4%",
+                width: 240,
+                background: "white",
+                borderRadius: 3,
+                padding: 20,
+                transform: "rotate(-9deg)",
+                boxShadow: "0 8px 26px rgba(0,0,0,0.07)",
+                border: "0.5px solid #ececec",
+                opacity: 0.72,
+              }}
+            >
+              <div style={{ fontSize: 9, color: "#888", letterSpacing: "0.14em", marginBottom: 4, fontWeight: 500 }}>
+                PROVINCIAL OFFENCES ACT
               </div>
-            ))}
+              <div style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 15, color: "#0F172A", fontWeight: 500, marginBottom: 12 }}>
+                Certificate of Offence
+              </div>
+              <div style={{ height: 2, background: "#0F172A", marginBottom: 12 }} />
+              <div style={{ fontSize: 10, color: "#888", lineHeight: 1.7 }}>
+                <div>Section 128 — Speeding</div>
+                <div>25 km/h over posted limit</div>
+                <div>Set fine: $220.00</div>
+              </div>
+            </div>
+
+            {/* Ticket 2 — main, DISMISSED */}
+            <div
+              style={{
+                position: "relative",
+                zIndex: 2,
+                width: 280,
+                background: "white",
+                borderRadius: 3,
+                padding: "24px 24px 26px",
+                transform: "rotate(4deg)",
+                boxShadow: "0 20px 44px rgba(0,0,0,0.16)",
+                border: "0.5px solid #e0e0e0",
+              }}
+            >
+              <div style={{ fontSize: 9, color: "#777", letterSpacing: "0.14em", marginBottom: 6, fontWeight: 500 }}>
+                PROVINCIAL OFFENCES ACT
+              </div>
+              <div style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 16, color: "#0F172A", fontWeight: 500, marginBottom: 14 }}>
+                Certificate of Offence
+              </div>
+              <div style={{ height: 2, background: "#0F172A", marginBottom: 14 }} />
+              <div style={{ fontSize: 11, color: "#666", lineHeight: 1.9, marginBottom: 12 }}>
+                <div style={{ display: "flex", justifyContent: "space-between" }}><span>Offence</span><span style={{ color: "#0F172A", fontWeight: 500 }}>Speeding</span></div>
+                <div style={{ display: "flex", justifyContent: "space-between" }}><span>Section</span><span style={{ color: "#0F172A", fontWeight: 500 }}>HTA 128</span></div>
+                <div style={{ display: "flex", justifyContent: "space-between" }}><span>Set fine</span><span style={{ color: "#0F172A", fontWeight: 500 }}>$295.00</span></div>
+                <div style={{ display: "flex", justifyContent: "space-between" }}><span>Demerit points</span><span style={{ color: "#0F172A", fontWeight: 500 }}>4</span></div>
+              </div>
+
+              {/* DISMISSED stamp */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: 88,
+                  right: -18,
+                  transform: "rotate(-14deg)",
+                  border: "3px solid #0d9488",
+                  color: "#0d9488",
+                  padding: "8px 22px",
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                  fontSize: 28,
+                  fontWeight: 500,
+                  letterSpacing: "2px",
+                  background: "rgba(255,255,255,0.9)",
+                  borderRadius: 4,
+                }}
+              >
+                DISMISSED
+              </div>
+
+              <div style={{ borderTop: "1px dashed #d5d5d5", paddingTop: 10, fontSize: 10, color: "#888" }}>
+                <div style={{ display: "flex", justifyContent: "space-between" }}><span>Court date</span><span>—</span></div>
+                <div style={{ display: "flex", justifyContent: "space-between" }}><span>You paid</span><span style={{ color: "#0d9488", fontWeight: 500 }}>$0</span></div>
+              </div>
+            </div>
+
+            {/* Floating "cases won" callout */}
+            <div
+              style={{
+                position: "absolute",
+                bottom: "8%",
+                right: "4%",
+                zIndex: 3,
+                background: "#0F172A",
+                color: "white",
+                padding: "14px 18px",
+                borderRadius: 12,
+                boxShadow: "0 6px 18px rgba(0,0,0,0.18)",
+              }}
+            >
+              <div style={{ fontSize: 10, color: "rgba(255,255,255,0.55)", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 3 }}>
+                This month
+              </div>
+              <div style={{ fontSize: 16, fontWeight: 500 }}>Cases won for drivers</div>
+            </div>
           </div>
         </div>
+
+        {/* Responsive: stack on mobile */}
+        <style>{`
+          @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr !important; padding: 48px 0 !important; gap: 48px !important; min-height: 0 !important; }
+            .hero-graphic { min-height: 420px !important; }
+          }
+        `}</style>
       </section>
 
 
