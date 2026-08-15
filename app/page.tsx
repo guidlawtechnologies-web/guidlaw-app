@@ -345,7 +345,7 @@ export default function Home() {
         <div className="container">
           <div style={{ display: "flex", justifyContent: "center", marginBottom: 24 }}>
             <span className="pill pill-blue" style={{ fontSize: 13, padding: "6px 16px" }}>
-              🇨🇦 Ontario&apos;s Traffic Ticket Experts · 94% Success Rate
+              🇨🇦 Ontario&apos;s Traffic Ticket Experts
             </span>
           </div>
 
@@ -508,7 +508,7 @@ export default function Home() {
               { icon: "🇨🇦", title: "Ontario-Wide Coverage", desc: "We handle tickets from Windsor to Ottawa and everywhere in between." },
               { icon: "📜", title: "LSO-Licensed Professionals", desc: "Every case is handled by a paralegal licensed with the Law Society of Ontario." },
               { icon: "💰", title: "Flat-Rate Pricing", desc: "Know exactly what you'll pay upfront. No surprises. No hourly billing." },
-              { icon: "🏆", title: "94% Success Rate", desc: "Most of our cases result in a withdrawal, reduction, or dismissal." },
+              { icon: "🏆", title: "Proven Results", desc: "Most of our cases result in a withdrawal, reduction, or dismissal." },
             ].map((b) => (
               <div
                 key={b.title}
@@ -613,7 +613,7 @@ export default function Home() {
               </thead>
               <tbody>
                 {[
-                  { label: "Success rate", alone: "~30%", guidlaw: "94% average", highlight: true },
+                  { label: "Success rate", alone: "~30%", guidlaw: "Significantly higher", highlight: true },
                   { label: "Time to find help", alone: "Days of research", guidlaw: "Under 2 hours", highlight: false },
                   { label: "Day off work needed?", alone: "Yes — mandatory", guidlaw: "No — we go for you", highlight: true },
                   { label: "Demerit point risk", alone: "High", guidlaw: "Minimized", highlight: false },
