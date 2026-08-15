@@ -1,7 +1,7 @@
 // Small line-icon set for GuidLaw. Each icon renders inside a rounded
 // teal-tinted square badge so the whole set feels like one visual system.
 
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 type IconName =
   // Practice areas
@@ -21,7 +21,7 @@ type IconName =
   | "tag"
   | "trophy";
 
-const PATHS: Record<IconName, JSX.Element> = {
+const PATHS: Record<IconName, ReactNode> = {
   // ── Practice areas ────────────────────────────────────────────
   // Speedometer
   speeding: (
