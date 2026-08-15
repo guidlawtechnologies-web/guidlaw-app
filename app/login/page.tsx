@@ -47,7 +47,7 @@ function LoginForm() {
 
         {/* Logo */}
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '40px' }}>
-          <GuidLawLogo size={38} variant="dark" />
+          <GuidLawLogo size={38} variant="light" />
         </div>
 
         {message && (

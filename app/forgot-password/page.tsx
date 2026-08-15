@@ -54,7 +54,7 @@ export default function ForgotPasswordPage() {
       <div style={{ width: '100%', maxWidth: '400px' }}>
 
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '40px' }}>
-          <GuidLawLogo size={38} variant="dark" />
+          <GuidLawLogo size={38} variant="light" />
         </div>
 
         <div className="card" style={{ padding: '32px' }}>
