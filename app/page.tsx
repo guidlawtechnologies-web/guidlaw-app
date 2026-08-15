@@ -362,7 +362,7 @@ export default function Home() {
           >
             Fight your ticket.
             <br />
-            <span style={{ color: "var(--accent)" }}>Hire a paralegal.</span>
+            <span style={{ color: "var(--accent)" }}>We&apos;ll handle the rest.</span>
           </h1>
 
           <p
@@ -374,7 +374,7 @@ export default function Home() {
               lineHeight: 1.6,
             }}
           >
-            Browse licensed Ontario paralegals, submit your ticket, and let an expert handle the tribunal. No court dates. No stress.
+            Submit your ticket, get matched with a licensed Ontario paralegal, and let an expert handle the tribunal. No court dates. No stress.
           </p>
 
           {/* Search bar */}
@@ -414,11 +414,11 @@ export default function Home() {
               ))}
             </select>
             <Link
-              href={violation ? `/paralegals?violation=${encodeURIComponent(violation)}` : "/paralegals"}
+              href={violation ? `/submit-ticket?violation=${encodeURIComponent(violation)}` : "/submit-ticket"}
               className="btn-primary"
               style={{ whiteSpace: "nowrap", borderRadius: 10, padding: "12px 24px" }}
             >
-              Find a Paralegal
+              Get Matched
             </Link>
           </div>
 
@@ -480,16 +480,15 @@ export default function Home() {
           >
             <div>
               <div style={{ fontSize: 12, fontWeight: 600, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 6 }}>
-                Top Rated in Ontario
+                Our Network
               </div>
               <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 800, color: "var(--text)", letterSpacing: "-0.5px" }}>
-                Browse Paralegals
+                Who We Match You With
               </h2>
               <p style={{ color: "var(--text-dim)", marginTop: 6, fontSize: 16 }}>
                 All licensed with the Law Society of Ontario
               </p>
             </div>
-            <Link href="/paralegals" className="btn-secondary">View All →</Link>
           </div>
 
           <div
@@ -524,7 +523,7 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 24 }}>
             {[
               { step: "01", icon: "📋", title: "Submit Your Ticket", desc: "Enter your violation details — type of offence, date, fine amount. Takes 2 minutes." },
-              { step: "02", icon: "🔎", title: "Browse & Hire", desc: "Compare licensed paralegals by success rate, price, and speciality. Pick the best fit and hire directly." },
+              { step: "02", icon: "🤝", title: "We Match You", desc: "GuidLaw reviews your case and assigns the best available LSO-licensed paralegal for your violation type." },
               { step: "03", icon: "⚖️", title: "They Fight It", desc: "Your paralegal represents you at the tribunal. You don't have to take a day off or step into a courtroom." },
               { step: "04", icon: "🎉", title: "Case Closed", desc: "Most tickets are dismissed or significantly reduced. You pay only through GuidLaw — secure and protected." },
             ].map((item) => (
@@ -551,7 +550,7 @@ export default function Home() {
 
           <div style={{ textAlign: "center", marginTop: 40 }}>
             <Link href="/submit" className="btn-primary" style={{ padding: "16px 40px", fontSize: 16 }}>
-              Submit My Ticket — It&apos;s Free to Browse
+              Submit My Ticket — Free to Start
             </Link>
           </div>
         </div>
