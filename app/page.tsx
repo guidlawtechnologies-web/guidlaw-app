@@ -437,33 +437,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── STATS BAR ────────────────────────────────────────────────── */}
-      <section style={{ background: "var(--navy)", padding: "28px 24px" }}>
-        <div className="container">
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
-              gap: 32,
-              textAlign: "center",
-            }}
-          >
-            {[
-              { num: "2,400+", label: "Tickets Fought" },
-              { num: "94%", label: "Success Rate" },
-              { num: "47", label: "Paralegals" },
-              { num: "$0", label: "Upfront Cost" },
-            ].map((s) => (
-              <div key={s.label}>
-                <div style={{ fontSize: 28, fontWeight: 800, color: "white", letterSpacing: "-0.5px" }}>
-                  {s.num}
-                </div>
-                <div style={{ fontSize: 13, color: "#94A3B8", marginTop: 2 }}>{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── PRACTICE AREAS ──────────────────────────────────────────── */}
       <section className="section">
@@ -807,11 +780,9 @@ export default function Home() {
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 40, marginBottom: 40 }}>
             <div>
-              <div style={{ fontWeight: 800, fontSize: 20, color: "var(--accent)", marginBottom: 10 }}>
-                Guid<span style={{ color: "var(--text)" }}>Law</span>
-              </div>
-              <p style={{ fontSize: 13, color: "var(--text-dim)", lineHeight: 1.6 }}>
-                Ontario&apos;s traffic ticket defence team. Licensed. Trusted. 94% success rate.
+              <GuidLawLogo size={32} variant="light" href="/" />
+              <p style={{ fontSize: 13, color: "var(--text-dim)", lineHeight: 1.6, marginTop: 12 }}>
+                Ontario&apos;s traffic ticket defence team. Licensed. Trusted.
               </p>
             </div>
             {[
