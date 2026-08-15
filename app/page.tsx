@@ -593,8 +593,8 @@ export default function Home() {
             </p>
             <div style={{ display: "flex", justifyContent: "center", gap: 20, marginTop: 20, flexWrap: "wrap" }}>
               {[
-                { tone: "#0d9488", label: "Standard" },
-                { tone: "#92400E", label: "Serious" },
+                { tone: "#A16207", label: "Standard" },
+                { tone: "#C2410C", label: "Serious" },
                 { tone: "#991B1B", label: "Most severe" },
               ].map((l) => (
                 <div key={l.label} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "var(--text-dim)" }}>
@@ -607,14 +607,15 @@ export default function Home() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 16 }}>
             {([
-              { icon: "speeding", tone: "teal", title: "Speeding", desc: "Minor to major speeding charges on any Ontario road." },
+              // Ordered standard → most severe, tone follows the same scale.
+              { icon: "speeding", tone: "yellow", title: "Speeding", desc: "Minor to major speeding charges on any Ontario road." },
+              { icon: "signal", tone: "yellow", title: "Red Light & Stop Sign", desc: "Camera-issued or officer-issued. Both are contestable." },
+              { icon: "phone", tone: "yellow", title: "Distracted Driving", desc: "Cellphone charges — 3 demerit points and steep fines." },
+              { icon: "shuffle", tone: "yellow", title: "All HTA Violations", desc: "Lane changes, following too close, failing to yield, and more." },
+              { icon: "careless", tone: "orange", title: "Careless Driving", desc: "6 demerit points and major insurance impact. Fight it seriously." },
+              { icon: "id-card", tone: "orange", title: "Suspended Licence", desc: "Serious penalties. Proper legal defence matters here." },
               { icon: "stunt", tone: "red", title: "Stunt Driving", desc: "50+ km/h over the limit. Immediate impoundment. We've beaten it." },
-              { icon: "careless", tone: "amber", title: "Careless Driving", desc: "6 demerit points and major insurance impact. Fight it seriously." },
-              { icon: "signal", tone: "teal", title: "Red Light & Stop Sign", desc: "Camera-issued or officer-issued. Both are contestable." },
-              { icon: "phone", tone: "teal", title: "Distracted Driving", desc: "Cellphone charges — 3 demerit points and steep fines." },
               { icon: "shield", tone: "red", title: "No Insurance", desc: "Minimum $5,000 fine. One of the most costly HTA violations." },
-              { icon: "id-card", tone: "amber", title: "Suspended Licence", desc: "Serious penalties. Proper legal defence matters here." },
-              { icon: "shuffle", tone: "teal", title: "All HTA Violations", desc: "Lane changes, following too close, failing to yield, and more." },
             ] as const).map((t) => (
               <div
                 key={t.title}
