@@ -298,9 +298,8 @@ export default function Home() {
           position: "sticky",
           top: 0,
           zIndex: 100,
-          background: "rgba(255,255,255,0.95)",
-          backdropFilter: "blur(10px)",
-          borderBottom: "1px solid var(--border)",
+          background: "#0F172A",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
           padding: "0 24px",
         }}
       >
@@ -313,22 +312,22 @@ export default function Home() {
             height: 64,
           }}
         >
-          <GuidLawLogo size={38} variant="light" />
+          <GuidLawLogo size={38} variant="dark" />
 
           <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
-            <Link href="/paralegals" style={{ color: "var(--text-dim)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
+            <Link href="/paralegals" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
               Browse Paralegals
             </Link>
-            <Link href="/how-it-works" style={{ color: "var(--text-dim)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
+            <Link href="/how-it-works" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
               How It Works
             </Link>
-            <Link href="/paralegals/join" style={{ color: "var(--text-dim)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
+            <Link href="/paralegals/join" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
               For Paralegals
             </Link>
           </div>
 
           <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-            <Link href="/login" style={{ color: "var(--text-dim)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
+            <Link href="/login" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
               Sign In
             </Link>
             <Link href="/submit" className="btn-primary" style={{ padding: "9px 20px", fontSize: 14 }}>
