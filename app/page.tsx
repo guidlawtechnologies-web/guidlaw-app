@@ -374,13 +374,13 @@ export default function Home() {
 
             {/* Big serif headline */}
             <h1
+              className="gl-serif"
               style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
                 fontWeight: 500,
                 lineHeight: 0.98,
                 letterSpacing: "-2px",
                 color: "#0F172A",
-                fontSize: "clamp(56px, 8.5vw, 96px)",
+                fontSize: "clamp(56px, 8.5vw, 104px)",
                 margin: "0 0 32px",
               }}
             >
@@ -454,7 +454,7 @@ export default function Home() {
             className="hero-graphic"
             style={{
               position: "relative",
-              minHeight: 460,
+              minHeight: 560,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -464,26 +464,26 @@ export default function Home() {
             <div
               style={{
                 position: "absolute",
-                top: "12%",
-                left: "4%",
-                width: 240,
+                top: "6%",
+                left: "-2%",
+                width: "clamp(260px, 26vw, 380px)",
                 background: "white",
-                borderRadius: 3,
-                padding: 20,
+                borderRadius: 4,
+                padding: "clamp(20px, 1.9vw, 28px)",
                 transform: "rotate(-9deg)",
-                boxShadow: "0 8px 26px rgba(0,0,0,0.07)",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
                 border: "0.5px solid #ececec",
-                opacity: 0.72,
+                opacity: 0.75,
               }}
             >
-              <div style={{ fontSize: 9, color: "#888", letterSpacing: "0.14em", marginBottom: 4, fontWeight: 500 }}>
+              <div style={{ fontSize: 10, color: "#888", letterSpacing: "0.14em", marginBottom: 6, fontWeight: 500 }}>
                 PROVINCIAL OFFENCES ACT
               </div>
-              <div style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 15, color: "#0F172A", fontWeight: 500, marginBottom: 12 }}>
+              <div className="gl-serif" style={{ fontSize: 18, color: "#0F172A", fontWeight: 500, marginBottom: 14 }}>
                 Certificate of Offence
               </div>
-              <div style={{ height: 2, background: "#0F172A", marginBottom: 12 }} />
-              <div style={{ fontSize: 10, color: "#888", lineHeight: 1.7 }}>
+              <div style={{ height: 2, background: "#0F172A", marginBottom: 14 }} />
+              <div style={{ fontSize: 12, color: "#888", lineHeight: 1.8 }}>
                 <div>Section 128 — Speeding</div>
                 <div>25 km/h over posted limit</div>
                 <div>Set fine: $220.00</div>
@@ -495,23 +495,23 @@ export default function Home() {
               style={{
                 position: "relative",
                 zIndex: 2,
-                width: 280,
+                width: "clamp(300px, 30vw, 440px)",
                 background: "white",
-                borderRadius: 3,
-                padding: "24px 24px 26px",
-                transform: "rotate(4deg)",
-                boxShadow: "0 20px 44px rgba(0,0,0,0.16)",
+                borderRadius: 4,
+                padding: "clamp(24px, 2.2vw, 32px)",
+                transform: "rotate(4deg) translateX(8%)",
+                boxShadow: "0 24px 56px rgba(0,0,0,0.18)",
                 border: "0.5px solid #e0e0e0",
               }}
             >
-              <div style={{ fontSize: 9, color: "#777", letterSpacing: "0.14em", marginBottom: 6, fontWeight: 500 }}>
+              <div style={{ fontSize: 11, color: "#777", letterSpacing: "0.14em", marginBottom: 8, fontWeight: 500 }}>
                 PROVINCIAL OFFENCES ACT
               </div>
-              <div style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 16, color: "#0F172A", fontWeight: 500, marginBottom: 14 }}>
+              <div className="gl-serif" style={{ fontSize: 20, color: "#0F172A", fontWeight: 500, marginBottom: 16 }}>
                 Certificate of Offence
               </div>
-              <div style={{ height: 2, background: "#0F172A", marginBottom: 14 }} />
-              <div style={{ fontSize: 11, color: "#666", lineHeight: 1.9, marginBottom: 12 }}>
+              <div style={{ height: 2, background: "#0F172A", marginBottom: 16 }} />
+              <div style={{ fontSize: 13, color: "#666", lineHeight: 2, marginBottom: 14 }}>
                 <div style={{ display: "flex", justifyContent: "space-between" }}><span>Offence</span><span style={{ color: "#0F172A", fontWeight: 500 }}>Speeding</span></div>
                 <div style={{ display: "flex", justifyContent: "space-between" }}><span>Section</span><span style={{ color: "#0F172A", fontWeight: 500 }}>HTA 128</span></div>
                 <div style={{ display: "flex", justifyContent: "space-between" }}><span>Set fine</span><span style={{ color: "#0F172A", fontWeight: 500 }}>$295.00</span></div>
@@ -520,26 +520,26 @@ export default function Home() {
 
               {/* DISMISSED stamp */}
               <div
+                className="gl-serif"
                 style={{
                   position: "absolute",
-                  top: 88,
-                  right: -18,
+                  top: "38%",
+                  right: "-8%",
                   transform: "rotate(-14deg)",
-                  border: "3px solid #0d9488",
+                  border: "4px solid #0d9488",
                   color: "#0d9488",
-                  padding: "8px 22px",
-                  fontFamily: "'Playfair Display', Georgia, serif",
-                  fontSize: 28,
+                  padding: "10px 28px",
+                  fontSize: "clamp(28px, 2.6vw, 40px)",
                   fontWeight: 500,
-                  letterSpacing: "2px",
-                  background: "rgba(255,255,255,0.9)",
-                  borderRadius: 4,
+                  letterSpacing: "3px",
+                  background: "rgba(255,255,255,0.92)",
+                  borderRadius: 6,
                 }}
               >
                 DISMISSED
               </div>
 
-              <div style={{ borderTop: "1px dashed #d5d5d5", paddingTop: 10, fontSize: 10, color: "#888" }}>
+              <div style={{ borderTop: "1px dashed #d5d5d5", paddingTop: 12, fontSize: 12, color: "#888" }}>
                 <div style={{ display: "flex", justifyContent: "space-between" }}><span>Court date</span><span>—</span></div>
                 <div style={{ display: "flex", justifyContent: "space-between" }}><span>You paid</span><span style={{ color: "#0d9488", fontWeight: 500 }}>$0</span></div>
               </div>
@@ -549,20 +549,20 @@ export default function Home() {
             <div
               style={{
                 position: "absolute",
-                bottom: "8%",
-                right: "4%",
+                bottom: "2%",
+                right: "-2%",
                 zIndex: 3,
                 background: "#0F172A",
                 color: "white",
-                padding: "14px 18px",
-                borderRadius: 12,
-                boxShadow: "0 6px 18px rgba(0,0,0,0.18)",
+                padding: "16px 22px",
+                borderRadius: 14,
+                boxShadow: "0 8px 22px rgba(0,0,0,0.22)",
               }}
             >
-              <div style={{ fontSize: 10, color: "rgba(255,255,255,0.55)", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 3 }}>
+              <div style={{ fontSize: 11, color: "rgba(255,255,255,0.55)", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 4 }}>
                 This month
               </div>
-              <div style={{ fontSize: 16, fontWeight: 500 }}>Cases won for drivers</div>
+              <div style={{ fontSize: 18, fontWeight: 500 }}>Cases won for drivers</div>
             </div>
           </div>
         </div>
