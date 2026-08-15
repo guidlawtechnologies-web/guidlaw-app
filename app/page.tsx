@@ -757,7 +757,7 @@ export default function Home() {
               href="/paralegals/join"
               style={{
                 background: "white",
-                color: "var(--accent)",
+                color: "var(--navy)",
                 border: "none",
                 padding: "16px 32px",
                 borderRadius: 10,
