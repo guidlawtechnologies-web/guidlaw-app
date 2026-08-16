@@ -391,7 +391,7 @@ export default function Home() {
               How GuidLaw Works
             </h2>
             <p style={{ color: "var(--text-dim)", marginTop: 10, fontSize: 16, maxWidth: 480, margin: "10px auto 0" }}>
-              From ticket to tribunal — we handle everything. You just show up to pay less.
+              From the ticket to the courtroom, we handle everything. You never have to show up.
             </p>
           </div>
 
@@ -795,7 +795,7 @@ export default function Home() {
             }}
           >
             <div>
-              <div style={{ fontSize: 12, fontWeight: 600, color: "#93C5FD", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 10 }}>
+              <div style={{ fontSize: 12, fontWeight: 600, color: "#5eead4", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 10 }}>
                 Grow Your Practice
               </div>
               <h2 style={{ fontSize: "clamp(22px, 3.5vw, 32px)", fontWeight: 800, color: "white", letterSpacing: "-0.5px", marginBottom: 12 }}>
@@ -805,7 +805,7 @@ export default function Home() {
                 Join GuidLaw&apos;s network of LSO-licensed paralegals. We send you cases — no cold outreach, no marketing overhead. Focus on the work, we handle the rest.
               </p>
               <div style={{ display: "flex", gap: 24, marginTop: 20, flexWrap: "wrap" }}>
-                {["No cold outreach needed", "Paid securely through platform", "Build your reputation with reviews"].map((item) => (
+                {["No cold outreach needed", "Flat fee agreed per file", "Take only the files that fit"].map((item) => (
                   <div key={item} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, color: "#CBD5E1" }}>
                     <span style={{ color: "#34D399" }}>✓</span> {item}
                   </div>
@@ -841,19 +841,41 @@ export default function Home() {
             <div>
               <GuidLawLogo size={32} variant="dark" href="/" />
               <p style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", lineHeight: 1.6, marginTop: 12 }}>
-                Ontario&apos;s traffic ticket defence team. Licensed. Trusted.
+                Ontario traffic ticket defence. LSO-licensed paralegals, flat fees, and we appear in
+                court so you don&apos;t have to.
               </p>
             </div>
             {[
-              { title: "For Drivers", links: ["Submit a Ticket", "How It Works", "Practice Areas", "Pricing"] },
-              { title: "For Paralegals", links: ["Apply to Join", "How It Works", "Pricing", "Support"] },
-              { title: "Company", links: ["About Us", "Blog", "Privacy Policy", "Terms of Service"] },
+              {
+                title: "For Drivers",
+                links: [
+                  { label: "Submit a Ticket", href: "/submit-ticket" },
+                  { label: "Charges We Handle", href: "/services" },
+                  { label: "How It Works", href: "/how-it-works" },
+                  { label: "FAQ", href: "/faq" },
+                ],
+              },
+              {
+                title: "For Paralegals",
+                links: [{ label: "Work With GuidLaw", href: "/lawyers" }],
+              },
+              {
+                title: "Company",
+                links: [
+                  { label: "About Us", href: "/about" },
+                  { label: "Guides", href: "/blog" },
+                  { label: "Privacy Policy", href: "/privacy" },
+                  { label: "info@guidlaw.ca", href: "mailto:info@guidlaw.ca" },
+                ],
+              },
             ].map((col) => (
               <div key={col.title}>
                 <div style={{ fontWeight: 600, fontSize: 13, color: "rgba(255,255,255,0.9)", marginBottom: 14 }}>{col.title}</div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                   {col.links.map((l) => (
-                    <Link key={l} href="#" style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>{l}</Link>
+                    <Link key={l.label} href={l.href} style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>
+                      {l.label}
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -862,9 +884,10 @@ export default function Home() {
 
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
             <p style={{ fontSize: 12, color: "rgba(255,255,255,0.3)" }}>
-              © 2026 GuidLaw Technologies Inc. (1001699754 Ontario Inc.) · Mississauga, ON ·{" "}
-              <Link href="mailto:guidlawtechnologies@gmail.com" style={{ color: "rgba(255,255,255,0.3)" }}>
-                guidlawtechnologies@gmail.com
+              © {new Date().getFullYear()} GuidLaw Technologies Inc. (1001699754 Ontario Inc.) ·
+              Mississauga, ON ·{" "}
+              <Link href="mailto:info@guidlaw.ca" style={{ color: "rgba(255,255,255,0.3)" }}>
+                info@guidlaw.ca
               </Link>
             </p>
             <p style={{ fontSize: 12, color: "rgba(255,255,255,0.3)" }}>

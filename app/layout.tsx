@@ -2,8 +2,13 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "GuidLaw — Fight Your Ticket. Hire a Paralegal.",
-  description: "Canada's #1 platform to fight traffic tickets. Browse licensed Ontario paralegals, submit your ticket, and let an expert handle the rest.",
+  metadataBase: new URL("https://www.guidlaw.ca"),
+  title: {
+    default: "GuidLaw — Fight Your Ontario Traffic Ticket",
+    template: "%s | GuidLaw",
+  },
+  description:
+    "Send us your Ontario traffic ticket and an LSO-licensed paralegal handles it from start to finish — filings, disclosure, and the court appearance. Flat fee, quoted upfront. Free case review.",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },

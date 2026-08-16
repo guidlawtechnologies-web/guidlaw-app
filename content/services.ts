@@ -51,7 +51,7 @@ export const SERVICES: Service[] = [
       "Where the reading holds up, the realistic goal shifts to a reduction — a lower speed count that carries fewer demerit points and a smaller insurance consequence.",
     ],
     photo: "speeding.webp",
-    credit: "Harley-Davidson",
+    credit: "Gijs Coolen",
   },
   {
     slug: "red-light",
