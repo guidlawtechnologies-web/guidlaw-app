@@ -158,6 +158,151 @@ html, body {
 /* ── Anchor offset so sticky nav doesn't cover section headings ── */
 [id] { scroll-margin-top: 80px; }
 
+/* ══ Charge cards ══════════════════════════════════════════════════
+   Dulled photo behind, severity stripe on top, offence name in a
+   severity-coloured chip, penalties revealed on hover. --sev is set
+   per card from the tone. */
+
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(248px, 1fr));
+  gap: 16px;
+}
+
+.svc-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 252px;
+  border-radius: 14px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #0b1420;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Severity stripe — scannable without reading a word */
+.svc-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  z-index: 4;
+  background: var(--sev, var(--accent));
+}
+
+.svc-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: grayscale(68%) brightness(0.40) contrast(1.06);
+  transition: filter 0.45s ease, transform 0.55s ease;
+}
+
+/* Ground for the charges with no photograph */
+.svc-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(13,148,136,0.20), transparent 58%),
+    linear-gradient(150deg, #0f1d2e 0%, #0b1420 100%);
+}
+.svc-pattern::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+.svc-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transition: opacity 0.4s ease;
+  background: linear-gradient(
+    to top,
+    rgba(7,13,22,0.94) 0%,
+    rgba(7,13,22,0.72) 45%,
+    rgba(7,13,22,0.50) 100%
+  );
+}
+
+.svc-body { position: relative; z-index: 3; padding: 20px; display: block; }
+
+/* The offence name carries the severity colour — no separate icon */
+.svc-chip {
+  display: inline-block;
+  padding: 7px 13px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #fff;
+  background: color-mix(in srgb, var(--sev) 30%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sev) 62%, transparent);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+.svc-meta { display: block; font-size: 12px; color: rgba(255,255,255,0.58); margin-bottom: 8px; }
+.svc-blurb { display: block; font-size: 13px; color: rgba(255,255,255,0.76); line-height: 1.55; }
+
+.svc-catch-title { display: block; font-size: 19px; color: #fff; margin-bottom: 9px; letter-spacing: -0.3px; }
+
+.svc-panel {
+  display: block;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-top: 0;
+  transition: max-height 0.34s ease, opacity 0.26s ease, margin-top 0.34s ease;
+}
+.svc-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12.5px;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.svc-row span:first-child { color: rgba(255,255,255,0.55); }
+.svc-row span:last-child { color: #fff; font-weight: 600; font-variant-numeric: tabular-nums; }
+.svc-how { display: block; font-size: 12.5px; color: #5eead4; font-weight: 600; margin-top: 10px; }
+
+/* Pointer devices: hover brings the photo alive and opens the panel */
+@media (hover: hover) {
+  .svc-card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(0,0,0,0.28); }
+  .svc-card:hover img { filter: grayscale(10%) brightness(0.58) contrast(1.10); transform: scale(1.06); }
+  .svc-card:hover .svc-veil { opacity: 0.88; }
+  .svc-card:hover .svc-panel { max-height: 200px; opacity: 1; margin-top: 14px; }
+}
+
+/* Touch devices have no hover to reward, so the panel is simply open.
+   Avoids the trap where the first tap expands and the second navigates. */
+@media (hover: none) {
+  .svc-panel { max-height: 200px; opacity: 1; margin-top: 14px; }
+}
+
+/* Keyboard users get the same reveal as hover */
+.svc-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.svc-card:focus-visible .svc-panel { max-height: 200px; opacity: 1; margin-top: 14px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-card, .svc-card img, .svc-veil, .svc-panel { transition: none; }
+  .svc-card:hover { transform: none; }
+  .svc-card:hover img { transform: none; }
+}
+
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .nav-links { display: none !important; }

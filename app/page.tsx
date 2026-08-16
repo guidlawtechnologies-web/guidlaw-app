@@ -4,18 +4,18 @@ import { IconBadge } from "@/components/Icon";
 import { FAQS } from "@/content/faqs";
 import { POSTS } from "@/content/posts";
 import { STEPS, COMMITMENTS } from "@/content/process";
-import { SERVICES, SEVERITY_LEGEND } from "@/content/services";
+import { SERVICES, SEVERITY_LEGEND, PHOTO_CREDITS } from "@/content/services";
+import { ServiceCard } from "@/components/ServiceCard";
 import { NAV_LINKS } from "@/components/SiteChrome";
 
 // Eight representative charges for the homepage grid, spanning the
-// severity range. The full list lives on /services.
+// severity range. All eight have photographs — the full list, including
+// the charges with no natural image, lives on /services.
 const HOME_SLUGS = [
-  "speeding", "red-light", "distracted-driving", "following-too-closely",
-  "careless-driving", "driving-under-suspension", "stunt-driving", "no-insurance",
+  "speeding", "red-light", "following-too-closely", "seatbelt",
+  "distracted-driving", "careless-driving", "stunt-driving", "school-bus",
 ];
-const HOME_SERVICES = HOME_SLUGS
-  .map((s) => SERVICES.find((x) => x.slug === s)!)
-  .sort((a, b) => ["yellow", "orange", "red"].indexOf(a.tone) - ["yellow", "orange", "red"].indexOf(b.tone));
+const HOME_SERVICES = HOME_SLUGS.map((s) => SERVICES.find((x) => x.slug === s)!);
 
 // ── Main homepage ──────────────────────────────────────────────────────────
 export default function Home() {
@@ -319,24 +319,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 16 }}>
-            {HOME_SERVICES.map((t) => (
-              <div
-                key={t.slug}
-                style={{
-                  background: "white",
-                  border: "1.5px solid var(--border)",
-                  borderRadius: 12,
-                  padding: "22px 20px",
-                }}
-              >
-                <div style={{ marginBottom: 14 }}><IconBadge name={t.icon} tone={t.tone} size={40} iconSize={20} /></div>
-                <div style={{ fontWeight: 700, fontSize: 15, color: "var(--text)", marginBottom: 4 }}>{t.title}</div>
-                <div style={{ fontSize: 12, color: "var(--text-muted)", marginBottom: 8 }}>
-                  {t.section} · {t.points}
-                </div>
-                <div style={{ fontSize: 13, color: "var(--text-dim)", lineHeight: 1.6 }}>{t.blurb}</div>
-              </div>
+          <div className="svc-grid">
+            {HOME_SERVICES.map((s) => (
+              <ServiceCard key={s.slug} s={s} />
             ))}
           </div>
 
@@ -886,6 +871,10 @@ export default function Home() {
               GuidLaw is a technology platform, not a law firm. Paralegals are licensed with the Law Society of Ontario.
             </p>
           </div>
+
+          <p style={{ fontSize: 12, color: "rgba(255,255,255,0.22)", marginTop: 14 }}>
+            Photography by {PHOTO_CREDITS.join(", ")} via Unsplash.
+          </p>
         </div>
       </footer>
 

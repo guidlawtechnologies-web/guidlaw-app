@@ -1,7 +1,6 @@
-import Link from "next/link";
 import type { Metadata } from "next";
-import { SERVICES, CATCH_ALL, SEVERITY_LEGEND } from "@/content/services";
-import { IconBadge } from "@/components/Icon";
+import { SERVICES, SERVICES_ORDERED, CATCH_ALL, SEVERITY_LEGEND } from "@/content/services";
+import { ServiceCard, ServiceCatchAll } from "@/components/ServiceCard";
 import { SiteNav, SiteFooter, PageHeader, CtaBand } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
@@ -36,78 +35,18 @@ export default function ServicesPage() {
       {/* ── Grid ── */}
       <section className="section">
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(285px, 1fr))", gap: 18 }}>
-            {SERVICES.map((s) => (
-              <article
-                key={s.slug}
-                style={{
-                  background: "white",
-                  border: "1.5px solid var(--border)",
-                  borderRadius: 14,
-                  padding: "24px 22px",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "flex-start", gap: 14, marginBottom: 14 }}>
-                  <IconBadge name={s.icon} tone={s.tone} size={44} iconSize={22} />
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <h2 style={{ fontWeight: 700, fontSize: 16, color: "var(--text)", lineHeight: 1.3, marginBottom: 3 }}>
-                      {s.title}
-                    </h2>
-                    <div style={{ fontSize: 12.5, color: "var(--text-muted)" }}>{s.section}</div>
-                  </div>
-                </div>
-
-                <p style={{ fontSize: 14, color: "var(--text-dim)", lineHeight: 1.65, marginBottom: 18, flex: 1 }}>
-                  {s.blurb}
-                </p>
-
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    paddingTop: 14,
-                    borderTop: "1px solid var(--border)",
-                    fontSize: 13,
-                  }}
-                >
-                  <span style={{ color: "var(--text)", fontWeight: 600, fontVariantNumeric: "tabular-nums" }}>{s.fine}</span>
-                  <span style={{ color: "var(--text-muted)" }}>{s.points}</span>
-                </div>
-              </article>
+          <div className="svc-grid">
+            {SERVICES_ORDERED.map((s) => (
+              <ServiceCard key={s.slug} s={s} />
             ))}
-
-            {/* Catch-all */}
-            <article
-              style={{
-                background: "#faf8f2",
-                border: "1.5px dashed #d8d4c6",
-                borderRadius: 14,
-                padding: "24px 22px",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-              }}
-            >
-              <h2 className="gl-serif" style={{ fontSize: 19, fontWeight: 500, color: "#0F172A", marginBottom: 10, letterSpacing: "-0.3px" }}>
-                {CATCH_ALL.title}
-              </h2>
-              <p style={{ fontSize: 14, color: "var(--text-dim)", lineHeight: 1.65, marginBottom: 16 }}>
-                {CATCH_ALL.blurb}
-              </p>
-              <Link href="/submit-ticket" style={{ fontSize: 13.5, fontWeight: 600, color: "#0d9488", textDecoration: "none" }}>
-                Send it to us →
-              </Link>
-            </article>
+            <ServiceCatchAll title={CATCH_ALL.title} blurb={CATCH_ALL.blurb} />
           </div>
 
           <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.7, marginTop: 32, maxWidth: 700 }}>
             Fines shown are set fines — the out-of-court amount — and exclude the victim fine
             surcharge and court costs. Several offences carry no set fine and are left to the
             court&apos;s discretion. Figures reflect the Highway Traffic Act at the time of writing
-            and can change.
+            and can change. {SERVICES.length} charges listed.
           </p>
         </div>
       </section>

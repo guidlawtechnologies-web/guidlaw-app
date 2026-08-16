@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import { GuidLawLogo } from "@/components/GuidLawLogo";
+import { PHOTO_CREDITS } from "@/content/services";
 
 export const PHONE_DISPLAY = "+1 437 982 7146";
 export const PHONE_HREF = "tel:+14379827146";
@@ -171,10 +172,13 @@ export function SiteFooter() {
           <p style={{ marginBottom: 8 }}>
             © {new Date().getFullYear()} GuidLaw Technologies Inc. All rights reserved.
           </p>
-          <p>
+          <p style={{ marginBottom: 8 }}>
             Information on this site is general and is not legal advice. Reading it does not create a
             paralegal-client relationship. Fines and penalties cited reflect the Highway Traffic Act
             at the time of writing and can change.
+          </p>
+          <p style={{ fontSize: 12, color: "rgba(255,255,255,0.3)" }}>
+            Photography by {PHOTO_CREDITS.join(", ")} via Unsplash.
           </p>
         </div>
       </div>
