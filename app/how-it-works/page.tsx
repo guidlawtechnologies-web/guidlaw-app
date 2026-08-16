@@ -5,7 +5,7 @@ import { IconBadge } from "@/components/Icon";
 import { SiteNav, SiteFooter, PageHeader, CtaBand } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
-  title: "How It Works | GuidLaw Ontario Traffic Ticket Defence",
+  title: "How It Works — Ontario Traffic Ticket Defence",
   description:
     "Send us your ticket, get a free review and a flat-fee quote, and an LSO-licensed paralegal handles the filings, disclosure, and court appearance. Here's each step.",
 };

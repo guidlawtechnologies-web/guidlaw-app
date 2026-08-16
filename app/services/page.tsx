@@ -4,7 +4,7 @@ import { ServiceCard, ServiceCatchAll } from "@/components/ServiceCard";
 import { SiteNav, SiteFooter, PageHeader, CtaBand } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
-  title: "Traffic Ticket Services | Every Ontario HTA Charge | GuidLaw",
+  title: "Every Ontario HTA Charge We Handle",
   description:
     "Speeding, careless driving, stunt driving, distracted driving, suspended licence, no insurance, school bus, HOV, following too closely and more. Every Highway Traffic Act charge, with the real fines and demerit points.",
 };

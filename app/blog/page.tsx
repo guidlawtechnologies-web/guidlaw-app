@@ -4,7 +4,7 @@ import { POSTS } from "@/content/posts";
 import { SiteNav, SiteFooter } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
-  title: "Ontario Traffic Ticket Guides | GuidLaw Blog",
+  title: "Ontario Traffic Ticket Guides",
   description:
     "Plain-language guides to Ontario Highway Traffic Act charges — winter driving offences, careless driving, speeding, and what actually gets tickets dropped.",
 };

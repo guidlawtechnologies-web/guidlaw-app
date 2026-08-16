@@ -7,43 +7,43 @@ export type Faq = { q: string; a: string };
 export const FAQS: Faq[] = [
   {
     q: "Do I have to go to court?",
-    a: "No. Your paralegal attends on your behalf. For the large majority of Highway Traffic Act charges you never set foot in a courthouse. The exception is a full trial where you are needed as a witness, and you would know about that well in advance.",
+    a: "No. Your paralegal goes for you, and for almost every Highway Traffic Act charge you'll never see the inside of a courthouse. The one exception is a full trial where you're needed as a witness, and you'd know about that months ahead of time.",
   },
   {
     q: "How much does it cost to fight a traffic ticket in Ontario?",
-    a: "GuidLaw charges a flat fee quoted before you commit — no hourly billing and no per-appearance charges. The amount depends on the offence and the court. Minor charges sit at the low end; careless driving, stunt driving, and trials cost more because they take substantially more work. Send us the ticket and you get the exact number before you decide anything.",
+    a: "One flat fee, and you'll know it before you commit to anything. There's no hourly billing and nothing extra per court appearance. What it costs depends on the offence and which court you're in — a minor speeding charge sits at the low end, while careless driving, stunt driving, and anything that goes to trial costs more because there's simply more work in them. Send us the ticket and we'll give you the exact number.",
   },
   {
     q: "Is a paralegal as good as a lawyer for a traffic ticket?",
-    a: "For Highway Traffic Act matters, yes. Licensed paralegals in Ontario are regulated by the Law Society of Ontario and have full rights of appearance in Provincial Offences Court, which is where traffic tickets are heard. Many paralegals appear there daily and know the local prosecutors and justices better than a general-practice lawyer would. They also cost less.",
+    a: "For traffic tickets, yes. Ontario paralegals are licensed and regulated by the Law Society of Ontario, and they can appear in Provincial Offences Court — which is where your ticket is actually heard. Many of them are in that courtroom several times a week and know the local prosecutors and justices far better than a general-practice lawyer would. They also cost less.",
   },
   {
     q: "What happens if I just pay the ticket?",
-    a: "Paying is a guilty plea. The conviction goes on your driving record, any demerit points are applied, and your insurer sees it at renewal. The fine is usually the smallest part of the cost. A single conviction can raise premiums for three years, which routinely exceeds the fine several times over.",
+    a: "Paying is pleading guilty. The conviction goes on your record, the demerit points land on your licence, and your insurer finds it at renewal. The fine is usually the smallest part of what it costs you — that conviction can sit on your premium for three years, and the extra you pay over that time often comes to several times the fine itself.",
   },
   {
     q: "How long do I have to fight a ticket in Ontario?",
-    a: "You generally have 15 days from the date on the ticket to file your intention to fight it. Miss that window and you can be deemed to have not disputed the charge, which results in a conviction being registered. If your 15 days have passed, you may still have options through a reopening application, but act immediately.",
+    a: "Usually 15 days from the date on the ticket. If you don't file in that window, the court can treat the charge as undisputed and register a conviction without ever hearing from you. If your 15 days have already gone by, there may still be a way back in through a reopening application — but call us now rather than next week.",
   },
   {
     q: "Will fighting my ticket make my insurance go up?",
-    a: "No. Insurers rate on convictions, not on charges you disputed. Fighting a ticket and winning leaves nothing on your record for them to see. Fighting and losing puts you where you would have been if you had simply paid it. There is no insurance penalty for disputing a charge.",
+    a: "No. Insurers look at convictions, not at charges you disputed. If you fight and win, there's nothing on your record for them to find. If you fight and lose, you end up exactly where you'd have been by paying it. Either way, disputing a ticket costs you nothing with your insurer.",
   },
   {
     q: "How long does the whole process take?",
-    a: "Most matters resolve in three to eight months from the date you file. Timelines depend heavily on the court — some Ontario jurisdictions have significantly longer backlogs than others. You do not need to do anything during that period. Your paralegal handles filings, disclosure, and negotiations, and updates you when something changes.",
+    a: "Usually three to eight months from the day you file, though it varies a lot by courthouse — some Ontario jurisdictions are running much longer backlogs than others. You don't have to do anything while you wait. Your paralegal handles the filings, the disclosure request, and the negotiation, and gets in touch whenever something actually changes.",
   },
   {
     q: "What happens if we lose?",
-    a: "You pay the fine and the conviction is registered, the same outcome as if you had never fought it. In many cases the realistic goal is not outright dismissal but reduction — a careless driving charge negotiated down to a lesser offence takes you from six demerit points to two or three and removes the suspension exposure. That is a win even though it is not a withdrawal.",
+    a: "You pay the fine and the conviction goes on your record, which is where you'd have been if you'd never fought it at all. It's worth saying that outright dismissal isn't always the goal. Getting a careless driving charge knocked down to a lesser offence takes you from six demerit points to two or three and takes the suspension off the table — not a withdrawal, but a genuinely good result.",
   },
   {
     q: "Do you handle tickets outside Toronto?",
-    a: "Yes. We cover Provincial Offences courts across Ontario, from Windsor to Ottawa and north. Your paralegal is assigned partly on the basis of which court your matter is in, because familiarity with the local court matters to the outcome.",
+    a: "Yes, anywhere in Ontario — Windsor to Ottawa and everywhere north. We pick your paralegal partly based on which courthouse you're dealing with, because knowing the local court and the people in it makes a real difference to how a matter goes.",
   },
   {
     q: "How do I get started?",
-    a: "Send us a photo of your ticket. We review it at no charge and tell you what you are actually facing, what your realistic options are, and what it costs to fight. If you decide to proceed we assign an LSO-licensed paralegal, usually within 24 hours. If we do not think fighting it is worth your money, we will say so.",
+    a: "Send us a photo of your ticket. We'll look at it for free and tell you what you're really facing, what your options are, and what it would cost to fight. If you want to go ahead, we'll assign an LSO-licensed paralegal, usually within a day. And if we don't think it's worth your money, we'll tell you that instead.",
   },
 ];
 

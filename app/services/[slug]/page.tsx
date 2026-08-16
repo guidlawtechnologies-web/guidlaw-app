@@ -18,7 +18,7 @@ export async function generateMetadata({
   const s = getService(slug);
   if (!s) return {};
   return {
-    title: `${s.title} Ticket Ontario (${s.section}) | Fines & Defence | GuidLaw`,
+    title: `${s.title} Ticket Ontario (${s.section}) — Fines & Defence`,
     description: `${s.title} under ${s.section} carries ${s.fine} and ${s.points}. ${s.blurb} Free case review from LSO-licensed paralegals.`,
   };
 }

@@ -264,7 +264,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Floating "cases won" callout */}
+            {/* Floating callout — states what the driver actually has to do */}
             <div
               style={{
                 position: "absolute",
@@ -279,9 +279,9 @@ export default function Home() {
               }}
             >
               <div style={{ fontSize: 11, color: "rgba(255,255,255,0.55)", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 4 }}>
-                This month
+                All you do
               </div>
-              <div style={{ fontSize: 18, fontWeight: 500 }}>Cases won for drivers</div>
+              <div style={{ fontSize: 18, fontWeight: 500 }}>Send one photo</div>
             </div>
           </div>
         </div>

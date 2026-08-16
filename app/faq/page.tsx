@@ -5,7 +5,7 @@ import { POSTS } from "@/content/posts";
 import { SiteNav, SiteFooter, PageHeader, CtaBand, PHONE_DISPLAY, PHONE_HREF } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
-  title: "Traffic Ticket FAQ | GuidLaw Ontario",
+  title: "Traffic Ticket FAQ — Ontario",
   description:
     "Do you have to go to court? What does it cost? Is a paralegal as good as a lawyer? Straight answers about fighting Highway Traffic Act charges in Ontario.",
 };

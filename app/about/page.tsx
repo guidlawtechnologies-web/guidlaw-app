@@ -4,7 +4,7 @@ import { COMMITMENTS } from "@/content/process";
 import { SiteNav, SiteFooter, PageHeader, CtaBand, PHONE_DISPLAY, PHONE_HREF } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
-  title: "About GuidLaw | Ontario Traffic Ticket Defence",
+  title: "About Us — Ontario Traffic Ticket Defence",
   description:
     "GuidLaw is an Ontario company connecting drivers with LSO-licensed paralegals to fight Highway Traffic Act charges. Founded by Hassan Shah. Here's what we commit to.",
 };
@@ -31,34 +31,38 @@ export default function AboutPage() {
           <div className="about-grid" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 56, alignItems: "start" }}>
             <div>
               <p style={{ fontSize: 17, color: "var(--text-dim)", lineHeight: 1.8, marginBottom: 20 }}>
-                Most people pay their ticket. Not because they&apos;re guilty — because fighting it
-                means a day off work, a courthouse you&apos;ve never been to, and rules nobody
-                explained. The system runs on the assumption you won&apos;t bother.
+                Most people just pay the ticket. Not because they think they&apos;re guilty, but
+                because fighting it means taking a day off work, finding a courthouse you&apos;ve
+                never been to, and figuring out rules that nobody ever explained to you. The whole
+                system quietly runs on the assumption that you won&apos;t bother.
               </p>
               <p style={{ fontSize: 17, color: "var(--text-dim)", lineHeight: 1.8, marginBottom: 20 }}>
-                That assumption is usually right, and it&apos;s expensive. A conviction you never
-                contested follows you for three years. The fine is the small part; the insurance
-                increase behind it is the real cost, and most drivers never do that math.
+                That assumption is usually right, and it costs people a lot more than they realise.
+                A conviction you never argued follows you around for three years, and while the fine
+                is the part you notice, it&apos;s the insurance increase sitting behind it that
+                actually does the damage. Hardly anyone does that math before they pay.
               </p>
               <p style={{ fontSize: 17, color: "var(--text-dim)", lineHeight: 1.8, marginBottom: 20 }}>
-                GuidLaw removes every excuse not to fight. Send a photo of your ticket. We tell you
-                what you&apos;re actually facing, quote you one flat fee, and assign a paralegal
-                licensed with the Law Society of Ontario. They file, they request disclosure, they
-                negotiate, and they appear in court. You do none of it.
+                GuidLaw exists to take away every reason not to fight. You send us a photo of your
+                ticket, and we&apos;ll tell you what you&apos;re actually up against and what it
+                costs. If you want to go ahead, a paralegal licensed by the Law Society of Ontario
+                takes it from there — the filings, the disclosure request, the negotiation, and the
+                court date. You don&apos;t do any of it.
               </p>
 
               <h2 className="gl-serif" style={{ fontSize: "clamp(22px, 3vw, 28px)", fontWeight: 500, color: "#0F172A", letterSpacing: "-0.5px", margin: "38px 0 14px" }}>
                 We&apos;re new, and we&apos;d rather say so
               </h2>
               <p style={{ fontSize: 17, color: "var(--text-dim)", lineHeight: 1.8, marginBottom: 20 }}>
-                GuidLaw Technologies Inc. is an Ontario corporation. We don&apos;t have a decade of
-                case history to point at, and we&apos;re not going to invent one. What we have is a
-                clear process, licensed paralegals doing the actual work, and prices we&apos;ll tell
-                you before you commit.
+                GuidLaw Technologies Inc. is an Ontario corporation, and we&apos;re at the beginning
+                of this. We haven&apos;t got a decade of case history to point at, and we&apos;re
+                not going to pretend otherwise. What we do have is a process we can explain clearly,
+                licensed paralegals doing the actual legal work, and a price we&apos;ll give you
+                before you owe us anything.
               </p>
               <p style={{ fontSize: 17, color: "var(--text-dim)", lineHeight: 1.8 }}>
-                If that&apos;s not enough for you yet, that&apos;s fair. Call and ask whatever you
-                want first.
+                If that&apos;s not quite enough to go on yet, that&apos;s completely fair. Give us a
+                call and ask whatever you like first.
               </p>
 
               {/* Founder */}

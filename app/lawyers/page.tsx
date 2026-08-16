@@ -4,7 +4,7 @@ import { IconBadge } from "@/components/Icon";
 import { SiteNav, SiteFooter, PageHeader, PHONE_DISPLAY, PHONE_HREF } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
-  title: "For Paralegals | Work With GuidLaw",
+  title: "For Paralegals — Work With Us",
   description:
     "GuidLaw sends Ontario paralegals pre-screened Highway Traffic Act files. No marketing spend, no intake, no chasing payment. Licensed P1 paralegals only.",
 };

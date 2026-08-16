@@ -17,7 +17,7 @@ export async function generateMetadata({
   const post = getPost(slug);
   if (!post) return {};
   return {
-    title: `${post.title} | GuidLaw`,
+    title: post.title,
     description: post.excerpt,
     openGraph: {
       title: post.title,
