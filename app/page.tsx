@@ -4,7 +4,18 @@ import { IconBadge } from "@/components/Icon";
 import { FAQS } from "@/content/faqs";
 import { POSTS } from "@/content/posts";
 import { STEPS, COMMITMENTS } from "@/content/process";
+import { SERVICES, SEVERITY_LEGEND } from "@/content/services";
 import { NAV_LINKS } from "@/components/SiteChrome";
+
+// Eight representative charges for the homepage grid, spanning the
+// severity range. The full list lives on /services.
+const HOME_SLUGS = [
+  "speeding", "red-light", "distracted-driving", "following-too-closely",
+  "careless-driving", "driving-under-suspension", "stunt-driving", "no-insurance",
+];
+const HOME_SERVICES = HOME_SLUGS
+  .map((s) => SERVICES.find((x) => x.slug === s)!)
+  .sort((a, b) => ["yellow", "orange", "red"].indexOf(a.tone) - ["yellow", "orange", "red"].indexOf(b.tone));
 
 // ── Main homepage ──────────────────────────────────────────────────────────
 export default function Home() {
@@ -299,11 +310,7 @@ export default function Home() {
               From minor speeding to stunt driving — our team has seen it all and knows how to beat it.
             </p>
             <div style={{ display: "flex", justifyContent: "center", gap: 20, marginTop: 20, flexWrap: "wrap" }}>
-              {[
-                { tone: "#CA8A04", label: "Standard" },
-                { tone: "#EA580C", label: "Serious" },
-                { tone: "#DC2626", label: "Most severe" },
-              ].map((l) => (
+              {SEVERITY_LEGEND.map((l) => (
                 <div key={l.label} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "var(--text-dim)" }}>
                   <span style={{ width: 8, height: 8, borderRadius: "50%", background: l.tone, display: "inline-block" }} />
                   {l.label}
@@ -313,37 +320,32 @@ export default function Home() {
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 16 }}>
-            {([
-              // Ordered standard → most severe, tone follows the same scale.
-              { icon: "speeding", tone: "yellow", title: "Speeding", desc: "Minor to major speeding charges on any Ontario road." },
-              { icon: "signal", tone: "yellow", title: "Red Light & Stop Sign", desc: "Camera-issued or officer-issued. Both are contestable." },
-              { icon: "phone", tone: "yellow", title: "Distracted Driving", desc: "Cellphone charges — 3 demerit points and steep fines." },
-              { icon: "shuffle", tone: "yellow", title: "All HTA Violations", desc: "Lane changes, following too close, failing to yield, and more." },
-              { icon: "careless", tone: "orange", title: "Careless Driving", desc: "6 demerit points and major insurance impact. Fight it seriously." },
-              { icon: "id-card", tone: "orange", title: "Suspended Licence", desc: "Serious penalties. Proper legal defence matters here." },
-              { icon: "stunt", tone: "red", title: "Stunt Driving", desc: "50+ km/h over the limit. Immediate impoundment. We've beaten it." },
-              { icon: "shield", tone: "red", title: "No Insurance", desc: "Minimum $5,000 fine. One of the most costly HTA violations." },
-            ] as const).map((t) => (
+            {HOME_SERVICES.map((t) => (
               <div
-                key={t.title}
+                key={t.slug}
                 style={{
                   background: "white",
                   border: "1.5px solid var(--border)",
                   borderRadius: 12,
                   padding: "22px 20px",
-                  transition: "border-color 0.2s",
                 }}
               >
                 <div style={{ marginBottom: 14 }}><IconBadge name={t.icon} tone={t.tone} size={40} iconSize={20} /></div>
-                <div style={{ fontWeight: 700, fontSize: 15, color: "var(--text)", marginBottom: 6 }}>{t.title}</div>
-                <div style={{ fontSize: 13, color: "var(--text-dim)", lineHeight: 1.6 }}>{t.desc}</div>
+                <div style={{ fontWeight: 700, fontSize: 15, color: "var(--text)", marginBottom: 4 }}>{t.title}</div>
+                <div style={{ fontSize: 12, color: "var(--text-muted)", marginBottom: 8 }}>
+                  {t.section} · {t.points}
+                </div>
+                <div style={{ fontSize: 13, color: "var(--text-dim)", lineHeight: 1.6 }}>{t.blurb}</div>
               </div>
             ))}
           </div>
 
-          <div style={{ textAlign: "center", marginTop: 40 }}>
+          <div style={{ textAlign: "center", marginTop: 40, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
             <Link href="/submit-ticket" className="btn-primary" style={{ padding: "14px 36px", fontSize: 15 }}>
               Get a Free Case Review
+            </Link>
+            <Link href="/services" style={{ fontSize: 15, fontWeight: 600, color: "#0d9488", textDecoration: "none" }}>
+              All {SERVICES.length} charges we handle →
             </Link>
           </div>
         </div>
@@ -368,7 +370,7 @@ export default function Home() {
               { icon: "map-pin", title: "Ontario-Wide Coverage", desc: "We handle tickets from Windsor to Ottawa and everywhere in between." },
               { icon: "certificate", title: "LSO-Licensed Professionals", desc: "Every case is handled by a paralegal licensed with the Law Society of Ontario." },
               { icon: "tag", title: "Flat-Rate Pricing", desc: "Know exactly what you'll pay upfront. No surprises. No hourly billing." },
-              { icon: "trophy", title: "Proven Results", desc: "Most of our cases result in a withdrawal, reduction, or dismissal." },
+              { icon: "trophy", title: "Withdrawal or Reduction", desc: "The goal is a withdrawal. Where that's not realistic, a reduction that cuts your demerit points and keeps your record clean." },
             ] as const).map((b) => (
               <div
                 key={b.title}
@@ -545,8 +547,8 @@ export default function Home() {
             <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 800, color: "var(--text)", letterSpacing: "-0.5px" }}>
               Why GuidLaw vs. Going It Alone
             </h2>
-            <p style={{ color: "var(--text-dim)", marginTop: 10, fontSize: 16 }}>
-              The average Canadian who contests their ticket without help loses 70% of the time.
+            <p style={{ color: "var(--text-dim)", marginTop: 10, fontSize: 16, maxWidth: 560, margin: "10px auto 0" }}>
+              What changes when someone who does this every week handles it instead of you.
             </p>
           </div>
 
@@ -567,13 +569,13 @@ export default function Home() {
               </thead>
               <tbody>
                 {[
-                  { label: "Success rate", alone: "~30%", guidlaw: "Significantly higher", highlight: true },
-                  { label: "Time to find help", alone: "Days of research", guidlaw: "Under 2 hours", highlight: false },
-                  { label: "Day off work needed?", alone: "Yes — mandatory", guidlaw: "No — we go for you", highlight: true },
-                  { label: "Demerit point risk", alone: "High", guidlaw: "Minimized", highlight: false },
-                  { label: "Insurance impact", alone: "Full impact if guilty", guidlaw: "Often fully avoided", highlight: true },
-                  { label: "Cost", alone: "Fine + lost wages", guidlaw: "From $179 flat rate", highlight: false },
-                  { label: "Payment protection", alone: "None", guidlaw: "Secure escrow via Stripe", highlight: true },
+                  { label: "Who attends court", alone: "You, in person", guidlaw: "Your paralegal, as your agent", highlight: true },
+                  { label: "Time off work", alone: "A day, sometimes more", guidlaw: "None", highlight: false },
+                  { label: "Disclosure request", alone: "Yours to know about and file", guidlaw: "Filed and reviewed for you", highlight: true },
+                  { label: "Officer's notes reviewed", alone: "Only if you know to ask", guidlaw: "Every file, as standard", highlight: false },
+                  { label: "Negotiating with the prosecutor", alone: "On your own, unrepresented", guidlaw: "Done by someone who does it weekly", highlight: true },
+                  { label: "Court procedure", alone: "Learn it yourself, quickly", guidlaw: "Already known", highlight: false },
+                  { label: "What it costs", alone: "Fine, points, insurance, lost wages", guidlaw: "One flat fee, quoted upfront", highlight: true },
                 ].map((row) => (
                   <tr key={row.label}>
                     <td style={{ padding: "14px 20px", background: row.highlight ? "#F8F9FB" : "white", border: "1.5px solid var(--border)", fontWeight: 600, color: "var(--text)" }}>
@@ -582,7 +584,7 @@ export default function Home() {
                     <td style={{ padding: "14px 20px", textAlign: "center", background: row.highlight ? "#F8F9FB" : "white", border: "1.5px solid var(--border)", color: "#DC2626" }}>
                       {row.alone}
                     </td>
-                    <td style={{ padding: "14px 24px", textAlign: "center", background: row.highlight ? "#EEF2FF" : "#F8FBFF", border: "1.5px solid #C7D7FD", color: "#1D4ED8", fontWeight: 600 }}>
+                    <td style={{ padding: "14px 24px", textAlign: "center", background: row.highlight ? "#f0fdfa" : "#f7fefd", border: "1.5px solid #99e6dc", color: "#0f766e", fontWeight: 600 }}>
                       ✓ {row.guidlaw}
                     </td>
                   </tr>

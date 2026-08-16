@@ -22,6 +22,16 @@ import {
   UserCheck,
   Scale,
   CircleCheck,
+  ShieldAlert,
+  Ban,
+  LogOut,
+  ChevronsRight,
+  Merge,
+  Footprints,
+  Bus,
+  Users,
+  CornerUpRight,
+  Milestone,
   type LucideIcon,
 } from "lucide-react";
 
@@ -46,7 +56,18 @@ type IconName =
   | "upload"
   | "user-check"
   | "scale"
-  | "check-circle";
+  | "check-circle"
+  // Additional offences
+  | "seatbelt"
+  | "no-licence"
+  | "leave-scene"
+  | "tailgate"
+  | "yield"
+  | "pedestrian"
+  | "school-bus"
+  | "hov"
+  | "turn"
+  | "sign";
 
 export type IconTone = "teal" | "yellow" | "orange" | "red";
 
@@ -69,6 +90,16 @@ const ICONS: Record<IconName, LucideIcon> = {
   "user-check": UserCheck,
   scale: Scale,
   "check-circle": CircleCheck,
+  seatbelt: ShieldAlert,
+  "no-licence": Ban,
+  "leave-scene": LogOut, // leaving the scene
+  tailgate: ChevronsRight, // following too closely
+  yield: Merge,
+  pedestrian: Footprints,
+  "school-bus": Bus,
+  hov: Users, // high-occupancy = multiple people
+  turn: CornerUpRight,
+  sign: Milestone,
 };
 
 // Severity tones are spaced far apart in both hue and background tint so

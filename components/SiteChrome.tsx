@@ -9,6 +9,7 @@ export const PHONE_HREF = "tel:+14379827146";
 
 // Single source of truth for the header. Every entry is a real page.
 export const NAV_LINKS = [
+  { href: "/services", label: "Services" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
@@ -148,7 +149,7 @@ export function SiteFooter() {
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 <Link href="/submit-ticket" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>Submit a Ticket</Link>
                 <Link href="/how-it-works" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>How It Works</Link>
-                <Link href="/#practice-areas" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>Practice Areas</Link>
+                <Link href="/services" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>Services</Link>
                 <Link href="/faq" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>FAQ</Link>
                 <Link href="/blog" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>Blog</Link>
               </div>
