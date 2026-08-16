@@ -106,29 +106,6 @@ const VIOLATION_TYPES = [
   "Other",
 ];
 
-const TESTIMONIALS = [
-  {
-    name: "Marcus J.",
-    city: "Toronto",
-    text: "Got a $500 speeding ticket on the 401. GuidLaw matched me with Sarah in under an hour. She got it completely dismissed — zero demerit points. Worth every penny.",
-    violation: "Speeding 30km/h over",
-    outcome: "Dismissed",
-  },
-  {
-    name: "Tanya R.",
-    city: "Mississauga",
-    text: "I was terrified about my stunt driving charge — 6 demerit points and a $2,000 fine. James got it reduced to a minor speeding ticket. I can't believe how easy the process was.",
-    violation: "Stunt Driving",
-    outcome: "Reduced to minor offence",
-  },
-  {
-    name: "Kevin P.",
-    city: "Brampton",
-    text: "Submitted my ticket on a Sunday night. Priya responded within 3 hours. She handled everything — I didn't have to take a single day off work. Case won.",
-    violation: "Red Light Camera",
-    outcome: "Dismissed",
-  },
-];
 
 // ── Star rating component ──────────────────────────────────────────────────
 function Stars({ rating }: { rating: number }) {
@@ -938,40 +915,80 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ──────────────────────────────────────────────── */}
-      <section className="section-gray">
+      {/* ── HOW WE WORK ───────────────────────────────────────────────── */}
+      {/* Occupies the slot a reviews section will take once real client
+          reviews exist. Everything stated here is verifiable today. */}
+      <section id="how-we-work" className="section-gray">
         <div className="container">
-          <div style={{ textAlign: "center", marginBottom: 48 }}>
+          <div style={{ textAlign: "center", marginBottom: 44 }}>
             <div style={{ fontSize: 12, fontWeight: 600, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 10 }}>
-              Real Results
+              Our commitments
             </div>
-            <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 800, color: "var(--text)", letterSpacing: "-0.5px" }}>
-              Drivers Love GuidLaw
+            <h2 className="gl-serif" style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 500, color: "#0F172A", letterSpacing: "-1px", marginBottom: 12 }}>
+              How we work
             </h2>
+            <p style={{ fontSize: 15.5, color: "var(--text-dim)", maxWidth: 540, margin: "0 auto", lineHeight: 1.7 }}>
+              We&apos;re new. Rather than tell you what past clients think, here is exactly what we
+              commit to — hold us to it.
+            </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
-            {TESTIMONIALS.map((t) => (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(290px, 1fr))", gap: 20 }}>
+            {[
+              {
+                n: "01",
+                title: "We tell you if it's not worth fighting",
+                body:
+                  "Some tickets aren't worth the fee. If yours is one of them, we say so during the free review and you keep your money. We'd rather lose the sale than take it for nothing.",
+              },
+              {
+                n: "02",
+                title: "Licensed paralegals only",
+                body:
+                  "Every case is handled by a paralegal licensed with the Law Society of Ontario, with full rights of appearance in Provincial Offences Court. You get their name and licence number when we assign them.",
+              },
+              {
+                n: "03",
+                title: "The price doesn't move",
+                body:
+                  "One flat fee, quoted before you commit. No hourly billing, no charge per court appearance, no invoice at the end that's bigger than the number we gave you.",
+              },
+              {
+                n: "04",
+                title: "You don't go to court",
+                body:
+                  "Your paralegal appears for you. For the vast majority of Highway Traffic Act charges you never take a day off work or enter a courthouse.",
+              },
+              {
+                n: "05",
+                title: "We answer within one business day",
+                body:
+                  "Submit a ticket and you hear back within one business day, usually sooner. If we're going to miss that, we tell you rather than leave you waiting.",
+              },
+              {
+                n: "06",
+                title: "Straight answers about outcomes",
+                body:
+                  "Not every charge gets withdrawn. Often the real win is a reduction — six demerit points down to two. We'll tell you which one is realistic for your ticket before you pay us anything.",
+              },
+            ].map((c) => (
               <div
-                key={t.name}
-                style={{ background: "white", border: "1.5px solid var(--border)", borderRadius: 14, padding: 28, display: "flex", flexDirection: "column", gap: 16 }}
+                key={c.n}
+                style={{ background: "white", border: "1.5px solid var(--border)", borderRadius: 14, padding: "26px 24px", display: "flex", flexDirection: "column", gap: 12 }}
               >
-                <div style={{ fontSize: 24, color: "#F59E0B" }}>★★★★★</div>
-                <p style={{ fontSize: 15, color: "var(--text)", lineHeight: 1.7, flex: 1 }}>
-                  &ldquo;{t.text}&rdquo;
-                </p>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", borderTop: "1px solid var(--border)", paddingTop: 14 }}>
-                  <div>
-                    <div style={{ fontWeight: 700, fontSize: 14, color: "var(--text)" }}>{t.name}</div>
-                    <div style={{ fontSize: 12, color: "var(--text-dim)" }}>{t.city}, ON</div>
-                  </div>
-                  <span className="pill pill-green" style={{ fontSize: 11 }}>
-                    ✓ {t.outcome}
-                  </span>
+                <div className="gl-serif" style={{ fontSize: 22, color: "#0d9488", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>
+                  {c.n}
                 </div>
+                <div style={{ fontWeight: 700, fontSize: 16, color: "var(--text)", lineHeight: 1.35 }}>{c.title}</div>
+                <p style={{ fontSize: 14.5, color: "var(--text-dim)", lineHeight: 1.7, margin: 0 }}>{c.body}</p>
               </div>
             ))}
           </div>
+
+          <p style={{ textAlign: "center", marginTop: 36, fontSize: 14, color: "var(--text-muted)", maxWidth: 560, marginLeft: "auto", marginRight: "auto", lineHeight: 1.7 }}>
+            Client reviews will appear here once we have them. We won&apos;t publish one we
+            didn&apos;t earn.
+          </p>
         </div>
       </section>
 
