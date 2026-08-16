@@ -33,7 +33,7 @@ export const STEPS: Step[] = [
       "You'll also get an honest read on how it's likely to go. Sometimes that means a good shot at a withdrawal. Sometimes it means getting six demerit points down to two. And sometimes it means the ticket isn't worth fighting, which we'll say plainly.",
       "The fee comes with all of that — one number, before you've committed to anything.",
     ],
-    timing: "Within 1 business day",
+    timing: "Within 24 hours",
   },
   {
     n: "03",
@@ -90,9 +90,9 @@ export const COMMITMENTS: Commitment[] = [
   },
   {
     n: "05",
-    title: "We answer within one business day",
+    title: "We answer within a day",
     body:
-      "Send us a ticket and you'll hear back within a business day, usually sooner than that. And if we're going to miss it for any reason, we'll tell you rather than leave you wondering.",
+      "Send us a ticket and you'll hear back within a day, usually sooner than that — weekends and holidays included. And if we're going to miss it for any reason, we'll tell you rather than leave you wondering.",
   },
   {
     n: "06",
