@@ -7,6 +7,81 @@ import { GuidLawLogo } from "@/components/GuidLawLogo";
 export const PHONE_DISPLAY = "+1 437 982 7146";
 export const PHONE_HREF = "tel:+14379827146";
 
+// Single source of truth for the header. Every entry is a real page.
+export const NAV_LINKS = [
+  { href: "/how-it-works", label: "How It Works" },
+  { href: "/about", label: "About" },
+  { href: "/blog", label: "Blog" },
+  { href: "/faq", label: "FAQ" },
+];
+
+/** Cream page header used by every interior page. */
+export function PageHeader({
+  eyebrow,
+  title,
+  lede,
+}: {
+  eyebrow: string;
+  title: React.ReactNode;
+  lede?: string;
+}) {
+  return (
+    <section style={{ background: "#faf8f2", borderBottom: "1px solid #eae7dd", padding: "72px 24px 60px" }}>
+      <div className="container">
+        <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24, fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", fontWeight: 500 }}>
+          <span style={{ width: 36, height: 1, background: "#0d9488", display: "inline-block" }} />
+          <span style={{ color: "#0d9488" }}>{eyebrow}</span>
+        </div>
+        <h1
+          className="gl-serif"
+          style={{ fontWeight: 500, lineHeight: 1.02, letterSpacing: "-1.5px", color: "#0F172A", fontSize: "clamp(36px, 5.6vw, 60px)", margin: "0 0 20px", maxWidth: 800 }}
+        >
+          {title}
+        </h1>
+        {lede && (
+          <p style={{ fontSize: 17.5, color: "#4a4a44", lineHeight: 1.65, maxWidth: 580, margin: 0 }}>{lede}</p>
+        )}
+      </div>
+    </section>
+  );
+}
+
+/** Teal call-to-action band used at the foot of interior pages. */
+export function CtaBand({
+  title,
+  body,
+}: {
+  title: string;
+  body: string;
+}) {
+  return (
+    <section style={{ background: "#0d9488", padding: "64px 24px", textAlign: "center" }}>
+      <div className="container">
+        <h2 className="gl-serif" style={{ fontSize: "clamp(26px, 4vw, 38px)", fontWeight: 500, color: "white", letterSpacing: "-0.8px", marginBottom: 14 }}>
+          {title}
+        </h2>
+        <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 16, maxWidth: 500, margin: "0 auto 28px", lineHeight: 1.65 }}>
+          {body}
+        </p>
+        <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+          <Link
+            href="/submit-ticket"
+            style={{ background: "white", color: "var(--navy)", fontSize: 15, fontWeight: 600, padding: "14px 30px", borderRadius: 8, textDecoration: "none" }}
+          >
+            Get a free review
+          </Link>
+          <a
+            href={PHONE_HREF}
+            style={{ border: "1.5px solid rgba(255,255,255,0.4)", color: "white", fontSize: 15, fontWeight: 600, padding: "14px 30px", borderRadius: 8, textDecoration: "none" }}
+          >
+            Call {PHONE_DISPLAY}
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function SiteNav() {
   return (
     <nav
@@ -25,16 +100,12 @@ export function SiteNav() {
       >
         <GuidLawLogo size={38} variant="dark" />
 
-        <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
-          <Link href="/#how-it-works" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
-            How It Works
-          </Link>
-          <Link href="/blog" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
-            Blog
-          </Link>
-          <Link href="/#faq" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
-            FAQ
-          </Link>
+        <div className="nav-links" style={{ display: "flex", gap: 28, alignItems: "center" }}>
+          {NAV_LINKS.map((l) => (
+            <Link key={l.href} href={l.href} style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
+              {l.label}
+            </Link>
+          ))}
         </div>
 
         <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
@@ -76,8 +147,9 @@ export function SiteFooter() {
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 <Link href="/submit-ticket" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>Submit a Ticket</Link>
+                <Link href="/how-it-works" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>How It Works</Link>
                 <Link href="/#practice-areas" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>Practice Areas</Link>
-                <Link href="/#faq" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>FAQ</Link>
+                <Link href="/faq" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>FAQ</Link>
                 <Link href="/blog" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>Blog</Link>
               </div>
             </div>
@@ -86,7 +158,7 @@ export function SiteFooter() {
                 Company
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                <Link href="/#about" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>About</Link>
+                <Link href="/about" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>About</Link>
                 <Link href="/privacy" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>Privacy</Link>
                 <a href="mailto:info@guidlaw.ca" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>info@guidlaw.ca</a>
               </div>

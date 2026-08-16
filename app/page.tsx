@@ -4,8 +4,10 @@ import Link from "next/link";
 import { useState } from "react";
 import { GuidLawLogo } from "@/components/GuidLawLogo";
 import { IconBadge } from "@/components/Icon";
-import { FAQS, faqJsonLd } from "@/content/faqs";
+import { FAQS } from "@/content/faqs";
 import { POSTS } from "@/content/posts";
+import { STEPS, COMMITMENTS } from "@/content/process";
+import { NAV_LINKS } from "@/components/SiteChrome";
 
 // ── Paralegal sample data (will come from Supabase later) ──────────────────
 const PARALEGALS = [
@@ -272,9 +274,6 @@ export default function Home() {
 
   return (
     <div style={{ minHeight: "100vh", background: "white" }}>
-      {/* FAQPage schema — lets Google surface these answers directly in search */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
-
       {/* ── NAV ──────────────────────────────────────────────────────── */}
       <nav
         style={{
@@ -298,18 +297,11 @@ export default function Home() {
           <GuidLawLogo size={38} variant="dark" />
 
           <div className="nav-links" style={{ display: "flex", gap: 28, alignItems: "center" }}>
-            <a href="#how-it-works" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
-              How It Works
-            </a>
-            <a href="#about" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
-              About
-            </a>
-            <Link href="/blog" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
-              Blog
-            </Link>
-            <a href="#faq" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
-              FAQ
-            </a>
+            {NAV_LINKS.map((l) => (
+              <Link key={l.href} href={l.href} style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
+                {l.label}
+              </Link>
+            ))}
           </div>
 
           <div style={{ display: "flex", gap: 14, alignItems: "center" }}>
@@ -690,14 +682,9 @@ export default function Home() {
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 24 }}>
-            {[
-              { step: "01", icon: "📋", title: "Submit Your Ticket", desc: "Enter your violation details — type of offence, date, fine amount. Takes 2 minutes." },
-              { step: "02", icon: "🤝", title: "We Match You", desc: "GuidLaw reviews your case and assigns the best available LSO-licensed paralegal for your violation type." },
-              { step: "03", icon: "⚖️", title: "They Fight It", desc: "Your paralegal represents you at the tribunal. You don't have to take a day off or step into a courtroom." },
-              { step: "04", icon: "🎉", title: "Case Closed", desc: "Most tickets are dismissed or significantly reduced. You pay only through GuidLaw — secure and protected." },
-            ].map((item) => (
+            {STEPS.map((item) => (
               <div
-                key={item.step}
+                key={item.n}
                 style={{
                   background: "white",
                   border: "1.5px solid var(--border)",
@@ -707,19 +694,24 @@ export default function Home() {
                   overflow: "hidden",
                 }}
               >
-                <div style={{ position: "absolute", top: 16, right: 20, fontSize: 40, fontWeight: 900, color: "#F3F4F6", lineHeight: 1 }}>
-                  {item.step}
+                <div className="gl-serif" style={{ position: "absolute", top: 18, right: 22, fontSize: 40, color: "#F1F3F7", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>
+                  {item.n}
                 </div>
-                <div style={{ fontSize: 32, marginBottom: 14 }}>{item.icon}</div>
+                <div style={{ marginBottom: 16 }}>
+                  <IconBadge name={item.icon} size={44} iconSize={22} />
+                </div>
                 <h3 style={{ fontWeight: 700, fontSize: 17, marginBottom: 8, color: "var(--text)" }}>{item.title}</h3>
-                <p style={{ fontSize: 14, color: "var(--text-dim)", lineHeight: 1.6 }}>{item.desc}</p>
+                <p style={{ fontSize: 14, color: "var(--text-dim)", lineHeight: 1.6 }}>{item.short}</p>
               </div>
             ))}
           </div>
 
-          <div style={{ textAlign: "center", marginTop: 40 }}>
-            <Link href="/submit" className="btn-primary" style={{ padding: "16px 40px", fontSize: 16 }}>
+          <div style={{ textAlign: "center", marginTop: 40, display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
+            <Link href="/submit-ticket" className="btn-primary" style={{ padding: "16px 40px", fontSize: 16 }}>
               Submit My Ticket — Free to Start
+            </Link>
+            <Link href="/how-it-works" style={{ fontSize: 15, fontWeight: 600, color: "#0d9488", textDecoration: "none" }}>
+              See the full process →
             </Link>
           </div>
         </div>
@@ -744,13 +736,17 @@ export default function Home() {
                 means a day off work, a courthouse you&apos;ve never been to, and rules nobody
                 explained. The system runs on the assumption you won&apos;t bother.
               </p>
-              <p style={{ fontSize: 16.5, color: "#4a4a44", lineHeight: 1.75, marginBottom: 30, maxWidth: 520 }}>
+              <p style={{ fontSize: 16.5, color: "#4a4a44", lineHeight: 1.75, marginBottom: 24, maxWidth: 520 }}>
                 GuidLaw removes every one of those excuses. Send a photo of your ticket. We assign an
                 LSO-licensed paralegal, they handle the filings and the negotiation, and they appear
                 in court so you don&apos;t have to.
               </p>
 
-              <div style={{ display: "flex", alignItems: "center", gap: 14, paddingTop: 26, borderTop: "1px solid #e5e1d5" }}>
+              <Link href="/about" style={{ fontSize: 15, fontWeight: 600, color: "#0d9488", textDecoration: "none" }}>
+                More about GuidLaw →
+              </Link>
+
+              <div style={{ display: "flex", alignItems: "center", gap: 14, paddingTop: 26, marginTop: 30, borderTop: "1px solid #e5e1d5" }}>
                 <div style={{ width: 48, height: 48, borderRadius: "50%", background: "#0d9488", color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 600, fontSize: 15, flexShrink: 0 }}>
                   HS
                 </div>
@@ -934,44 +930,7 @@ export default function Home() {
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(290px, 1fr))", gap: 20 }}>
-            {[
-              {
-                n: "01",
-                title: "We tell you if it's not worth fighting",
-                body:
-                  "Some tickets aren't worth the fee. If yours is one of them, we say so during the free review and you keep your money. We'd rather lose the sale than take it for nothing.",
-              },
-              {
-                n: "02",
-                title: "Licensed paralegals only",
-                body:
-                  "Every case is handled by a paralegal licensed with the Law Society of Ontario, with full rights of appearance in Provincial Offences Court. You get their name and licence number when we assign them.",
-              },
-              {
-                n: "03",
-                title: "The price doesn't move",
-                body:
-                  "One flat fee, quoted before you commit. No hourly billing, no charge per court appearance, no invoice at the end that's bigger than the number we gave you.",
-              },
-              {
-                n: "04",
-                title: "You don't go to court",
-                body:
-                  "Your paralegal appears for you. For the vast majority of Highway Traffic Act charges you never take a day off work or enter a courthouse.",
-              },
-              {
-                n: "05",
-                title: "We answer within one business day",
-                body:
-                  "Submit a ticket and you hear back within one business day, usually sooner. If we're going to miss that, we tell you rather than leave you waiting.",
-              },
-              {
-                n: "06",
-                title: "Straight answers about outcomes",
-                body:
-                  "Not every charge gets withdrawn. Often the real win is a reduction — six demerit points down to two. We'll tell you which one is realistic for your ticket before you pay us anything.",
-              },
-            ].map((c) => (
+            {COMMITMENTS.map((c) => (
               <div
                 key={c.n}
                 style={{ background: "white", border: "1.5px solid var(--border)", borderRadius: 14, padding: "26px 24px", display: "flex", flexDirection: "column", gap: 12 }}
@@ -1005,7 +964,7 @@ export default function Home() {
           </div>
 
           <div style={{ maxWidth: 720, margin: "0 auto" }}>
-            {FAQS.map((f, i) => (
+            {FAQS.slice(0, 5).map((f, i) => (
               <details
                 key={f.q}
                 className="faq-item"
@@ -1038,8 +997,11 @@ export default function Home() {
             ))}
           </div>
 
-          <div style={{ textAlign: "center", marginTop: 40 }}>
-            <p style={{ fontSize: 15, color: "var(--text-dim)", marginBottom: 18 }}>
+          <div style={{ textAlign: "center", marginTop: 36 }}>
+            <Link href="/faq" style={{ fontSize: 15, fontWeight: 600, color: "#0d9488", textDecoration: "none" }}>
+              All {FAQS.length} questions →
+            </Link>
+            <p style={{ fontSize: 15, color: "var(--text-dim)", margin: "28px 0 18px" }}>
               Still not sure where you stand?
             </p>
             <a

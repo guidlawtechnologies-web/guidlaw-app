@@ -18,6 +18,10 @@ import {
   ScrollText,
   Tag,
   Trophy,
+  Upload,
+  UserCheck,
+  Scale,
+  CircleCheck,
   type LucideIcon,
 } from "lucide-react";
 
@@ -37,7 +41,12 @@ type IconName =
   | "map-pin"
   | "certificate"
   | "tag"
-  | "trophy";
+  | "trophy"
+  // Process steps
+  | "upload"
+  | "user-check"
+  | "scale"
+  | "check-circle";
 
 export type IconTone = "teal" | "yellow" | "orange" | "red";
 
@@ -56,6 +65,10 @@ const ICONS: Record<IconName, LucideIcon> = {
   certificate: ScrollText,
   tag: Tag,
   trophy: Trophy,
+  upload: Upload,
+  "user-check": UserCheck,
+  scale: Scale,
+  "check-circle": CircleCheck,
 };
 
 // Severity tones are spaced far apart in both hue and background tint so
