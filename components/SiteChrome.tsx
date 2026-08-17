@@ -111,6 +111,11 @@ export function SiteNav() {
         </div>
 
         <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+          {/* Deliberately understated — signing in is only for clients we're
+              already acting for. Sending a ticket needs no account. */}
+          <Link href="/login" className="nav-client" style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none", fontSize: 13 }}>
+            Client login
+          </Link>
           <a href={PHONE_HREF} style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
             {PHONE_DISPLAY}
           </a>
@@ -163,6 +168,7 @@ export function SiteFooter() {
                 <Link href="/about" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>About</Link>
                 <Link href="/privacy" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>Privacy</Link>
                 <a href="mailto:info@guidlaw.ca" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none", fontSize: 14 }}>info@guidlaw.ca</a>
+                <Link href="/login" style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none", fontSize: 14 }}>Client login</Link>
               </div>
             </div>
           </div>

@@ -53,6 +53,10 @@ export default function Home() {
           </div>
 
           <div style={{ display: "flex", gap: 14, alignItems: "center" }}>
+            {/* Understated on purpose — only clients we already act for sign in */}
+            <Link href="/login" className="nav-client" style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none", fontSize: 13 }}>
+              Client login
+            </Link>
             <a href="tel:+14379827146" className="nav-phone" style={{ color: "rgba(255,255,255,0.85)", textDecoration: "none", fontSize: 14, fontWeight: 600 }}>
               +1 437 982 7146
             </a>
@@ -880,6 +884,7 @@ export default function Home() {
                   { label: "Guides", href: "/blog" },
                   { label: "Privacy Policy", href: "/privacy" },
                   { label: "info@guidlaw.ca", href: "mailto:info@guidlaw.ca" },
+                  { label: "Client login", href: "/login" },
                 ],
               },
             ].map((col) => (

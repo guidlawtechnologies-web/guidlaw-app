@@ -126,8 +126,16 @@ export default function SignupPage() {
         </div>
 
         <div className="card" style={{ padding: '32px' }}>
-          <p className="label" style={{ marginBottom: '8px' }}>Get started</p>
-          <h1 style={{ fontSize: '24px', fontWeight: '700', marginBottom: '28px', letterSpacing: '-0.4px' }}>Create your account</h1>
+          <p className="label" style={{ marginBottom: '8px' }}>Existing clients</p>
+          <h1 style={{ fontSize: '24px', fontWeight: '700', marginBottom: '10px', letterSpacing: '-0.4px' }}>Set up your account</h1>
+          <p style={{ fontSize: '14px', color: 'var(--text-dim)', lineHeight: 1.6, marginBottom: '22px' }}>
+            For clients who have already retained us — this is where you&apos;ll track your case.
+            To just have a ticket looked at,{' '}
+            <a href="/submit-ticket" style={{ color: 'var(--accent)', textDecoration: 'none', fontWeight: 500 }}>
+              send it to us instead
+            </a>{' '}
+            — no account needed.
+          </p>
 
 
           <form onSubmit={handleSignup} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>

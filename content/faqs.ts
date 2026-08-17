@@ -42,6 +42,10 @@ export const FAQS: Faq[] = [
     a: "Yes, anywhere in Ontario — Windsor to Ottawa and everywhere north. We pick your paralegal partly based on which courthouse you're dealing with, because knowing the local court and the people in it makes a real difference to how a matter goes.",
   },
   {
+    q: "Do I need to create an account to send you my ticket?",
+    a: "No. Send us the ticket and we'll review it — there's nothing to sign up for and nothing to pay. Accounts only come later: if you decide to go ahead and retain us, we'll set you up with a login so you can follow your case, see your paralegal's updates, and check your court date. Until then there's no reason for you to have one.",
+  },
+  {
     q: "How do I get started?",
     a: "Send us a photo of your ticket. We'll look at it for free and tell you what you're really facing, what your options are, and what it would cost to fight. If you want to go ahead, we'll assign an LSO-licensed paralegal, usually within a day. And if we don't think it's worth your money, we'll tell you that instead.",
   },

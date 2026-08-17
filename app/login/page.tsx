@@ -57,8 +57,12 @@ function LoginForm() {
         )}
 
         <div className="card" style={{ padding: '32px' }}>
-          <p className="label" style={{ marginBottom: '8px' }}>Welcome back</p>
-          <h1 style={{ fontSize: '24px', fontWeight: '700', marginBottom: '28px', letterSpacing: '-0.4px' }}>Sign in</h1>
+          <p className="label" style={{ marginBottom: '8px' }}>Existing clients</p>
+          <h1 style={{ fontSize: '24px', fontWeight: '700', marginBottom: '10px', letterSpacing: '-0.4px' }}>Sign in to your case</h1>
+          <p style={{ fontSize: '14px', color: 'var(--text-dim)', lineHeight: 1.6, marginBottom: '24px' }}>
+            This is for clients who have already retained us. You don&apos;t need an account to send
+            us a ticket.
+          </p>
 
           <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div>
@@ -100,10 +104,18 @@ function LoginForm() {
           <Link href="/forgot-password" style={{ color: 'var(--accent)', textDecoration: 'none', fontWeight: '500' }}>Forgot your password?</Link>
         </p>
 
-        <p style={{ textAlign: 'center', marginTop: '12px', fontSize: '14px', color: 'var(--text-dim)' }}>
-          Don&apos;t have an account?{' '}
-          <Link href="/signup" style={{ color: 'var(--accent)', textDecoration: 'none', fontWeight: '500' }}>Sign up free</Link>
-        </p>
+        <div style={{ marginTop: '24px', padding: '18px 20px', background: '#faf8f2', border: '1px solid #eae7dd', borderRadius: '12px', textAlign: 'center' }}>
+          <p style={{ fontSize: '14px', color: 'var(--text)', fontWeight: 600, marginBottom: '4px' }}>
+            Haven&apos;t sent us your ticket yet?
+          </p>
+          <p style={{ fontSize: '13.5px', color: 'var(--text-dim)', lineHeight: 1.6, marginBottom: '12px' }}>
+            You don&apos;t need an account for that. Send it over and we&apos;ll review it free —
+            we&apos;ll set you up with a login once we&apos;re working on your case.
+          </p>
+          <Link href="/submit-ticket" style={{ color: 'var(--accent)', textDecoration: 'none', fontWeight: 600, fontSize: '14px' }}>
+            Send us your ticket →
+          </Link>
+        </div>
       </div>
     </div>
   )
