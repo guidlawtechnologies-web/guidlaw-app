@@ -6,6 +6,7 @@ import { POSTS } from "@/content/posts";
 import { STEPS, COMMITMENTS } from "@/content/process";
 import { SERVICES, SEVERITY_LEGEND, PHOTO_CREDITS } from "@/content/services";
 import { ServiceCard } from "@/components/ServiceCard";
+import { IntakeForm } from "@/components/IntakeForm";
 import { NAV_LINKS } from "@/components/SiteChrome";
 
 // Eight representative charges for the homepage grid, spanning the
@@ -580,49 +581,62 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── GOT A TICKET CTA ────────────────────────────────────────── */}
-      <section style={{ background: "#0d9488", padding: "72px 24px", textAlign: "center" }}>
+      {/* ── INTAKE FORM ─────────────────────────────────────────────── */}
+      <section id="get-started" style={{ background: "#0d9488", padding: "76px 24px" }}>
         <div className="container">
-          <h2 style={{ fontSize: "clamp(28px, 5vw, 48px)", fontWeight: 800, color: "white", letterSpacing: "-1px", marginBottom: 16 }}>
-            Got a ticket? Don&apos;t want to go to court?
-          </h2>
-          <p style={{ fontSize: 18, color: "rgba(255,255,255,0.85)", marginBottom: 36, maxWidth: 520, margin: "0 auto 36px" }}>
-            Submit your ticket online in 2 minutes. Our team takes it from there.
-          </p>
-          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link
-              href="/submit-ticket"
-              style={{
-                background: "white",
-                color: "#0d9488",
-                padding: "16px 40px",
-                borderRadius: 10,
-                fontSize: 16,
-                fontWeight: 800,
-                textDecoration: "none",
-                display: "inline-block",
-              }}
-            >
-              Get a Free Case Review
-            </Link>
-            <Link
-              href="tel:+16474177287"
-              style={{
-                background: "transparent",
-                color: "white",
-                border: "2px solid rgba(255,255,255,0.6)",
-                padding: "16px 40px",
-                borderRadius: 10,
-                fontSize: 16,
-                fontWeight: 700,
-                textDecoration: "none",
-                display: "inline-block",
-              }}
-            >
-              📞 Call Us Now
-            </Link>
+          <div className="intake-grid" style={{ display: "grid", gridTemplateColumns: "1fr 480px", gap: 56, alignItems: "center" }}>
+            {/* Left — the pitch */}
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 22, fontSize: 11.5, letterSpacing: "0.16em", textTransform: "uppercase", fontWeight: 600 }}>
+                <span style={{ width: 32, height: 1, background: "rgba(255,255,255,0.5)", display: "inline-block" }} />
+                <span style={{ color: "rgba(255,255,255,0.85)" }}>Free case review</span>
+              </div>
+
+              <h2 className="gl-serif" style={{ fontSize: "clamp(30px, 4.6vw, 46px)", fontWeight: 500, color: "white", letterSpacing: "-1.2px", lineHeight: 1.05, marginBottom: 20 }}>
+                Got a ticket?<br />Let&apos;s take a look at it.
+              </h2>
+
+              <p style={{ fontSize: 17, color: "rgba(255,255,255,0.85)", lineHeight: 1.7, marginBottom: 28, maxWidth: 420 }}>
+                Send it over and we&apos;ll tell you what you&apos;re actually facing, what your
+                options are, and what it costs to fight. If it isn&apos;t worth fighting, we&apos;ll
+                say that instead.
+              </p>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: 13, marginBottom: 30 }}>
+                {[
+                  "No account and no payment to get a review",
+                  "An answer within a day, weekends included",
+                  "LSO-licensed paralegals handle every file",
+                ].map((t) => (
+                  <div key={t} style={{ display: "flex", alignItems: "center", gap: 11, fontSize: 15, color: "rgba(255,255,255,0.9)" }}>
+                    <span style={{ color: "#5eead4", fontWeight: 700, flexShrink: 0 }}>✓</span>
+                    {t}
+                  </div>
+                ))}
+              </div>
+
+              <div style={{ paddingTop: 24, borderTop: "1px solid rgba(255,255,255,0.2)" }}>
+                <div style={{ fontSize: 12.5, color: "rgba(255,255,255,0.65)", marginBottom: 5 }}>
+                  Would rather just talk to someone?
+                </div>
+                <a href="tel:+14379827146" className="gl-serif" style={{ fontSize: 25, color: "white", textDecoration: "none", letterSpacing: "-0.4px" }}>
+                  +1 437 982 7146
+                </a>
+              </div>
+            </div>
+
+            {/* Right — the form */}
+            <div style={{ background: "white", borderRadius: 16, padding: "30px 28px", boxShadow: "0 16px 44px rgba(0,0,0,0.16)" }}>
+              <IntakeForm />
+            </div>
           </div>
         </div>
+
+        <style>{`
+          @media (max-width: 940px) {
+            .intake-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+          }
+        `}</style>
       </section>
 
       {/* ── HOW WE WORK ───────────────────────────────────────────────── */}

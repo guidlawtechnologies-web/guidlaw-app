@@ -158,6 +158,81 @@ html, body {
 /* ── Anchor offset so sticky nav doesn't cover section headings ── */
 [id] { scroll-margin-top: 80px; }
 
+/* ══ Public intake form ═══════════════════════════════════════════ */
+.intake { font-size: 14px; color: var(--text-dim); }
+.intake label {
+  display: block; font-size: 12px; font-weight: 600;
+  color: #0F172A; margin-bottom: 5px;
+}
+.intake input, .intake select, .intake textarea {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1.5px solid #ddd8ca;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  background: #fff;
+  color: #0F172A;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+.intake input:focus, .intake select:focus, .intake textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(13,148,136,0.13);
+}
+.intake input::placeholder, .intake textarea::placeholder { color: #a8a396; }
+.intake textarea { resize: vertical; }
+.intake-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.intake-fld { margin-bottom: 14px; }
+
+.intake-photo {
+  background: #faf8f2;
+  border: 1px solid #eae5d7;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+.intake-drop {
+  display: block;
+  width: 100%;
+  border: 1.5px dashed #ccc6b6;
+  border-radius: 9px;
+  padding: 18px;
+  text-align: center;
+  background: #fbfaf6;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.18s, background 0.18s;
+}
+.intake-drop:hover { border-color: var(--accent); background: #f7fdfc; }
+
+.intake-chk {
+  display: flex; gap: 9px; align-items: flex-start;
+  font-size: 12.5px; color: var(--text-dim); line-height: 1.5;
+  font-weight: 400; cursor: pointer;
+}
+.intake-chk input { width: auto; margin-top: 2px; flex-shrink: 0; }
+
+.intake-btn {
+  width: 100%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 15px;
+  border-radius: 9px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.intake-btn:hover:not(:disabled) { background: var(--accent-hover); }
+.intake-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+@media (max-width: 560px) {
+  .intake-row { grid-template-columns: 1fr; }
+}
+
 /* ══ Charge cards ══════════════════════════════════════════════════
    Dulled photo behind, severity stripe on top, offence name in a
    severity-coloured chip, penalties revealed on hover. --sev is set
